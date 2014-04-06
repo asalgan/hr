@@ -6,12 +6,17 @@
         <section class="positions-first col-md-12">
           <div class="openings">
             <h1 class="category-header">Openings</h1>
-            <%= link_to ' + New Opening', new_company_job_path %>
+            <%= link_to ' + New Opening', new_company_job_path, :class => "new-opening-button" %>
+            <h2 class="current-header">Current</h2>
               <div class="open-positions-list">
                 <ul>
                   <% @current_positions.each do |x| %>
                   <li>
-                    <h2><%= x.title %></h2>
+                    <h2 class="job-title">
+                      <%= link_to company_job_url(:id => "#{x.id}") do %>
+                      <%= x.title %>
+                      <% end %>
+                    </h2>
                     <p class="time-ago"><i>Created <%= time_ago_in_words(x.created_at) %> ago</i></p>
                     <p class="applications"><span class="application-count">0 applicants</span> have applied for this position</p>
                   </li>
@@ -24,7 +29,3 @@
     </div>
   </div>
 </div>
-
-<br>
-
-<%= link_to 'New Job', new_company_job_path %>

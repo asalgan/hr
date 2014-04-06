@@ -154,7 +154,7 @@ ul {
         width: 924px;
         margin-top: 40px;
 
-        a {
+        .new-opening-button {
           background-color: $teal;
           padding: 10px 60px;
           text-decoration: none;
@@ -174,27 +174,54 @@ ul {
           }
         }
 
+        .current-header {
+          margin-top: 90px;
+        }
+
         .open-positions-list {
-          margin-top: 100px;
-
-          h2 {
-            display: inline;
-          }
-
-          .time-ago {
-            float: right;
-          }
-
-          .applications {
-            padding-top: 12px;
-
-            .application-count {
-              color: $teal;
-            }
-          }
+          margin-top: 20px;
 
           ul li {
-            padding: 10px 20px;
+            padding: 14px 20px;
+            border-bottom: 1px solid #D0D0D0;
+
+            &:first-child {
+              border-top: 1px solid #D0D0D0;
+            }
+
+            .job-title {
+              font-size: 20px;
+              display: inline;
+
+              a {
+                color: $teal;
+                text-decoration: none;
+                background-color: none;
+
+                &:hover {
+                  background-color: transparent;
+                  color: lighten($teal, 10%);
+                }
+              }
+            }
+
+            .time-ago {
+              float: right;
+              color: #909090;
+            }
+
+            .applications {
+              padding-top: 12px;
+
+              .application-count {
+                color: $teal;
+
+                &:hover {
+                  cursor: pointer;
+                  color: lighten($teal, 10%);
+                }
+              }
+            }
           }
         }
       }
