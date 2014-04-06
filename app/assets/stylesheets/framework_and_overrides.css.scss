@@ -1,19 +1,53 @@
-// import the CSS framework
 @import "bootstrap";
 
-// make all images responsive by default
+
+$teal: #55B4B0;
+
+body, html {
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  min-height:100%;
+}
+
+.navbar-fixed-top {
+  position: absolute;
+}
+
+.alert {
+  margin-bottom: 0px;
+  margin-top: 50px;
+}
+
+span {
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
 img {
   @extend .img-responsive;
   margin: 0 auto;
   }
-// override for the 'Home' navigation link
+
+ul {
+  list-style: none;
+  padding:0;
+}
+
 .navbar-brand {
   font-size: inherit;
-  }
-
-// THESE ARE EXAMPLES YOU CAN MODIFY
-// create your own classes
-// to make views framework-neutral
+}
+.navbar {
+  margin-bottom: 0px;
+  background-color: #444;
+}
+.navbar-nav {
+  float: right;
+}
 .column {
   @extend .col-md-6;
   @extend .text-center;
@@ -30,19 +64,6 @@ img {
   @extend .btn-primary;
   @extend .btn-lg;
   }
-// apply styles to HTML elements
-// to make views framework-neutral
-main {
-  @extend .container;
-  background-color: #eee;
-  padding-bottom: 80px;
-  width: 100%;
-  margin-top: 51px; // accommodate the navbar
-  }
-section {
-  @extend .row;
-  margin-top: 20px;
-  }
 
 // Styles for Devise views
 // using Bootstrap
@@ -51,6 +72,7 @@ section {
   padding-top: 30px;
   max-width: 320px;
   margin: 0 auto;
+  margin-top: 40px;
 }
 .authform form {
   @extend .well;
@@ -79,3 +101,203 @@ section {
   @extend .btn-primary;
   @extend .btn-xs;
 }
+
+.content {
+  margin-top: 88px;
+
+  .main {
+    -webkit-box-shadow: 0 2px 3px rgba(56,67,67,0.2);
+    -moz-box-shadow: 0 2px 3px rgba(56,67,67,0.2);
+    box-shadow: 0 2px 3px rgba(56,67,67,0.2);
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    background: #fff;
+    border: 1px solid #dfdfdf;
+    border-top: 4px solid $teal;
+    float: left;
+    display: inline;
+    width: 1040px;
+    border-radius: 4px;
+    z-index: 100;
+    position: relative;
+    min-height: 780px;
+    margin: 0 0 20px 0;
+
+    section.home-first {
+      height: 400px;
+      border-bottom: 1px solid #ddd;
+
+      .intro {
+        padding: 0px;
+        margin: 0 auto;
+        margin-top: 90px;
+        text-align: center;
+        position: relative;
+
+        h4 {
+          width: 650px;
+          margin: 0 auto;
+          padding-top: 30px;
+          line-height: 30px;
+        }
+      }
+    }
+
+    section.positions-first {
+      height: 400px;
+      position: relative;
+
+      .openings {
+        margin: 0 auto;
+        position: relative;
+        width: 924px;
+        margin-top: 40px;
+
+        a {
+          background-color: $teal;
+          padding: 10px 60px;
+          text-decoration: none;
+          -webkit-transition: all 200ms ease;
+          -moz-transition: all 200ms ease;
+          -o-transition: all 200ms ease;
+          border-radius: 4px;
+          font-size: 16px;
+          color: white;
+          position: relative;
+          float: right;
+          margin-right: 60px;
+          margin-top: 10px;
+
+          &:hover {
+            background-color: darken($teal, 10%);
+          }
+        }
+
+        .open-positions-list {
+          margin-top: 100px;
+
+          h2 {
+            display: inline;
+          }
+
+          .time-ago {
+            float: right;
+          }
+
+          .applications {
+            padding-top: 12px;
+
+            .application-count {
+              color: $teal;
+            }
+          }
+
+          ul li {
+            padding: 10px 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.company-page {
+  background-color: #eee;
+  height: 1400px;
+}
+
+.category-header {
+  font-size: 40px;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+  color: #444;
+  font-style: normal;
+  margin: 40px 10px 20px 0px;
+  letter-spacing: normal;
+  font-size: 54px;
+  line-height: 60px;
+  display: inline;
+}
+
+.side-nav {
+  width: 100px;
+  float: left;
+
+  .nav-buttons {
+    padding-top: 30px;
+
+    ul {
+      display: block;
+      -webkit-margin-before: 1em;
+      -webkit-margin-after: 1em;
+      -webkit-margin-start: 0px;
+      -webkit-margin-end: 0px;
+      -webkit-padding-start: 40px;
+      vertical-align: baseline;
+      padding: 0;
+      margin: 0;
+
+      li {
+        height: 100px;
+        vertical-align: baseline;
+        margin: 0;
+
+        a {
+          -webkit-transition: all 0.3s ease;
+          -moz-transition: all 0.3s ease;
+          -ms-transition: all 0.3s ease;
+          -o-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+          font-family: AvenirLT-Heavy,Helvetica Neue,Helvetica,Arial,sans-serif;
+          font-weight: normal;
+          font-style: normal;
+          color: #c1c7c7;
+          padding: 21px 15px 21px 15px;
+          margin: 0;
+          height: auto;
+          display: block;
+          border-left: 1px solid transparent;
+          border-top: 1px solid transparent;
+          border-bottom: 1px solid transparent;
+          font-size: 11px;
+          text-align: center;
+          line-height: 15px;
+          letter-spacing: 0.04em;
+          text-decoration: none;
+          border-bottom: 1px solid #ccc;
+
+          &:hover {
+            background-color: $teal;
+
+            .category {
+              color: white;
+            }
+          }
+
+          img {
+            width: 30px;
+            height: 41px;
+          }
+
+          .category {
+            color: #859090;
+            display: block;
+            font-family: AvenirLT-Black,Helvetica Neue,Helvetica,Arial,sans-serif;
+            font-size: 12px;
+            letter-spacing: 1px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.active {
+  background-color: blue;
+}
+
+
+
+
+

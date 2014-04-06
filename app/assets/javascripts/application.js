@@ -12,6 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap
 //= require_tree .
+
+
+$(document).ready(function() { 
+	// $('.nav-list li > a').click(function() {
+	// 	$('a').addClass('active')
+	// });
+});

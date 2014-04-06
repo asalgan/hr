@@ -1,0 +1,32 @@
+<div class="company-page">
+	<div class="container">
+		<div class="content">
+			<%= render 'shared/side_nav' %>
+			<div class="main">
+				<h1 class="category-header">New Opening</h1>
+
+				<%= form_for(@job) do |f| %>
+					<div>
+						<%= f.label :title %>
+						<%= f.text_field :title %>
+					</div>
+					<div>
+						<%= f.label :description %>
+						<%= f.text_area :description %>
+					</div>
+					<div>
+						<%= f.hidden_field :company_id, :value => current_user.company.id %>
+					</div>
+					<div>
+						<%= f.submit 'Create', :class => 'job-submit' %>
+					</div>
+				<% end %>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+

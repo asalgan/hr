@@ -12,6 +12,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'figaro'
 gem 'simple_form'
+
 group :development do
   gem 'hub', :require=>nil
   gem 'rails_layout'
@@ -21,5 +22,8 @@ group :development, :test do
 end
 group :test do
   gem 'database_cleaner', '1.0.1'
+  gem 'selenium-webdriver', '2.35.1'
+  gem 'capybara', '2.1.0'
   gem 'email_spec'
+  gem 'factory_girl_rails'
 end
