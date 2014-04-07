@@ -15,7 +15,15 @@
 								</div>
 								<div>
 									<%= f.label :description %>
-									<%= f.text_area :description, id:'post_content' %>
+									<%= f.text_area :description, class: "summernote", id:'post_content' %>
+								</div>
+								<div>
+									<%= f.label :employment_type, "Employment Type" %>
+									<%= f.select :employment_type, @employment_type_array %>
+								</div>
+								<div>
+									<%= f.label :experience_level, "Experience Level" %>
+									<%= f.select :experience_level, @experience_level_array %>
 								</div>
 								<div>
 									<%= f.hidden_field :company_id, :value => current_user.company.id %>

@@ -21,4 +21,6 @@ $(document).ready(function() {
 	// $('.nav-list li > a').click(function() {
 	// 	$('a').addClass('active')
 	// });
+	var sHTML = $('.summernote').code();
+	$('.summernote').code(sHTML);
 });
