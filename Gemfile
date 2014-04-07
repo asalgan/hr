@@ -12,6 +12,8 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'figaro'
 gem 'simple_form'
+gem 'font-awesome-rails'
+gem 'summernote-rails'
 
 group :development do
   gem 'hub', :require=>nil

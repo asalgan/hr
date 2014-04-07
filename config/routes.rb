@@ -6,9 +6,9 @@ Hr::Application.routes.draw do
   	member do
   		get :home, :positions, :prospects, :pipeline
   	end
-    resources :jobs 
-   
+    resources :jobs   
   end
+  
  	match '/companies/%{id}/jobs/new', to: 'jobs#create', :as => :jobs, via: :post
  
   devise_for :users, :controllers => {:registrations => "registrations"}

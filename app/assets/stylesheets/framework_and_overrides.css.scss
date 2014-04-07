@@ -1,7 +1,20 @@
 @import "bootstrap";
 
+$iconSpritePath: '';
+$iconWhiteSpritePath: '';
+
 
 $teal: #55B4B0;
+
+%form-fields {
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid #C0C0C0;
+  padding: 8px 6px 6px 6px;
+  line-height: 17px;
+  margin: 0 0 16px 0;
+  font-family: AvenirLT-Heavy,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
 
 body, html {
   -webkit-font-smoothing: antialiased;
@@ -36,6 +49,10 @@ img {
 ul {
   list-style: none;
   padding:0;
+}
+
+label {
+  display: block;
 }
 
 .navbar-brand {
@@ -121,7 +138,7 @@ ul {
     border-radius: 4px;
     z-index: 100;
     position: relative;
-    min-height: 780px;
+    min-height: 1000px;
     margin: 0 0 20px 0;
 
     section.home-first {
@@ -226,6 +243,45 @@ ul {
         }
       }
     }
+
+    section.openings-first {
+      height: 700px;
+      position: relative;
+
+      .new-job-section {
+        margin: 0 auto;
+        position: relative;
+        width: 924px;
+        margin-top: 40px;
+
+        .new-job-form {
+          margin-top: 70px;
+          background-color: #eee;
+          height: 700px;
+          padding: 40px 30px;
+
+          .job-details-header {
+            font-size: 20px;
+            font-weight: bold;
+            font-family: 'Noto Sans', sans-serif;
+          }
+
+          .new_job {
+            margin-top: 40px;
+
+            #job_title {
+              @extend %form-fields;
+              height: 32px;
+            }
+
+            #job_description {
+              @extend %form-fields;
+              height: 350px;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -310,7 +366,7 @@ ul {
           .category {
             color: #859090;
             display: block;
-            font-family: AvenirLT-Black,Helvetica Neue,Helvetica,Arial,sans-serif;
+            font-family: 'Noto Sans', sans-serif;
             font-size: 12px;
             letter-spacing: 1px;
           }
@@ -322,6 +378,10 @@ ul {
 
 .active {
   background-color: blue;
+}
+
+.note-editable {
+  background-color: white;
 }
 
 
