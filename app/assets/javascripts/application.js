@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require fancybox
 //= require summernote.min
 //= require bootstrap
 //= require_tree .
@@ -23,4 +24,9 @@ $(document).ready(function() {
 	// });
 	var sHTML = $('.summernote').code();
 	$('.summernote').code(sHTML);
+
+	// $(".fancybox").fancybox();
+
 });
+
+

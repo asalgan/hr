@@ -9,7 +9,7 @@
 							<div class="new-job-form">
 								<p class="job-details-header">Edit Job Details</p>
 							<%= form_for(@job) do |f| %>
-								<div>
+								<div class="new-job-form-title">
 									<%= f.label :title %>
 									<%= f.text_field :title, placeholder: "Enter Job Title" %>
 								</div>
@@ -19,7 +19,7 @@
 								</div>
 								<div>
 									<%= f.label :employment_type, "Employment Type" %>
-									<%= f.select :employment_type, @employment_type_array %>
+									<%= f.select :employment_type, @employment_type_array, class: "form-control" %>
 								</div>
 								<div>
 									<%= f.label :experience_level, "Experience Level" %>

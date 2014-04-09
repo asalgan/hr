@@ -14,6 +14,7 @@ gem 'figaro'
 gem 'simple_form'
 gem 'font-awesome-rails'
 gem 'summernote-rails'
+gem 'fancybox2-rails'
 
 group :development do
   gem 'hub', :require=>nil
