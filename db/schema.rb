@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140407190913) do
+ActiveRecord::Schema.define(version: 20140410183444) do
+
+  create_table "applicants", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.integer  "phone"
+    t.string   "address"
+    t.string   "education_level"
+    t.string   "college"
+    t.integer  "gpa"
+    t.string   "work_status"
+    t.boolean  "felony_conviction"
+    t.boolean  "over_18"
+    t.datetime "earliest_start_date"
+    t.boolean  "will_work_evenings"
+    t.boolean  "will_work_weekends"
+    t.boolean  "willing_to_relocate"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "companies", force: true do |t|
     t.string   "name"
