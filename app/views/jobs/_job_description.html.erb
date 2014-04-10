@@ -8,11 +8,11 @@
 </p>
 <p>
   <strong>Employment Type:</strong>
-  <%= @job.employment_type %>
+  <%= best_in_place @job, :employment_type, :type => :select, :collection => Job.employment_types_for_select, :path => company_job_path %>
 </p>
 <p>
   <strong>Minimum Experience:</strong>
-  <%= @job.experience_level %>
+  <%= best_in_place @job, :experience_level, :type => :select, :collection => Job.experience_level_for_select, :path => company_job_path %>
 </p>
 <p>
   <strong>Department:</strong>

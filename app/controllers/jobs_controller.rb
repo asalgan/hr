@@ -17,8 +17,8 @@ class JobsController < ApplicationController
   def new
     @job = Job.new
     @company = current_user.company
-    @employment_type_array = ["Full Time", "Part Time", "Temporary", "Contract", "Seasonal", "Internship", "Volunteer"]
-    @experience_level_array = ["Student (High School)", "Student (Undergrad)", "Student (Graduate)", "Entry Level", "Mid Level", "Experienced", "Manager/Supervisor", "Senior Manager/Supervisor", "Executive", "Senior"]
+    @employment_type_array = Job.employment_types
+    @experience_level_array = Job.experience_level
   end
 
   # GET /jobs/1/edit
