@@ -15,6 +15,7 @@ gem 'simple_form'
 gem 'font-awesome-rails'
 gem 'summernote-rails'
 gem 'fancybox2-rails'
+gem 'best_in_place', :git => 'https://github.com/aaronchi/best_in_place.git'
 
 group :development do
   gem 'hub', :require=>nil

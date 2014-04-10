@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140410183444) do
+ActiveRecord::Schema.define(version: 20140410191637) do
 
   create_table "applicants", force: true do |t|
     t.string   "name"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20140410183444) do
     t.string   "department"
     t.string   "employment_type"
     t.string   "experience_level"
+    t.integer  "job_code"
   end
 
   create_table "users", force: true do |t|

@@ -3,29 +3,19 @@
 		<div class="content">
 			<%= render 'shared/side_nav' %>
 			<div class="main">
-				<p>
-					<strong>Title:</strong>
-				  <%= @job.title %>
-				</p>
+				<section class="job-description col-md-12">
+					<div class="job-description-first">
+						<h1 class="category-header">Job Description</h1>
+						<div class="job-details-form">
+				
+							<%= render 'job_description' %>
+							
+							<%= link_to 'Delete this job', company_job_path, :confirm => 'Are you sure you want to destroy this job?', :method => :delete %>
 
-				<p>
-				  <strong>Description:</strong>
-				  <%= @job.description %>
-				</p>
-
-				<p>
-				  <strong>Employment Type:</strong>
-				  <%= @job.employment_type %>
-				</p>
-
-				<p>
-				  <strong>Minimum Experience:</strong>
-				  <%= @job.experience_level %>
-				</p>
-
-				<%= link_to 'Delete this job', company_job_path, :confirm => 'Are you sure you want to destroy this job?', :method => :delete %>
-
-				<!-- <div class="summernote"></div> -->
+								<!-- <div class="summernote"></div> -->
+						</div>
+					</div>
+				</section>
 			</div>
 		</div>
 	</div>

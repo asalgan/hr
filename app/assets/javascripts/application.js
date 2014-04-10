@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require fancybox
 //= require summernote.min
+//= require best_in_place
 //= require bootstrap
 //= require_tree .
 
@@ -26,6 +27,8 @@ $(document).ready(function() {
 	$('.summernote').code(sHTML);
 
 	// $(".fancybox").fancybox();
+
+	$(".best_in_place").best_in_place();
 
 });
 

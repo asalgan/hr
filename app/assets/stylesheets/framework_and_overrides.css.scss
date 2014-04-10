@@ -480,6 +480,25 @@ label {
         }
       }
     }
+
+    section.job-description {
+      height: 700px;
+      position: relative;
+
+      .job-description-first {
+        margin: 0 auto;
+        position: relative;
+        width: 924px;
+        margin-top: 40px;
+
+        .job-details-form {
+          margin-top: 70px;
+          background-color: #eee;
+          height: 700px;
+          padding: 40px 30px;
+        }
+      }
+    }
   }
 }
 

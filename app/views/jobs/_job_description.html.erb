@@ -1,0 +1,25 @@
+<p>
+	<strong>Title:</strong>
+  <%= best_in_place @job, :title, :type => :input, :path => company_job_path %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @job.description %>
+</p>
+<p>
+  <strong>Employment Type:</strong>
+  <%= @job.employment_type %>
+</p>
+<p>
+  <strong>Minimum Experience:</strong>
+  <%= @job.experience_level %>
+</p>
+<p>
+  <strong>Department:</strong>
+  <%= @job.department %>
+</p>
+<p>
+  <strong>Job Code:</strong>
+  <%= @job.job_code %>
+</p>
+
