@@ -12,7 +12,11 @@ module SessionsHelper
   end
 
   def after_sign_in_path_for(resource)
-    new_company_path
+    if current_user.company.present?
+      company_path(:id => current_user.company.id)
+    else
+      new_company_path
+    end
   end
 
 end

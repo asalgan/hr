@@ -7,7 +7,7 @@
 					<div class="new-job-section">
 						<h1 class="category-header">New Opening</h1>
 							<div class="new-job-form">
-								<p class="job-details-header">Edit Job Details</p>
+							<p class="job-details-header">Enter Job Details</p>
 							<%= form_for(@job) do |f| %>
 								<div class="new-job-form-title">
 									<%= f.label :title %>
@@ -26,12 +26,16 @@
 									<%= f.select :experience_level, @experience_level_array %>
 								</div>
 								<div>
+									<%= f.label :location %>
+									<%= f.text_field :location, placeholder: "Enter Job Location" %>
+								</div>
+								<div>
 									<%= f.label :department %>
 									<%= f.text_field :department, placeholder: "Enter Department" %>
 								</div>
 								<div>
 									<%= f.label :job_code, "Job Code" %>
-									<%= f.text_field :job_code, placeholder: "Enter Job Code" %>
+									<%= f.number_field :job_code, placeholder: "Enter Job Code" %>
 								</div>
 								<div>
 									<%= f.hidden_field :company_id, :value => current_user.company.id %>

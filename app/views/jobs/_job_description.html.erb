@@ -1,25 +1,39 @@
-<p>
-	<strong>Title:</strong>
-  <%= best_in_place @job, :title, :type => :input, :path => company_job_path %>
+
+<p class="show-job-page-label">Title</p>
+<p class="show-job-title job-info">
+  <%= best_in_place @job, :title, :type => :input, :path => company_job_path, :ok_button => "Save", :ok_button_class => "job-title-save-btn"%>
 </p>
-<p>
-  <strong>Description:</strong>
-  <%= @job.description %>
+
+<p class="show-job-page-label">Description</p>
+<p class="show-job-description job-info">
+  We started to solve a simple problem – shopping for clothes in stores or online just doesn’t work for most guys. It’s overwhelming, inconvenient, and takes way too much time. With Trunk Club, guys discover awesome clothes that are perfect for them without ever having to go shopping. We combine top brands, expert service, and unparalleled convenience to deliver a highly personalized experience that helps guys look their best.
+
+  We start by scouring the planet for the very best in men’s apparel, curating an ever-evolving assortment of pieces from our favorite designers. With the best inventory anywhere as our point of departure, a Stylist on our team hand-selects a trunk of items based on each customer’s needs and tastes. They keep what they love and send the rest right back to us, at no cost to them.
+  <%#= @job.description %>
 </p>
-<p>
-  <strong>Employment Type:</strong>
+
+<p class="show-job-page-label">Employment Type</p>
+<p class="show-job-employment-type job-info">
   <%= best_in_place @job, :employment_type, :type => :select, :collection => Job.employment_types_for_select, :path => company_job_path %>
 </p>
-<p>
-  <strong>Minimum Experience:</strong>
+
+<p class="show-job-page-label">Location</p>
+<p class="show-job-location job-info">
+  <%= best_in_place @job, :location, :type => :input, :path => company_job_path, :ok_button => "Save", :ok_button_class => "job-title-save-btn" %>
+</p>
+
+<p class="show-job-page-label">Minimum Experience</p>
+<p class="show-job-minimum-experience job-info">
   <%= best_in_place @job, :experience_level, :type => :select, :collection => Job.experience_level_for_select, :path => company_job_path %>
 </p>
-<p>
-  <strong>Department:</strong>
-  <%= @job.department %>
+
+<p class="show-job-page-label">Department</p>
+<p class="show-job-department job-info">
+  <%= best_in_place @job, :department, :type => :input, :path => company_job_path, :ok_button => "Save", :ok_button_class => "job-title-save-btn" %>
 </p>
-<p>
-  <strong>Job Code:</strong>
-  <%= @job.job_code %>
+
+<p class="show-job-page-label">Job Code</p>
+<p class="show-job-code job-info">
+  <%= best_in_place @job, :job_code, :type => :input, :path => company_job_path, :ok_button => "Save", :ok_button_class => "job-title-save-btn" %>
 </p>
 
