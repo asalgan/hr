@@ -11,25 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140410223723) do
+ActiveRecord::Schema.define(version: 20140415193632) do
 
   create_table "applicants", force: true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.integer  "phone"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.datetime "birthdate"
     t.string   "address"
-    t.string   "education_level"
-    t.string   "college"
-    t.integer  "gpa"
-    t.string   "work_status"
-    t.boolean  "felony_conviction"
-    t.boolean  "over_18"
-    t.datetime "earliest_start_date"
-    t.boolean  "will_work_evenings"
-    t.boolean  "will_work_weekends"
-    t.boolean  "willing_to_relocate"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "age"
+    t.integer  "company_id"
+    t.integer  "job_id"
   end
 
   create_table "companies", force: true do |t|
@@ -54,12 +45,12 @@ ActiveRecord::Schema.define(version: 20140410223723) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -67,6 +58,7 @@ ActiveRecord::Schema.define(version: 20140410223723) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.boolean  "admin",                  default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

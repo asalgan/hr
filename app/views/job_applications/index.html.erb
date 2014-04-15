@@ -1,0 +1,35 @@
+<div class="application-page">
+	<div class="container">
+		<div class="application-main col-md-10 col-md-offset-1">
+			<h3 class="job-application-company"><%= @company.name %></h3>
+			<h2 class="job-application-title"><%= @job_application.title %></h2>
+			<p class="job-application-info"><b>Location:</b> <%= @job_application.location %></p>
+			<p class="job-application-info"><b>Department:</b> <%= @job_application.department %></p>
+			<p class="job-application-info"><b>Employment Type:</b> <%= @job_application.employment_type %></p>
+			<p class="job-application-info"><b>Min. Experience Level:</b> <%= @job_application.experience_level %></p>
+			<div class="job-application-info description">
+				<p>We started to solve a simple problem – shopping for clothes in stores or online just doesn’t work for most guys. It’s overwhelming, inconvenient, and takes way too much time. With Trunk Club, guys discover awesome clothes that are perfect for them without ever having to go shopping. We combine top brands, expert service, and unparalleled convenience to deliver a highly personalized experience that helps guys look their best.
+
+			  We start by scouring the planet for the very best in men’s apparel, curating an ever-evolving assortment of pieces from our favorite designers. With the best inventory anywhere as our point of departure, a Stylist on our team hand-selects a trunk of items based on each customer’s needs and tastes. They keep what they love and send the rest right back to us, at no cost to them.</p>
+			</div>
+			<div class="apply-box">
+				<h4 class="apply-header">Apply for this job</h4>
+				<%= form_for(@applicant) do |f| %>
+				<div class="new-job-form-title">
+					<%= f.label :first_name %>
+					<%= f.text_field :first_name, placeholder: "First name" %>
+				</div>
+				<div>
+					<%= f.hidden_field :company_id, :value => params[:company_id] %>
+				</div>
+				<div>
+					<%= f.hidden_field :job_id, :value => params[:job_id] %>
+				</div>
+				<div>
+					<%= f.submit 'Apply', :class => 'job-submit' %>
+				</div>
+			<% end %>
+			</div>
+		</div>
+	</div>
+</div>

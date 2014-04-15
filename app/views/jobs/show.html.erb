@@ -1,28 +1,23 @@
-<div class="company-page">
-	<div class="container">
-		<div class="content">
-			<%= render 'shared/side_nav' %>
-			<div class="main">
-				<section class="job-description col-md-12">
-					<div class="job-description-first">
-						<h1 class="category-header">Job Description</h1>
-						<%= link_to 'Save and return', company_jobs_url, :class => "save-job-button" %>
-						<div class="job-details-form">
-							<div class="job-information">
-								<p>3 Applicants</p>
-								<p>2 Notes</p>
-								<p class="time-ago"><i>Updated <%= time_ago_in_words(@current_job.updated_at) %> ago</i></p>
-							</div>
-							<p class="job-page-edit"><i>You can edit fields simply by clicking on them</i></p>
-							<%= link_to 'Delete this job', company_job_path, :confirm => 'Are you sure you want to delete this job?', :method => :delete, class: "job-delete-button" %>
-							<br>
-							<%= render 'job_description' %>
+<%= render 'layouts/page_layout' %>
 
-								<!-- <div class="summernote"></div> -->
-						</div>
-					</div>
-				</section>
+<section class="job-description col-md-12">
+	<div class="job-description-first">
+		<h1 class="category-header">Job Description</h1>
+		<%= link_to 'Save and return', company_jobs_url, :class => "save-job-button" %>
+		<div class="job-details-form">
+			<div class="job-information">
+				<p><%= @applicants.count %> Applicants</p>
+				<p>2 Notes</p>
+				<p class="time-ago"><i>Updated <%= time_ago_in_words(@current_job.updated_at) %> ago</i></p>
 			</div>
+			<p class="job-page-edit"><i>You can edit fields simply by clicking on them</i></p>
+			<%= link_to 'Delete this job', company_job_path, :confirm => 'Are you sure you want to delete this job?', :method => :delete, class: "job-delete-button" %>
+			<br>
+			<%= render 'job_description' %>
+
+				<!-- <div class="summernote"></div> -->
 		</div>
 	</div>
-</div>
+</section>
+
+<%= render 'layouts/page_layout_closing_tags' %>

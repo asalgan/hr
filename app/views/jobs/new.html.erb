@@ -1,57 +1,51 @@
-<div class="company-page">
-	<div class="container">
-		<div class="content">
-			<%= render 'shared/side_nav' %>
-			<div class="main">
-				<section class="openings-first col-md-12">
-					<div class="new-job-section">
-						<h1 class="category-header">New Opening</h1>
-							<div class="new-job-form">
-							<p class="job-details-header">Enter Job Details</p>
-							<%= form_for(@job) do |f| %>
-								<div class="new-job-form-title">
-									<%= f.label :title %>
-									<%= f.text_field :title, placeholder: "Enter Job Title" %>
-								</div>
-								<div>
-									<%= f.label :description %>
-									<%= f.text_area :description, class: "summernote", id:'post_content' %>
-								</div>
-								<div>
-									<%= f.label :employment_type, "Employment Type" %>
-									<%= f.select :employment_type, @employment_type_array, class: "form-control" %>
-								</div>
-								<div>
-									<%= f.label :experience_level, "Experience Level" %>
-									<%= f.select :experience_level, @experience_level_array %>
-								</div>
-								<div>
-									<%= f.label :location %>
-									<%= f.text_field :location, placeholder: "Enter Job Location" %>
-								</div>
-								<div>
-									<%= f.label :department %>
-									<%= f.text_field :department, placeholder: "Enter Department" %>
-								</div>
-								<div>
-									<%= f.label :job_code, "Job Code" %>
-									<%= f.number_field :job_code, placeholder: "Enter Job Code" %>
-								</div>
-								<div>
-									<%= f.hidden_field :company_id, :value => current_user.company.id %>
-								</div>
-								<div>
-									<%= f.submit 'Create', :class => 'job-submit' %>
-								</div>
-							<% end %>
-						</div>
-					</div>
-				</section>
-			</div>
+<%= render 'layouts/page_layout' %>
+
+<section class="openings-first col-md-12">
+	<div class="new-job-section">
+		<h1 class="category-header">New Opening</h1>
+			<div class="new-job-form">
+			<p class="job-details-header">Enter Job Details</p>
+			<%= form_for(@job) do |f| %>
+				<div class="new-job-form-title">
+					<%= f.label :title %>
+					<%= f.text_field :title, placeholder: "Enter Job Title" %>
+				</div>
+				<div>
+					<%= f.label :description %>
+					<%= f.text_area :description, class: "summernote", id:'post_content' %>
+				</div>
+				<div>
+					<%= f.label :employment_type, "Employment Type" %>
+					<%= f.select :employment_type, @employment_type_array, class: "form-control" %>
+				</div>
+				<div>
+					<%= f.label :experience_level, "Experience Level" %>
+					<%= f.select :experience_level, @experience_level_array %>
+				</div>
+				<div>
+					<%= f.label :location %>
+					<%= f.text_field :location, placeholder: "Enter Job Location" %>
+				</div>
+				<div>
+					<%= f.label :department %>
+					<%= f.text_field :department, placeholder: "Enter Department" %>
+				</div>
+				<div>
+					<%= f.label :job_code, "Job Code" %>
+					<%= f.number_field :job_code, placeholder: "Enter Job Code" %>
+				</div>
+				<div>
+					<%= f.hidden_field :company_id, :value => current_user.company.id %>
+				</div>
+				<div>
+					<%= f.submit 'Create Job', :class => 'job-submit' %>
+				</div>
+			<% end %>
 		</div>
 	</div>
-</div>
+</section>
 
+<%= render 'layouts/page_layout_closing_tags' %>
 
 
 

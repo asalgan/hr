@@ -2,14 +2,10 @@
 
 
 $teal: #55B4B0;
-$dark:  #444444;
-$light: #999999;
-$blue:  #2DB6CF;
-$red:   #E0645C;
-$white: #FFFFFF;
+
 
 %form-fields {
-  width: 100%;
+  width: 50%;
   border-radius: 3px;
   border: 1px solid #C0C0C0;
   padding: 8px 6px 6px 6px;
@@ -163,8 +159,7 @@ label {
 
 .homepage {
   background-color: $teal;
-  width: 100%;
-  position: fixed;
+  overflow-x: hidden;
 
   .home-top-section {
     margin-top: 100px;
@@ -172,8 +167,6 @@ label {
     color: white;
 
     .home-header {
-      width:850px;
-      margin: 0 auto;
 
       h1 {
         margin-bottom: 40px;
@@ -190,7 +183,7 @@ label {
       img {
         width: 10%;
         height: 10%;
-        margin-right: 350px;
+        margin-right: 400px;
       }
 
       .flip-switch-text {
@@ -200,19 +193,22 @@ label {
         width: 250px;
         line-height: 42px;
         margin-top: -50px;
-        margin-right: 80px;
+        margin-right: 120px;
+        margin-bottom: 20px;
       }
     }
   }
 
   .home-second-section {
-  background-color: white;
-  color: black;
-  height: 600px;
+    background-color: white;
+    color: black;
+    height: 600px;
 
     .home-second-section-header {
-      width: 500px;
       line-height: 30px;
+      text-align: center;
+      margin-top: 30px;
+      float: none;
     }
   }
 }
@@ -224,20 +220,15 @@ label {
     -webkit-box-shadow: 0 2px 3px rgba(56,67,67,0.2);
     -moz-box-shadow: 0 2px 3px rgba(56,67,67,0.2);
     box-shadow: 0 2px 3px rgba(56,67,67,0.2);
-    -moz-background-clip: padding;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-    background: #fff;
+    background: white;
     border: 1px solid #dfdfdf;
     border-top: 4px solid $teal;
     float: left;
     display: inline;
-    width: 1040px;
     border-radius: 4px;
     z-index: 100;
     position: relative;
     min-height: 1280px;
-    margin: 0 0 20px 0;
 
     section.home-first {
       height: 400px;
@@ -327,7 +318,7 @@ label {
     }
 
     section.openings-first {
-      height: 700px;
+      height: 1250px;
       position: relative;
 
       .new-job-section {
@@ -339,8 +330,12 @@ label {
         .new-job-form {
           margin-top: 70px;
           background-color: #eee;
-          height: 700px;
+          height: 1050px;
           padding: 40px 30px;
+
+          label {
+            margin-top: 20px;
+          }
 
           .job-details-header {
             font-size: 20px;
@@ -359,13 +354,24 @@ label {
               color: #666;
             }
 
-            #job_title {
+            #job_title, #job_location, #job_department, #job_job_code {
               @extend %form-fields;
               height: 32px;
             }
 
             #job_employment_type {
               width: 200px;
+              font-size: 22px;
+            }
+
+            #job_experience_level {
+              font-size: 22px;
+            }
+
+            .job-submit {
+              @extend %teal-button;
+              margin-right: 0px;
+              border: 0px;
             }
           }
         }
@@ -508,8 +514,9 @@ label {
 }
 
 .side-nav {
-  width: 100px;
-  float: left;
+  position: absolute;
+  padding: 0px;
+  width: 96px;
 
   .nav-buttons {
     padding-top: 30px;
@@ -576,6 +583,10 @@ label {
   }
 }
 
+.note-editor .note-editable {
+  background-color: white;
+}
+
 span.best_in_place {
   padding: 1px;
    &:hover {
@@ -584,3 +595,54 @@ span.best_in_place {
     background-color: #F0F0F0;
    }
 }
+
+.application-page {
+
+  .application-main {
+    margin-top: 40px;
+
+    .job-application-title {
+      margin-top: 40px;
+      font-weight: 600;
+      font-family:  'Open Sans Light', Arial, Helvetica, sans-serif
+    }
+
+    .job-application-info {
+      display: inline-block;
+      margin-right: 20px;
+      color: #505050;
+    }
+
+    p:nth-child(3) {
+      padding-top:15px;
+    }
+
+    .description {
+      margin-top: 40px;
+
+      p {
+      font-size: 16px;
+      line-height: 26px;
+      }
+    }
+
+    .apply-box {
+      margin-top: 100px;
+      margin-bottom: 100px;
+      width: 100%;
+      height: 400px;
+      background-color: #eee;
+
+      .apply-header {
+        margin-left: 10px;
+        margin-top: 10px;
+        position: absolute;
+        font-size: 14px;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+
+

@@ -12,6 +12,7 @@ class JobsController < ApplicationController
   # GET /jobs/1.json
   def show
     @current_job = Job.find(params[:id])
+    @applicants = Applicant.where(:company_id => current_user.company.id)
   end
 
   # GET /jobs/new
