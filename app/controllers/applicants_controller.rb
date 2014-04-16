@@ -9,8 +9,9 @@ class ApplicantsController < ApplicationController
 
     respond_to do |format|
       if @applicant.save
-        format.html { redirect_to company_job_job_applications_path, notice: 'Thank you for applying' }
-        format.json { render action: 'show', status: :created, location: @job }
+        new_job_application
+        format.html { redirect_to root_path, notice: 'Thank you for applying' }
+        format.json { render action: 'show', status: :created, location: @applicant }
       else
         format.html { render action: 'new' }
         format.json { render json: @applicant.errors, status: :unprocessable_entity }
@@ -24,4 +25,10 @@ class ApplicantsController < ApplicationController
       params.require(:applicant).permit(:first_name, :last_name, :birthdate, :address, :age, :company_id, :job_id)
     end
 
+    def new_job_application
+      job_application = Job_application.new
+      job_application.job_id = params[:job_id]
+      job_application.applicant_id = @applicant.id
+      job_application.save
+    end
 end

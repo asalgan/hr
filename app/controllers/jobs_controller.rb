@@ -6,13 +6,14 @@ class JobsController < ApplicationController
   def index
     @jobs = Job.all
     @current_positions = Job.all.where(:company_id => current_user.company.id)
+    @applicants = Job_application.where(:job_id => params[:id])
   end
 
   # GET /jobs/1
   # GET /jobs/1.json
   def show
     @current_job = Job.find(params[:id])
-    @applicants = Applicant.where(:company_id => current_user.company.id)
+    @applicants = Job_application.where(:job_id => params[:id])
   end
 
   # GET /jobs/new
