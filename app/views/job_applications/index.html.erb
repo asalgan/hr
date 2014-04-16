@@ -19,12 +19,10 @@
 					<%= f.label :first_name %>
 					<%= f.text_field :first_name, placeholder: "First name" %>
 				</div>
-				<div>
-					<%= f.hidden_field :company_id, :value => params[:company_id] %>
-				</div>
-				<div>
-					<%= f.hidden_field :job_id, :value => params[:job_id] %>
-				</div>
+						<%= fields_for :job_applications do |m| %>
+						<%#= m.hidden_field :applicant_id %>
+						<%= m.hidden_field :job_id %>
+						<% end %>
 				<div>
 					<%= f.submit 'Apply', :class => 'job-submit' %>
 				</div>

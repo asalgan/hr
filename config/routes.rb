@@ -12,7 +12,10 @@ Hr::Application.routes.draw do
   end
   
   match '/companies/%{id}/jobs/new', to: 'jobs#create', :as => :jobs, via: :post
- 	match '/companies/%{id}/jobs/%{id}/job_applications', to: 'job_applications#create', :as => :applicants, via: :post
+
+  match '/companies/:id/jobs/:id/job_applications', :as => :applicants, to: 'applicants#create', via: :post
+
+ 	match '/companies/:id/jobs/:id/applicants', to: 'applicants#index', via: :get
  
   devise_for :users, :controllers => {:registrations => "registrations"}
 
