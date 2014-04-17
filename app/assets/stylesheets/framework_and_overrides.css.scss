@@ -2,6 +2,7 @@
 
 
 $teal: #aadddd;
+$darkteal: #55B4B0;
 
 
 %form-fields {
@@ -15,7 +16,7 @@ $teal: #aadddd;
 }
 
 %teal-button {
-  background-color: $teal;
+  background-color: $darkteal;
   padding: 10px 60px;
   text-decoration: none;
   @extend %transition;
@@ -28,7 +29,7 @@ $teal: #aadddd;
   margin-top: 10px;
 
   &:hover {
-    background-color: darken($teal, 10%);
+    background-color: darken($darkteal, 10%);
   }
 }
 
@@ -266,7 +267,7 @@ label {
     box-shadow: 0 2px 3px rgba(56,67,67,0.2);
     background: white;
     border: 1px solid #dfdfdf;
-    border-top: 4px solid $teal;
+    border-top: 4px solid $darkteal;
     float: left;
     display: inline;
     border-radius: 4px;
@@ -328,13 +329,13 @@ label {
               display: inline;
 
               a {
-                color: $teal;
+                color: $darkteal;
                 text-decoration: none;
                 background-color: none;
 
                 &:hover {
                   background-color: transparent;
-                  color: lighten($teal, 10%);
+                  color: lighten($darkteal, 10%);
                 }
               }
             }
@@ -347,12 +348,14 @@ label {
             .applications {
               padding-top: 12px;
 
-              .application-count {
-                color: $teal;
+              a {
+                color: $darkteal;
+                text-decoration: none;
+                background-color: none;
 
                 &:hover {
-                  cursor: pointer;
-                  color: lighten($teal, 10%);
+                  background-color: transparent;
+                  color: lighten($darkteal, 10%);
                 }
               }
             }
@@ -465,14 +468,20 @@ label {
               padding-top: 5px;
               padding-bottom: 5px;
               font-weight: bold;
-              color: $teal;
-              cursor: pointer;
               display: inline-block;
               @extend %transition;
               margin-right: 20px;
+              color: $darkteal;
 
-              &:hover {
-                color: darken($teal, 10%)
+              a {
+                color: $darkteal;
+                text-decoration: none;
+                background-color: none;
+
+                &:hover {
+                  background-color: transparent;
+                  color: lighten($darkteal, 10%);
+                }
               }
             }
           }
@@ -541,7 +550,7 @@ label {
 }
 
 .job-title-save-btn {
-  background-color: $teal;
+  background-color: $darkteal;
   width: 40px;
   height: 31px;
   border: none;
@@ -553,7 +562,7 @@ label {
   @extend %transition;
 
   &:hover {
-    background-color: lighten($teal, 10%)
+    background-color: lighten($darkteal, 10%)
   }
 }
 
@@ -602,7 +611,7 @@ label {
           border-bottom: 1px solid #ccc;
 
           &:hover {
-            background-color: $teal;
+            background-color: $darkteal;
 
             .category {
               color: white;

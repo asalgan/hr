@@ -6,7 +6,11 @@
 		<%= link_to 'Save and return', company_jobs_url, :class => "save-job-button" %>
 		<div class="job-details-form">
 			<div class="job-information">
-				<p><%= @applicants.count %> Applicants</p>
+				<p>
+					<%= link_to job_applicants_path(:job_id => params[:id]) do %>
+					<%= @applicants.count %>
+				  Applicants<% end %>
+				</p>
 				<p>2 Notes</p>
 				<p class="time-ago"><i>Updated <%= time_ago_in_words(@current_job.updated_at) %> ago</i></p>
 			</div>

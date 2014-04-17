@@ -6,7 +6,6 @@ class JobsController < ApplicationController
   def index
     @jobs = Job.all
     @current_positions = Job.all.where(:company_id => current_user.company.id)
-    @applicants = Job_application.where(:job_id => params[:id])
   end
 
   # GET /jobs/1
