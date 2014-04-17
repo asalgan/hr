@@ -4,6 +4,7 @@
   <div class="openings">
     <h1 class="category-header">Openings</h1>
     <%= link_to ' + New Opening', new_company_job_path, :class => "new-opening-button" %>
+    <h4>Your company is growing! Congratulations!</h4>
     <h2 class="current-header">Current</h2>
       <% if @current_positions.empty? %>
         <p><i>Doesn't look there are any openings right now. You can add an opening by clicking 'New Opening' at the top of this page</i></p>
@@ -20,7 +21,6 @@
               <p class="time-ago"><i>Created <%= time_ago_in_words(x.created_at) %> ago</i></p>
               <p class="applications">
                 <%= link_to job_applicants_path(:job_id => "#{x.id}") do %>
-                <%#= Job_application.where(:job_id == x.id).count %> 
                 <%= Job_application.where(:job_id => "#{x.id}").count %>
                 applicants
                   <% end %> have applied for this position</p>

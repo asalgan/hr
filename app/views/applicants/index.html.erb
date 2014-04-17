@@ -1,6 +1,13 @@
 <%= render 'layouts/page_layout' %>
 
-
-
+<section class="applicants col-md-12">
+  <div class="job-applicants">
+    <h1 class="category-header">Applicants</h1>
+    <h4>You're on your way to finding the next employee of the month</h4>
+		<p><% @applications.each do |application| %>
+		<%= application.applicant.first_name %></p>
+		<% end %>
+	</div>
+</section>
 
 <%= render 'layouts/page_layout_closing_tags' %>

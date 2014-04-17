@@ -528,6 +528,18 @@ label {
         }
       }
     }
+
+    section.applicants {
+      height: 400px;
+      position: relative;
+
+      .job-applicants {
+        margin: 0 auto;
+        position: relative;
+        width: 924px;
+        margin-top: 40px;
+      }
+    }
   }
 }
 
