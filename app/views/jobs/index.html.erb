@@ -4,7 +4,11 @@
   <div class="openings">
     <h1 class="category-header">Openings</h1>
     <%= link_to ' + New Opening', new_company_job_path, :class => "new-opening-button" %>
-    <h4>Your company is growing! Congratulations!</h4>
+    <% if @current_positions.empty? %>
+      <h4>Here you can create new positions by simply selecting the 'New Opening' button</h4>
+    <% else %>
+      <h4>Your company is growing! Congratulations!</h4>
+    <% end %>
     <h2 class="current-header">Current</h2>
       <% if @current_positions.empty? %>
         <p><i>Doesn't look there are any openings right now. You can add an opening by clicking 'New Opening' at the top of this page</i></p>

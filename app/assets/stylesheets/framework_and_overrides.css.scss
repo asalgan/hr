@@ -538,6 +538,45 @@ label {
         position: relative;
         width: 924px;
         margin-top: 40px;
+
+        .job-applicants-list {
+          margin-top: 70px;
+
+          .applicant-box {
+            background-color: blue;
+            height: 150px;
+            margin-left: 49px;
+            margin-bottom: 49px;
+            -webkit-box-shadow: 0 2px 3px rgba(56,67,67,0.2);
+            -moz-box-shadow: 0 2px 3px rgba(56,67,67,0.2);
+            box-shadow: 0 2px 3px rgba(56,67,67,0.2);
+            background: white;
+            border: 1px solid #dfdfdf;
+            border-top: 2px solid $darkteal;
+            float: left;
+            display: inline;
+            border-radius: 4px;
+            z-index: 100;
+
+            .applicant-box-name {
+              font-weight: bold;
+              display: inline-block;
+            }
+
+            .fa-star {
+              float: right;
+              color: #FFD700;
+              margin-top: 10px;
+              font-size: 18px;
+            }
+            .applicant-box-role {
+              margin-bottom: 0px;
+            }
+            .applicant-box-city {
+              color: gray;
+            }
+          }
+        }
       }
     }
   }

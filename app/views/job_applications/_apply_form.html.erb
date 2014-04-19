@@ -1,0 +1,26 @@
+<%= form_for(@applicant) do |f| %>
+	<div class="new-job-form-title">
+		<%= f.label :first_name %>
+		<%= f.text_field :first_name, placeholder: "First name" %>
+	</div>
+	<div class="new-job-form-title">
+		<%= f.label :last_name %>
+		<%= f.text_field :last_name, placeholder: "Last name" %>
+	</div>
+	<div class="new-job-form-title">
+		<%= f.label :current_job_role %>
+		<%= f.text_field :current_job_role, placeholder: "What is your current title?" %>
+	</div>
+	<div class="new-job-form-title">
+		<%= f.label :current_job_company %>
+		<%= f.text_field :current_job_company, placeholder: "Company where you currently work" %>
+	</div>
+	<div class="new-job-form-title">
+		<%= f.label :current_job_city %>
+		<%= f.text_field :current_job_city, placeholder: "Where is your current company located?" %>
+	</div>
+	<%= hidden_field_tag "job_id", params[:job_id] %>
+	<div>
+		<%= f.submit 'Apply', :class => 'job-submit' %>
+	</div>
+<% end %>

@@ -6,8 +6,9 @@ class CreateApplicants < ActiveRecord::Migration
       t.datetime :birthdate
       t.string :address
       t.integer :age
-      t.integer :company_id
-      t.integer :job_id
+      t.string :current_job_company
+      t.string :current_job_role
+      t.string :current_job_city
     end
   end
 end

@@ -14,19 +14,7 @@
 			</div>
 			<div class="apply-box">
 				<h4 class="apply-header">Apply for this job</h4>
-				<%= form_for(@applicant) do |f| %>
-				<div class="new-job-form-title">
-					<%= f.label :first_name %>
-					<%= f.text_field :first_name, placeholder: "First name" %>
-				</div>
-						<%#= fields_for :job_applications do |m| %>
-						<%#= m.hidden_field :applicant_id %>
-						<%= hidden_field_tag "job_id", params[:job_id] %>
-						<%# end %>
-				<div>
-					<%= f.submit 'Apply', :class => 'job-submit' %>
-				</div>
-			<% end %>
+				<%= render 'apply_form' %>
 			</div>
 		</div>
 	</div>
