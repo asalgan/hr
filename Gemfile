@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 gem 'rails', '4.0.3'
-gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -20,6 +19,7 @@ gem 'best_in_place', :git => 'https://github.com/aaronchi/best_in_place.git'
 group :development do
   gem 'hub', :require=>nil
   gem 'rails_layout'
+  gem 'sqlite3'
 end
 group :development, :test do
   gem 'rspec-rails'
@@ -30,4 +30,9 @@ group :test do
   gem 'capybara', '2.1.0'
   gem 'email_spec'
   gem 'factory_girl_rails'
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
 end
