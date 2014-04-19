@@ -2,10 +2,11 @@
 
 <section class="applicants col-md-12">
   <div class="job-applicants">
-    <h1 class="category-header">Applicants</h1><h4 class="job-applicants-position"><%= @current_position.title %></h4>
+    <h1 class="category-header">Applicants</h1><h4 class="job-applicants-position"><%= @current_position.title %></h4><p class="job-applicants-count"><%= @applications.count %> applicants</p>
     <h4>You're on your way to finding the next employee of the month!</h4>
-    <p class="back-to-positions"><i class="fa fa-bars"></i> Back to all positions</p>
-
+		<%= link_to company_jobs_url(:id => params[:company_id]) do %>
+      <i class="fa fa-bars"></i> Back to all positions
+    <% end %>
 	 	<div class="job-applicants-list col-md-12">
 			<% @applications.each do |application| %>
 				<div class="applicant-box col-md-5">

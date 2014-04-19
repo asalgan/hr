@@ -50,6 +50,15 @@ $darkteal: #55B4B0;
   opacity: .8;
 }
 
+a {
+text-decoration: none;
+background-color: none;
+
+  &:hover {
+    background-color: transparent;
+  }
+}
+
 body, html {
   -webkit-font-smoothing: antialiased;
 }
@@ -548,16 +557,22 @@ label {
           margin-left: 20px;
         }
 
-        .back-to-positions {
-          font-size: 14px;
-          margin-top: 28px;
-          color: #808080;
+        .job-applicants-count {
           display: inline-block;
+          margin-left: 10px;
+          font-style: italic;
+          color: #888888;
+        }
+
+        a {
+        text-decoration: none;
+        background-color: none;
+        color: #808080;
+        @extend %transition;
 
           &:hover {
+            background-color: transparent;
             color: #585858;
-            cursor: pointer;
-            @extend %transition;
           }
         }
 
