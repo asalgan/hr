@@ -539,8 +539,30 @@ label {
         width: 924px;
         margin-top: 40px;
 
+        .job-applicants-position {
+          margin-top: 20px;
+          color: #444;
+          border-left: 3px solid $darkteal;
+          padding-left: 10px;
+          display: inline-block;
+          margin-left: 20px;
+        }
+
+        .back-to-positions {
+          font-size: 14px;
+          margin-top: 28px;
+          color: #808080;
+          display: inline-block;
+
+          &:hover {
+            color: #585858;
+            cursor: pointer;
+            @extend %transition;
+          }
+        }
+
         .job-applicants-list {
-          margin-top: 70px;
+          margin-top: 50px;
 
           .applicant-box {
             background-color: blue;
@@ -561,6 +583,7 @@ label {
             .applicant-box-name {
               font-weight: bold;
               display: inline-block;
+              font-family: 'Noto Sans', sans-serif;
             }
 
             .fa-star {
@@ -574,6 +597,14 @@ label {
             }
             .applicant-box-city {
               color: gray;
+              margin-top: 2px;
+            }
+
+            &:hover {
+              cursor: pointer;
+              border-left: 1px solid $darkteal;
+              border-bottom: 1px solid $darkteal ;
+              border-right: 1px solid $darkteal ;
             }
           }
         }
