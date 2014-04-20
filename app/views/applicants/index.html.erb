@@ -9,16 +9,22 @@
     <% end %>
 	 	<div class="job-applicants-list col-md-12">
 			<% @applications.each do |application| %>
-				<div class="applicant-box col-md-5">
-					<h4 class="applicant-box-name"><%= application.applicant.last_name %>,
-					<%= application.applicant.first_name %></h4>
-					<% application.applicant.rating.times do %>
+						<%= link_to applicant_path(:id => application.applicant.id) do %>
+            <%= application.applicant.last_name %>,
+						<%= application.applicant.first_name %>
+						<% application.applicant.rating.times do %>
 						<i class="fa fa-star"></i>
 					<% end %>
-					<p class="applicant-box-role"><%= application.applicant.current_job_role %> at 
-					<%= application.applicant.current_job_company %></p>
-					<p class="applicant-box-city"><%= application.applicant.current_job_city %></p>
-				</div>
+					<%= application.applicant.current_job_role %> at 
+					<%= application.applicant.current_job_company %>
+					<%= application.applicant.current_job_city %>
+            <% end %>
+<!-- 				<div class="applicant-box col-md-5">
+					<h4 class="applicant-box-name"></h4>
+					
+					<p class="applicant-box-role"></p>
+					<p class="applicant-box-city"></p>
+				</div> -->
 			<% end %>	
 		</div>
 

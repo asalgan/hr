@@ -5,6 +5,11 @@ class ApplicantsController < ApplicationController
     @current_position = Job.find_by(:id => params[:job_id])
 	end
 
+  def show
+    @disable_nav = true
+    @applicant = Applicant.find(params[:id])
+  end
+
 	def create
     @applicant = Applicant.new(applicant_params)
 
