@@ -2,8 +2,6 @@ class JobApplicationsController < ApplicationController
 
 	def index
 		@disable_nav = true
-
-    
 	end
   
   def new

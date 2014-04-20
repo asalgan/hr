@@ -6,7 +6,6 @@ class ApplicantsController < ApplicationController
 	end
 
   def show
-    @disable_nav = true
     @applicant = Applicant.find(params[:id])
   end
 
