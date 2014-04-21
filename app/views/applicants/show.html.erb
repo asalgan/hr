@@ -1,5 +1,17 @@
 <%= render 'layouts/page_layout' %>
 
-<%= @applicant.first_name %>
+	<div class="applicant-profile col-md-12">
+		<div class="personal-info col-md-6">
+			<h2 class="applicant-name"><%= @applicant.last_name %>, <%= @applicant.first_name %></h2>
+			<p class="current-job">
+				<b><%= @applicant.current_job_role %></b> at <b><%= @applicant.current_job_company %></b>
+			</p>
+			<p class="location">
+				<i class="fa fa-map-marker"></i>  <%= @applicant.current_job_city %>
+			</p>
+			<p class="contact-info"><%= @applicant.phone_number %></p>
+			<p class="contact-info"><%= @applicant.email_address %></p>
+		</div>
+	</div>
 
 <%= render 'layouts/page_layout_closing_tags' %>
