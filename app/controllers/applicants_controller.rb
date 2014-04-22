@@ -33,6 +33,7 @@ class ApplicantsController < ApplicationController
     def new_job_application
       job_application = Job_application.new
       job_application.job_id = params[:job_id]
+      job_application.company_id = params[:company_id]
       job_application.applicant_id = @applicant.id
       job_application.save
     end

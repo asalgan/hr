@@ -21,7 +21,7 @@ class CompaniesController < ApplicationController
   end
 
   def prospects
-    # @applicants = Applicant.where(:company_id => current_user.company.id)
+    @applicants = Job_application.where(:company_id => current_user.company.id)
   end
 
   def pipeline

@@ -20,6 +20,7 @@
 		<%= f.text_field :current_job_city, placeholder: "Where is your current company located?" %>
 	</div>
 	<%= hidden_field_tag "job_id", params[:job_id] %>
+	<%= hidden_field_tag "company_id", params[:company_id] %>
 	<div>
 		<%= f.submit 'Apply', :class => 'job-submit' %>
 	</div>

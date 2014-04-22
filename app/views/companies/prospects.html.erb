@@ -1,6 +1,9 @@
 <%= render 'layouts/page_layout' %>
-
-
+ 
+<% @applicants.each do |prospect| %>
+<%= prospect.applicant.first_name %>
+<%= prospect.applicant.last_name %>
+<% end %>
 
 <%= render 'layouts/page_layout_closing_tags' %>
 
