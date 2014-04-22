@@ -1,5 +1,6 @@
 class ApplicantsController < ApplicationController
 
+
 	def index
 		@applications = Job_application.all.where(:job_id => params[:job_id])
     @current_position = Job.find_by(:id => params[:job_id])
@@ -27,7 +28,7 @@ class ApplicantsController < ApplicationController
   private
 
     def applicant_params
-      params.require(:applicant).permit(:first_name, :last_name, :birthdate, :address, :age, :current_job_role, :current_job_company, :current_job_city)
+      params.require(:applicant).permit(:first_name, :last_name, :birthdate, :address, :age, :current_job_role, :current_job_company, :current_job_city, :resume)
     end
 
     def new_job_application

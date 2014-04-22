@@ -25,6 +25,10 @@ ActiveRecord::Schema.define(version: 20140422010247) do
     t.integer  "rating"
     t.string   "phone_number"
     t.string   "email_address"
+    t.string   "Resume_file_name"
+    t.string   "Resume_content_type"
+    t.integer  "Resume_file_size"
+    t.datetime "Resume_updated_at"
   end
 
   create_table "companies", force: true do |t|

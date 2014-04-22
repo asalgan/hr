@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 gem 'rails', '4.0.3'
+gem "paperclip", "~> 4.1"
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -15,6 +16,7 @@ gem 'font-awesome-rails'
 gem 'summernote-rails'
 gem 'fancybox2-rails'
 gem 'best_in_place', :git => 'https://github.com/aaronchi/best_in_place.git'
+
 
 group :development do
   gem 'hub', :require=>nil

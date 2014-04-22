@@ -16,6 +16,10 @@
 		<%= f.text_field :current_job_company, placeholder: "Company where you currently work" %>
 	</div>
 	<div class="new-job-form-title">
+		<%= f.label :resume %>
+		<%= f.file_field :resume %>
+	</div>
+	<div class="new-job-form-title">
 		<%= f.label :current_job_city %>
 		<%= f.text_field :current_job_city, placeholder: "Where is your current company located?" %>
 	</div>

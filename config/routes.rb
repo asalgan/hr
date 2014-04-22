@@ -1,5 +1,9 @@
 Hr::Application.routes.draw do
 
+  get "resumes/index"
+  get "resumes/new"
+  get "resumes/create"
+  get "resumes/destroy"
 	root :to => "home#index"
 
   resources :companies do

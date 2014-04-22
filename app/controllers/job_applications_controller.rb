@@ -1,5 +1,5 @@
 class JobApplicationsController < ApplicationController
-
+  
 	def index
 		@disable_nav = true
 	end
@@ -33,6 +33,6 @@ class JobApplicationsController < ApplicationController
     end
 
     def applicant_params
-      params.require(:applicant).permit(:first_name, :last_name, :birthdate, :address, :age, :current_job_role, :current_job_company, :current_job_city)
+      params.require(:applicant).permit(:first_name, :last_name, :birthdate, :address, :age, :current_job_role, :current_job_company, :current_job_city, :resume)
     end
 end
