@@ -18,12 +18,12 @@ gem 'font-awesome-rails'
 gem 'summernote-rails'
 gem 'fancybox2-rails'
 gem 'best_in_place', :git => 'https://github.com/aaronchi/best_in_place.git'
+gem 'pg'
 
 
 group :development do
   gem 'hub', :require=>nil
   gem 'rails_layout'
-  gem 'sqlite3'
 end
 group :development, :test do
   gem 'rspec-rails'
@@ -37,6 +37,5 @@ group :test do
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end

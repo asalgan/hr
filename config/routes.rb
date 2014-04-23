@@ -1,18 +1,15 @@
 Hr::Application.routes.draw do
 
-  get "resumes/index"
-  get "resumes/new"
-  get "resumes/create"
-  get "resumes/destroy"
 	root :to => "home#index"
 
   resources :companies do
   	member do
-  		get :home, :positions, :prospects, :pipeline
+  		get :home, :positions, :pipeline
   	end
     resources :jobs do
     	resources :job_applications
     end
+    resources :prospects
   end
 
   resources :applicants

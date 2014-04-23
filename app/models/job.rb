@@ -1,7 +1,7 @@
 class Job < ActiveRecord::Base
 	belongs_to :company, :dependent => :destroy
-	has_one :job_application, through: :job_applications
-
+	has_many :applicants, through: :job_applications
+	has_many :job_applications
 
 	def self.employment_types
 		["Full Time", "Part Time", "Temporary", "Contract", "Seasonal", "Internship", "Volunteer"]

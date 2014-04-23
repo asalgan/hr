@@ -1,7 +1,8 @@
 class ApplicantsController < ApplicationController
 
 	def index
-		@applications = Job_application.all.where(:job_id => params[:job_id])
+		@job = Job.find(params[:job_id])
+    @applicants = @job.applicants
     @current_position = Job.find_by(:id => params[:job_id])
 	end
 
@@ -31,7 +32,7 @@ class ApplicantsController < ApplicationController
     end
 
     def new_job_application
-      job_application = Job_application.new
+      job_application = JobApplication.new
       job_application.job_id = params[:job_id]
       job_application.company_id = params[:company_id]
       job_application.applicant_id = @applicant.id

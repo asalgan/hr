@@ -1,0 +1,12 @@
+<%= render 'layouts/page_layout' %>
+
+<%= form_tag(company_prospects_path, method: :get) do %>
+	<%= text_field_tag :search, params[:search], placeholder: "search" %>
+<% end %>
+
+ 
+<% @applicants.each do |applicant| %>
+	<%= link_to applicant.full_name, applicant %>
+<% end %>
+
+<%= render 'layouts/page_layout_closing_tags' %>

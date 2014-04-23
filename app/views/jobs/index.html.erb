@@ -25,7 +25,7 @@
               <p class="time-ago"><i>Created <%= time_ago_in_words(x.created_at) %> ago</i></p>
               <p class="applications">
                 <%= link_to job_applicants_path(:job_id => "#{x.id}") do %>
-                <%= Job_application.where(:job_id => "#{x.id}").count %>
+                <%= JobApplication.where(:job_id => "#{x.id}").count %>
                 applicants
                   <% end %> have applied for this position</p>
             </li>

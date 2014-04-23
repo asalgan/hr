@@ -20,10 +20,6 @@ class CompaniesController < ApplicationController
 
   end
 
-  def prospects
-    @applicants = Job_application.where(:company_id => current_user.company.id)
-  end
-
   def pipeline
   end
 

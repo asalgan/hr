@@ -12,7 +12,7 @@ class JobApplicationsController < ApplicationController
   end
 
   def create
-    @job_application = Job_application.new(job_application_params)
+    @job_application = JobApplication.new(job_application_params)
     @applicant = Applicant.new(applicant_params)
 
     respond_to do |format|
