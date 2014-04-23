@@ -12,6 +12,11 @@
 			<p class="contact-info"><%= @applicant.phone_number %></p>
 			<p class="contact-info"><%= @applicant.email_address %></p>
 		</div>
+		<% if @applicant.resume_file_name.present? %>
+			<iframe src="<%= @applicant.resume.url %>"></iframe>
+		<% else %>
+		<% end %>
+
 	</div>
 
 <%= render 'layouts/page_layout_closing_tags' %>

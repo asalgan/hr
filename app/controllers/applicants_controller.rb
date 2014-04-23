@@ -1,6 +1,5 @@
 class ApplicantsController < ApplicationController
 
-
 	def index
 		@applications = Job_application.all.where(:job_id => params[:job_id])
     @current_position = Job.find_by(:id => params[:job_id])
