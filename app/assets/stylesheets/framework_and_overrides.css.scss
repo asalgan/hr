@@ -618,6 +618,13 @@ label {
               margin-top: 2px;
             }
 
+            .applied-at-date {
+              float: right;
+              font-style: italic;
+              vertical-align: bottom;
+              margin-top: 35px;
+            }
+
             &:hover {
               cursor: pointer;
               border-left: 1px solid $darkteal;

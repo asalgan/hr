@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140423191136) do
+ActiveRecord::Schema.define(version: 20140424213908) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20140423191136) do
     t.string   "resume_content_type"
     t.integer  "resume_file_size"
     t.datetime "resume_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "companies", force: true do |t|
@@ -42,9 +44,11 @@ ActiveRecord::Schema.define(version: 20140423191136) do
   end
 
   create_table "job_applications", force: true do |t|
-    t.integer "job_id"
-    t.integer "applicant_id"
-    t.integer "company_id"
+    t.integer  "job_id"
+    t.integer  "applicant_id"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "jobs", force: true do |t|
