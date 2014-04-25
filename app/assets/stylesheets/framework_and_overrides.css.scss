@@ -282,7 +282,7 @@ label {
     border-radius: 4px;
     z-index: 100;
     position: relative;
-    min-height: 1280px;
+    min-height: 1400px;
 
     section.home-first {
       height: 400px;
@@ -838,7 +838,7 @@ span.best_in_place {
   .applicant-tabs {
     margin-top: 50px;
     ul li a {
-      color: white;
+      // color: gray;
     }
   }
 
@@ -848,8 +848,8 @@ span.best_in_place {
     border: none;
     margin: 0 auto;
     position: relative;
-    margin-left: 63px;
-    margin-top: 40px;
+    margin-left: 48px;
+    margin-top: 20px;
   }
 }
 
@@ -863,7 +863,7 @@ span.best_in_place {
   margin-bottom: 0px;
 
     li {
-    margin:0px 5px;
+    margin:0px 0px;
     float: left;
     list-style:none;
   }
@@ -871,12 +871,12 @@ span.best_in_place {
   a {
     padding:9px 15px;
     display:inline-block;
-    border-radius:3px 3px 0px 0px;
-    background:#7FB5DA;
+    background:white;
     font-size:16px;
     font-weight:600;
-    color: white;
+    color: gray;
     transition:all linear 0.10s;
+    font-family: 'Noto Sans', sans-serif;
 
     &:hover {
       background:#666677;
@@ -886,18 +886,17 @@ span.best_in_place {
 }
 
 li.active a, li.active a:hover {
-  background:#666677;
-  color:white;
+  border-left: 1px solid #666677;
+  border-right: 1px solid #666677;
+  color: white;
+  background-color:#666677;
   text-decoration:none;
 }
  
  /*----- Content of Tabs -----*/
 .tab-content {
   padding:15px;
-  border-radius:3px;
-  box-shadow:-1px 1px 1px 1px rgba(0,0,0,0.15);
-  background:#fff;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #666677;
 }
  
 .tab {
