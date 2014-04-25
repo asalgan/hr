@@ -33,16 +33,17 @@ $(document).ready(function() {
   $( "#tabs" ).tabs();
 
   $('#tabs a').on('click', function(e)  {
-        var currentAttrValue = $(this).attr('href');
- 
-        // Show/Hide Tabs
-        $('#tabs ' + currentAttrValue).show().siblings().hide();
- 
-        // Change/remove current tab to active
-        $(this).parent('li').addClass('active').siblings().removeClass('active');
- 
-        e.preventDefault();
-    });
+	    var currentAttrValue = $(this).attr('href');
+	    $(this).parent('li').addClass('active').siblings().removeClass('active');
+	    e.preventDefault();
+	});
+
+	// $( ".nav-list" ).tabs();
+	// $('.nav-list a').on('click', function(e)  {
+	// 	var sideNavValue = $(this).attr('href');
+	// 	$(this).parent('li').addClass('side-nav-active').siblings().removeClass('side-nav-active');
+	// 	// e.preventDefault();
+	// 	});
 
 });
 
