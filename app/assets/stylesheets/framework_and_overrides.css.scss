@@ -640,7 +640,7 @@ label {
 
 .company-page {
   background-color: #eee;
-  height: 1400px;
+  height: 1600px;
 }
 
 .category-header {
@@ -835,14 +835,75 @@ span.best_in_place {
     }
   }
 
+  .applicant-tabs {
+    margin-top: 50px;
+    ul li a {
+      color: white;
+    }
+  }
+
   iframe {
     width: 826px;
     height: 1065px;
     border: none;
     margin: 0 auto;
     position: relative;
-    margin-left: 78px;
+    margin-left: 63px;
     margin-top: 40px;
   }
 }
 
+.tab-links:after {
+  display:block;
+  clear:both;
+  content:'';
+}
+ 
+ .tab-links {
+  margin-bottom: 0px;
+
+    li {
+    margin:0px 5px;
+    float: left;
+    list-style:none;
+  }
+
+  a {
+    padding:9px 15px;
+    display:inline-block;
+    border-radius:3px 3px 0px 0px;
+    background:#7FB5DA;
+    font-size:16px;
+    font-weight:600;
+    color: white;
+    transition:all linear 0.10s;
+
+    &:hover {
+      background:#666677;
+      text-decoration:none;
+    }
+  }
+}
+
+li.active a, li.active a:hover {
+  background:#666677;
+  color:white;
+  text-decoration:none;
+}
+ 
+ /*----- Content of Tabs -----*/
+.tab-content {
+  padding:15px;
+  border-radius:3px;
+  box-shadow:-1px 1px 1px 1px rgba(0,0,0,0.15);
+  background:#fff;
+  border-top: 1px solid #eee;
+}
+ 
+.tab {
+  display:none;
+}
+
+.tab.active {
+  display:block;
+}
