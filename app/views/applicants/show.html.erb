@@ -12,16 +12,28 @@
 			</p>
 			<p class="contact-info"><%= @applicant.phone_number %></p>
 			<p class="contact-info"><%= @applicant.email_address %></p>
+			<%= @job_applied_for %>
 		</div>
+<!-- 		<div class="notes-section col-md-12">
+			<div class="notebox">
+			</div>
+		</div>
+		<div>
+    <% if @applicant.resume_file_name.present? %>
+			<iframe src="<%= @applicant.resume.url %>"></iframe>
+				<% else %>
+			<% end %>
+  	</div> -->
 
 		<div id="tabs" class="applicant-tabs col-md-12">
 		  <ul class="tab-links">
 		    <li class="active"><a href="#tabs-1">Resume</a></li>
-		    <li><a href="#tabs-2">Proin</a></li>
-		    <li><a href="#tabs-3">Aenean</a></li>
+		    <li><a href="#tabs-2">History</a></li>
+		    <li><a href="#tabs-3">Cover Letter</a></li>
+		    <li><a href="#tabs-4">Notes/Activity</a></li>
 		  </ul>
 			<%= render 'tabs_content' %>
-		</div><!--end tabs-->
+		</div><!--end tabs -->
 
 	</div><!--end applicant-profile-->
 

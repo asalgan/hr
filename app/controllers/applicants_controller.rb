@@ -8,6 +8,7 @@ class ApplicantsController < ApplicationController
 
   def show
     @applicant = Applicant.find(params[:id])
+    @job_applied_for = JobApplication.find_by(:id => params[:applicant_id])
   end
 
 	def create
@@ -16,6 +17,9 @@ class ApplicantsController < ApplicationController
     respond_to do |format|
       if @applicant.save
         new_job_application
+        resume_parser
+              
+
         format.html { redirect_to root_path, notice: 'Thank you for applying' }
         format.json { render action: 'show', status: :created, location: @applicant }
       else
@@ -28,7 +32,7 @@ class ApplicantsController < ApplicationController
   private
 
     def applicant_params
-      params.require(:applicant).permit(:first_name, :last_name, :birthdate, :address, :age, :current_job_role, :current_job_company, :current_job_city, :resume)
+      params.require(:applicant).permit(:first_name, :last_name, :birthdate, :address, :age, :current_job_role, :current_job_company, :current_job_city, :resume, :resume_parse)
     end
 
     def new_job_application
@@ -38,4 +42,15 @@ class ApplicantsController < ApplicationController
       job_application.applicant_id = @applicant.id
       job_application.save
     end
+
+    def resume_parser
+      applicant = Applicant.last
+        io = open('https://s3.amazonaws.com/HRAPP/applicants/resumes/000/000/043/original/Alan_Resume.pdf')
+        reader = PDF::Reader.new(io)
+      reader.pages.each do |page|
+        applicant.resume_parse = page.text
+      end
+      applicant.save
+    end
+
 end

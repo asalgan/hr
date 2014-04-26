@@ -1,5 +1,7 @@
 Hr::Application.routes.draw do
 
+  resources :notes
+
 	root :to => "home#index"
 
   resources :companies do

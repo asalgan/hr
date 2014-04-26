@@ -1,9 +1,7 @@
 @import "bootstrap";
 
-
 $teal: #aadddd;
 $darkteal: #55B4B0;
-
 
 %form-fields {
   width: 50%;
@@ -835,6 +833,12 @@ span.best_in_place {
     }
   }
 
+  .notes-section {
+    border: 1px solid gray;
+    height: 400px;
+    margin-top: 40px;
+  }
+
   .applicant-tabs {
     margin-top: 50px;
   }
@@ -845,7 +849,7 @@ span.best_in_place {
     border: none;
     margin: 0 auto;
     position: relative;
-    margin-left: 48px;
+    margin-left: 78px;
     margin-top: 20px;
   }
 }

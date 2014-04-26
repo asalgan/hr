@@ -19,6 +19,7 @@ gem 'summernote-rails'
 gem 'fancybox2-rails'
 gem 'best_in_place', :git => 'https://github.com/aaronchi/best_in_place.git'
 gem 'pg'
+gem 'pdf-reader'
 
 
 group :development do
