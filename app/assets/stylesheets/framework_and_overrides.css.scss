@@ -25,9 +25,10 @@ $darkteal: #55B4B0;
   float: right;
   margin-right: 60px;
   margin-top: 10px;
+  border-bottom: 3px solid darken($darkteal, 10%);
 
   &:hover {
-    background-color: darken($darkteal, 10%);
+    background-color: darken($darkteal, 5%);
   }
 }
 
@@ -425,7 +426,9 @@ label {
             .job-submit {
               @extend %teal-button;
               margin-right: 0px;
-              border: 0px;
+              border-left: 0px;
+              border-top: 0px;
+              border-right: 0px;
             }
           }
         }

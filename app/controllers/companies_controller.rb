@@ -3,8 +3,6 @@ class CompaniesController < ApplicationController
   before_action :correct_user, only: :destroy
   before_action :set_company, only: [:show, :edit, :update, :destroy]
 
-  # GET /companies
-  # GET /companies.json
   def index
     @companies = Company.all
   end
@@ -15,33 +13,24 @@ class CompaniesController < ApplicationController
   def positions
     @new_position = Job.new(params.permit(:description, :code, :company_id))
     @company = Company.find(params[:id])
-
-    # render :partial => 'openings', :content_type => 'text/html'
-
   end
 
   def pipeline
   end
 
-  # GET /companies/1
-  # GET /companies/1.json
   def show
     if user_signed_in?
       redirect_to home_company_url
     end
   end
 
-  # GET /companies/new
   def new
     @company = Company.new
   end
 
-  # GET /companies/1/edit
   def edit
   end
 
-  # POST /companies
-  # POST /companies.json
   def create
     @company = Company.new(company_params)
 
@@ -56,8 +45,6 @@ class CompaniesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /companies/1
-  # PATCH/PUT /companies/1.json
   def update
     respond_to do |format|
       if @company.update(company_params)
@@ -70,8 +57,6 @@ class CompaniesController < ApplicationController
     end
   end
 
-  # DELETE /companies/1
-  # DELETE /companies/1.json
   def destroy
     @company.destroy
     respond_to do |format|
@@ -82,7 +67,6 @@ class CompaniesController < ApplicationController
 
   private
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
       params.require(:company).permit(:name, :user_id)
     end

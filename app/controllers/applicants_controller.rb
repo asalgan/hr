@@ -17,9 +17,11 @@ class ApplicantsController < ApplicationController
     respond_to do |format|
       if @applicant.save
         new_job_application
+        if @applicant.resume.present?
         resume_parser
-              
-
+      else 
+        nil
+      end
         format.html { redirect_to root_path, notice: 'Thank you for applying' }
         format.json { render action: 'show', status: :created, location: @applicant }
       else

@@ -1,21 +1,16 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
 
-  # GET /jobs
-  # GET /jobs.json
   def index
     @jobs = Job.all
     @current_positions = Job.all.where(:company_id => current_user.company.id)
   end
 
-  # GET /jobs/1
-  # GET /jobs/1.json
   def show
     @current_job = Job.find(params[:id])
     @applicants = JobApplication.where(:job_id => params[:id])
   end
 
-  # GET /jobs/new
   def new
     @job = Job.new
     @company = current_user.company
@@ -23,12 +18,9 @@ class JobsController < ApplicationController
     @experience_level_array = Job.experience_level
   end
 
-  # GET /jobs/1/edit
   def edit
   end
 
-  # POST /jobs
-  # POST /jobs.json
   def create
     @job = Job.new(job_params)
 
@@ -43,8 +35,6 @@ class JobsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /jobs/1
-  # PATCH/PUT /jobs/1.json
   def update
     respond_to do |format|
       if @job.update(job_params)
@@ -57,8 +47,6 @@ class JobsController < ApplicationController
     end
   end
 
-  # DELETE /jobs/1
-  # DELETE /jobs/1.json
   def destroy
     @job.destroy
     respond_to do |format|
@@ -68,12 +56,11 @@ class JobsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_job
       @job = Job.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
       params.require(:job).permit(:title, :description, :job_code, :company_id, :employment_type, :experience_level, :department, :location)
     end

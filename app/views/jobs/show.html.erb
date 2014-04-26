@@ -1,27 +1,25 @@
 <%= render 'layouts/page_layout' %>
 
-<section class="job-description col-md-12">
-	<div class="job-description-first">
-		<h1 class="category-header">Job Description</h1>
-		<%= link_to 'Save and return', company_jobs_url, :class => "save-job-button" %>
-		<div class="job-details-form">
-			<div class="job-information">
-				<p>
-					<%= link_to job_applicants_path(:job_id => params[:id]) do %>
-					<%= @applicants.count %>
-				  Applicants<% end %>
-				</p>
-				<p>2 Notes</p>
-				<p class="time-ago"><i>Updated <%= time_ago_in_words(@current_job.updated_at) %> ago</i></p>
+	<section class="job-description col-md-12">
+		<div class="job-description-first">
+			<h1 class="category-header">Job Description</h1>
+			<%= link_to 'Save and return', company_jobs_url, :class => "save-job-button" %>
+			<div class="job-details-form">
+				<div class="job-information">
+					<p>
+						<%= link_to job_applicants_path(:job_id => params[:id]) do %>
+						<%= @applicants.count %>
+					  Applicants<% end %>
+					</p>
+					<p>2 Notes</p>
+					<p class="time-ago"><i>Updated <%= time_ago_in_words(@current_job.updated_at) %> ago</i></p>
+				</div>
+				<p><b>Guess what!</b><i> You can edit fields simply by clicking on them!</i></p>
+				<%= link_to 'Delete this job', company_job_path, :confirm => 'Are you sure you want to delete this job?', :method => :delete, class: "job-delete-button" %>
+				<br>
+				<%= render 'job_description' %>
 			</div>
-			<p><b>Guess what!</b><i> You can edit fields simply by clicking on them!</i></p>
-			<%= link_to 'Delete this job', company_job_path, :confirm => 'Are you sure you want to delete this job?', :method => :delete, class: "job-delete-button" %>
-			<br>
-			<%= render 'job_description' %>
-
-				<!-- <div class="summernote"></div> -->
 		</div>
-	</div>
-</section>
+	</section>
 
 <%= render 'layouts/page_layout_closing_tags' %>
