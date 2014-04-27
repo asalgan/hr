@@ -45,6 +45,19 @@ $(document).ready(function() {
 	// 	// e.preventDefault();
 	// 	});
 
+	var favorites = $('.buttons');
+	var button_accept = $('.accept-button');
+	var button_reject = $('.reject-button');
+    var favoritesTop = favorites.offset().top;
+    var favoritesLeft = favorites.offset().left;
+    $(window).scroll(function() {
+        var makeItStick = favoritesTop < $(window).scrollTop();
+        favorites.toggleClass('stuck', makeItStick);
+        button_accept.toggleClass('stuck', makeItStick);
+        button_reject.toggleClass('stuck', makeItStick);
+        favorites.css('center', makeItStick ? favoritesLeft : 0);
+    });
+
 });
 
 
