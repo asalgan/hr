@@ -8,7 +8,8 @@ class ApplicantsController < ApplicationController
 
   def show
     @applicant = Applicant.find(params[:id])
-    @job_applied_for = JobApplication.find_by(:id => params[:applicant_id])
+    @job_applied_for = JobApplication.find_by(:applicant_id => params[:id])
+    @job_applied_fora = JobApplication.find_by(:job_id => params[:id])
   end
 
 	def create

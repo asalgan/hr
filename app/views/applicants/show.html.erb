@@ -12,7 +12,13 @@
 			</p>
 			<p class="contact-info"><%= @applicant.phone_number %></p>
 			<p class="contact-info"><%= @applicant.email_address %></p>
-			<%= @job_applied_for %>
+		</div>
+		<div class="applicant-status-box col-md-6">
+			<p class="applied-for-on">Applied for <b><%= @job_applied_for.job.title %></b> position on <i><%= @applicant.created_at.strftime("%b %d, %Y") %></i></p>	
+				<div class="buttons col-md-12">		
+				<%= link_to 'Accept', '#', :class => "accept-button" %>
+				<%= link_to 'Reject', '#', :class => "reject-button" %>
+				</div>	
 		</div>
 <!-- 		<div class="notes-section col-md-12">
 			<div class="notebox">
