@@ -2,6 +2,7 @@ class Applicant < ActiveRecord::Base
 	include PgSearch
 
 	has_many :jobs, through: :job_applications
+	has_many :notes
 
  	has_attached_file :resume
   validates_attachment_content_type :resume, :content_type =>['application/pdf']

@@ -890,9 +890,56 @@ span.best_in_place {
     }
 
     .notebox {
-      background-color: #eee;
+      border: 2px solid #eee;
       height: 300px;
       margin-top: 20px;
+      overflow-x: hidden;
+      border-radius: 3px;
+
+      .notes-list {
+        padding: 5px;
+        max-height: 232px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        word-wrap: break-word;
+
+        .note-created-at {
+          color: gray;
+          font-style: italic;
+          display: inline-block;
+          margin-bottom: 5px;
+        }
+      }
+
+      .new_note {
+        left: 0;
+        bottom: 0;
+        position: absolute;
+        width: 793px;
+        display: inline-block;
+        background-color: #eee;
+        padding: 10px 10px;
+        overflow:hidden;
+
+        #note_content {
+          width: 650px;
+          height: 28px;
+          margin-top: 5px;
+          border-radius:3px;
+          border: 1px solid #ddd;
+          padding: 3px;
+        }
+
+        .note-submit {
+          @extend %teal-button;
+          border: 0px;
+          margin-right: 10px;
+          margin-top: 0px;
+          padding-left: 5px;
+          padding-right: 5px;
+          font-size: 14px;
+        }
+      }
     }
   }
 
