@@ -25,6 +25,7 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(note_params)
     @note.content = params[:note][:content]
+    @note.applicant_id = params[:note][:applicant_id]
     respond_to do |format|
       if @note.save
         # format.html { redirect_to applicant_url(:id => params[:note][:applicant_id]), notice: 'Note was successfully created.' }
