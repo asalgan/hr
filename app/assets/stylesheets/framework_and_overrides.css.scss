@@ -890,12 +890,12 @@ span.best_in_place {
     }
 
     .notebox {
-      border: 2px solid #eee;
+      // border: 2px solid #eee;
       height: 300px;
       margin-top: 20px;
       overflow-x: hidden;
       border-radius: 3px;
-
+      
       .notes-list {
         padding: 5px;
         max-height: 232px;
@@ -903,11 +903,25 @@ span.best_in_place {
         overflow-x: hidden;
         word-wrap: break-word;
 
+        li {
+          border-bottom: 1px solid #eee;
+          padding: 5px 0px;
+        }
+
         .note-created-at {
-          color: gray;
+          color: #b7b7b7;
           font-style: italic;
           display: inline-block;
           margin-bottom: 5px;
+          margin-top: 5px;
+        }
+
+        .note-content {
+          font-weight: 500;
+          display: inline-block;
+          padding-left: 3px;
+          margin-bottom: 5px;
+          margin-top: 5px;
         }
       }
 

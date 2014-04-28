@@ -1,6 +1,6 @@
 <li id="note_<%= note.id %>">
   <p class="note-created-at"><%= note.created_at.strftime("%b %d, %Y") %>:</p>
-  <%= note.content %>
+  <p class="note-content"><%= note.content %></p>
   <div>
     <%= link_to edit_note_url(note) do %>
       <i class="icon-edit"></i>
