@@ -23,6 +23,17 @@
 		<div class="notes-section col-md-12">
 			<h4 class="notes-header">Notes</h4>
 			<div class="notebox col-md-10 col-md-offset-1">
+				<ul>
+				  <% @notes.each do |n| %>
+				    <%= render 'note', :note => n %>
+				  <% end %>
+				</ul>
+		
+				<%= form_for Note.new, remote: true do |f| %>
+      		<%= f.text_field :content, placeholder: 'Add notes here', size: 50 %>
+      		<%= f.hidden_field :applicant_id, :value => @applicant.id  %>
+      		<%= f.submit "Create Note" %>
+    		<% end %>
 			</div>
 		</div>
 

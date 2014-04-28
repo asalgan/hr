@@ -10,6 +10,7 @@ class ApplicantsController < ApplicationController
     @applicant = Applicant.find(params[:id])
     @job_applied_for = JobApplication.find_by(:applicant_id => params[:id])
     @job_applied_fora = JobApplication.find_by(:job_id => params[:id])
+    @notes = Note.all
   end
 
 	def create
@@ -19,10 +20,10 @@ class ApplicantsController < ApplicationController
       if @applicant.save
         new_job_application
         if @applicant.resume.present?
-        resume_parser
-      else 
-        nil
-      end
+          resume_parser
+        else 
+          nil
+        end
         format.html { redirect_to root_path, notice: 'Thank you for applying' }
         format.json { render action: 'show', status: :created, location: @applicant }
       else
@@ -48,8 +49,8 @@ class ApplicantsController < ApplicationController
 
     def resume_parser
       applicant = Applicant.last
-        io = open('https://s3.amazonaws.com/HRAPP/applicants/resumes/000/000/046/original/Alan_Resume.pdf?')
-        reader = PDF::Reader.new(io)
+      io = open('https://dl.dropboxusercontent.com/u/97849947/Alan%20Resume.pdf')
+      reader = PDF::Reader.new(io)
       reader.pages.each do |page|
         applicant.resume_parse = page.text.squish
       end
