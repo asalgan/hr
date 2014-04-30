@@ -60,6 +60,7 @@ background-color: none;
 
 body, html {
   -webkit-font-smoothing: antialiased;
+  background-color: #f8f9fb;
 }
 
 .container {
@@ -72,6 +73,15 @@ body, html {
 
 .navbar-inverse {
   border-bottom: none;
+
+  img {
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    float: left;
+    margin-top: 5px;
+    margin-left: 40px;
+  }
 
   .navbar-brand {
     font-size: inherit;
@@ -88,13 +98,13 @@ body, html {
 
   .navbar-nav {
     float: right;
+    font-weight: bold;
+    font-size: 12px;
 
     .login-logout-link {
       color: gray;
-      font-weight: bold;
-      font-size: 12px;
-
-      &:hover {
+      
+      .login-logout-link:hover {
         color: darken($teal, 20%);
         background-color: #f9f9f9;
       }
@@ -167,6 +177,11 @@ label {
   @extend .btn-primary;
   @extend .btn-lg;
   }
+
+.signup-page, .edit-user-page, .signin-page {
+  background-color: #f8f9fb;
+}
+
 .authform {
   padding-top: 30px;
   max-width: 320px;
@@ -176,18 +191,46 @@ label {
 .authform form {
   @extend .well;
   @extend .well-lg;
-  padding-bottom: 40px;
+  padding-bottom: 50px;
+  background-color: $darkteal;
+  border-radius: 0px;
+  border: none;
+  color: white;
+
+  a {
+    text-decoration: none;
+    background-color: none;
+    color: white;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+  h3 {
+    margin-top: 0px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
 }
 .authform .right {
   float: right !important;
 }
 .authform .button {
   @extend .btn;
-  @extend .btn-primary;
+  width: 272px;
+  border-radius: 0px;
+  border: none;
+  background-color: #666688;
+  @extend %transition;
+  &:hover {
+    background-color: lighten(#666688, 10%);
+    color: white;
+  }
 }
 .authform fieldset {
   @extend .well;
 }
+
 // #error_explanation {
 //   @extend .alert;
 //   @extend .alert-danger;
@@ -258,6 +301,7 @@ label {
     z-index: 100;
     position: relative;
     min-height: 1400px;
+    margin-bottom: 30px;
 
     section.home-first {
       height: 400px;
@@ -781,10 +825,8 @@ span.best_in_place {
   }
 }
 
-%accept-reject-buttons {
+%contact-reject-buttons {
   @extend %teal-button;
-  padding-right: 25px;
-  padding-left: 25px;
   border-bottom: 0px;
   float: none;
   margin-right: 0px;
@@ -827,7 +869,30 @@ span.best_in_place {
 
     .applied-for-on {
       text-align: center;
-      font-family: 'Noto Sans', sans-serif
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 16px;
+    }
+
+    .current-status {
+      text-align: center;
+    }
+
+    .status-bar {
+
+      .fa {
+        font-size: 24px;
+        margin-right: 50px;
+      }
+      .fa-check-circle-o, .fa-star {
+        color: #36b536;
+      }
+      .fa-ban {
+        color: #ff3333;
+      }
+
+      .fa-circle-o {
+        color: #FFB90F;
+      }
     }
 
     .buttons {
@@ -850,10 +915,12 @@ span.best_in_place {
         padding-bottom: 10px;
       }
 
-      .accept-button {
-        @extend %accept-reject-buttons;
+      .contact-button {
+        @extend %contact-reject-buttons;
         margin-left: 100px;
         background-color: #52cc52;
+        padding-right: 25px;
+        padding-left: 25px;
 
         &:hover {
           background-color: darken(#52cc52, 10%)
@@ -865,9 +932,11 @@ span.best_in_place {
       }
 
       .reject-button {
-        @extend %accept-reject-buttons;
-        margin-left: 30px;
+        @extend %contact-reject-buttons;
+        margin-left: 20px;
         background-color: #ff6666;
+        padding-right: 30px;
+        padding-left: 30px;
 
         &:hover {
           background-color: darken(#ff6666, 10%)
@@ -892,7 +961,7 @@ span.best_in_place {
     .notebox {
       // border: 2px solid #eee;
       height: 300px;
-      margin-top: 20px;
+      margin-top: 10px;
       overflow-x: hidden;
       border-radius: 3px;
       
@@ -959,6 +1028,7 @@ span.best_in_place {
 
   .resume-section {
     margin-top: 40px;
+    padding-bottom: 20px;
 
     .resume-header {
       color: #666688;
@@ -973,6 +1043,10 @@ span.best_in_place {
       left:-15px;
       position: relative;
       margin-top: 20px;
+    }
+
+    .no-resume {
+      font-style: italic;
     }
   }
 }

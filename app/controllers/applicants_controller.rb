@@ -9,7 +9,6 @@ class ApplicantsController < ApplicationController
   def show
     @applicant = Applicant.find(params[:id])
     @job_applied_for = JobApplication.find_by(:applicant_id => params[:id])
-    @job_applied_fora = JobApplication.find_by(:job_id => params[:id])
     @notes = Note.all
   end
 

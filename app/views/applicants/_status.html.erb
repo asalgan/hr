@@ -1,0 +1,9 @@
+<% if @job_applied_for.application_status == "Application Received" %>
+	<i class="fa fa-check-circle-o"></i><i class="fa fa-circle-o"></i><i class="fa fa-circle-o"></i>
+<% elsif @job_applied_for.application_status == "In Progress" %>
+	<i class="fa fa-check-circle-o"></i><i class="fa fa-check-circle-o"></i><i class="fa fa-circle-o"></i>
+<% elsif @job_applied_for.application_status == "Rejected" %>
+	<i class="fa fa-check-circle-o"></i><i class="fa fa-check-circle-o"></i><i class="fa fa-ban"></i>
+<% else %>
+	<i class="fa fa-check-circle-o"></i><i class="fa fa-check-circle-o"></i><i class="fa fa-star"></i>
+<% end %>

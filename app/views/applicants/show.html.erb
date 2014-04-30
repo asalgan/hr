@@ -13,10 +13,13 @@
 			<p class="contact-info"><%= @applicant.phone_number %></p>
 			<p class="contact-info"><%= @applicant.email_address %></p>
 		</div>
+	
 		<div class="applicant-status-box col-md-6">
-			<p class="applied-for-on">Applied for <b><%= @job_applied_for.job.title %></b> position on <i><%= @applicant.created_at.strftime("%b %d, %Y") %></i></p>	
+			<p class="applied-for-on">Applied for <b><%= @job_applied_for.job.title %></b> on <i><%= @applicant.created_at.strftime("%b %d, %Y") %></i></p>
+			<p class="current-status">Current status: <%= @job_applied_for.application_status %></p>
+				<div class="status-bar col-md-offset-4"><%= render 'status' %></div>
 				<div class="buttons col-md-12">		
-					<%= link_to 'Accept', '#', :class => "accept-button" %>
+					<%= link_to 'Contact', '#', :class => "contact-button" %>
 					<%= link_to 'Reject', '#', :class => "reject-button" %>
 				</div>	
 		</div>
@@ -43,6 +46,7 @@
     <% if @applicant.resume_file_name.present? %>
 			<iframe src="<%= @applicant.resume.url %>" class="col-md-10 col-md-offset-1"></iframe>
 				<% else %>
+				<p class="no-resume col-md-offset-1"><%= @applicant.name %> hasn't submitted a resumé</p>
 			<% end %>
 		</div>
 
