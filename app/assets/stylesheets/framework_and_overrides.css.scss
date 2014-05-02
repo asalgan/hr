@@ -825,13 +825,43 @@ span.best_in_place {
   }
 }
 
-%contact-reject-buttons {
+%keep-accept-reject-buttons {
   @extend %teal-button;
   border-bottom: 0px;
   float: none;
   margin-right: 0px;
   display: inline-block;
 }
+
+.application-status-tags {
+
+  .application-received, .in-progress, .decision-made, .accepted, .rejected {
+    text-align: center;
+    height: 30px;
+    margin-bottom: 0px;
+    font-size: 14px;
+    font-weight: 600;
+    padding-top: 5px;
+    font-family:'Noto Sans', sans-serif;
+  }
+
+  .green {
+    background-color: #52cc52;
+    color: white;
+  }
+
+  .gray {
+    color: #b7b7b7;
+    border-bottom: 1px solid #b7b7b7;
+  }
+
+  .red {
+    background-color: #ff3333;
+    color: white;
+  }
+}
+
+
 
 .applicant-profile {
   margin: 0 auto;
@@ -873,25 +903,15 @@ span.best_in_place {
       font-size: 16px;
     }
 
-    .current-status {
-      text-align: center;
-    }
+    .statuses-box {
+      margin-left: 125px;
+      width: 250px;
 
-    .status-bar {
-
-      .fa {
-        font-size: 24px;
-        margin-right: 50px;
-      }
-      .fa-check-circle-o, .fa-star {
-        color: #36b536;
-      }
-      .fa-ban {
-        color: #ff3333;
-      }
-
-      .fa-circle-o {
-        color: #FFB90F;
+      .status {
+        text-align: center;
+        padding: 0px;
+        width: 70px;
+        display: inline-block;
       }
     }
 
@@ -915,12 +935,28 @@ span.best_in_place {
         padding-bottom: 10px;
       }
 
-      .contact-button {
-        @extend %contact-reject-buttons;
+      .keep-button {
+        @extend %keep-accept-reject-buttons;
         margin-left: 100px;
         background-color: #52cc52;
-        padding-right: 25px;
-        padding-left: 25px;
+        padding-right: 35px;
+        padding-left: 35px;
+
+        &:hover {
+          background-color: darken(#52cc52, 10%)
+        }
+
+        &.stuck {
+          margin-left: 45%;
+        }
+      }
+
+      .accept-button {
+        @extend %keep-accept-reject-buttons;
+        margin-left: 100px;
+        background-color: #52cc52;
+        padding-right: 29px;
+        padding-left: 29px;
 
         &:hover {
           background-color: darken(#52cc52, 10%)
@@ -932,7 +968,7 @@ span.best_in_place {
       }
 
       .reject-button {
-        @extend %contact-reject-buttons;
+        @extend %keep-accept-reject-buttons;
         margin-left: 20px;
         background-color: #ff6666;
         padding-right: 30px;
@@ -944,6 +980,10 @@ span.best_in_place {
 
         &.stuck {
         }
+      }
+
+      .applicant-status {
+        text-align: center;
       }
     }
   }

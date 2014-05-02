@@ -1,5 +1,5 @@
 <%= render 'layouts/page_layout' %>
-
+	<%= render 'status' %>
 	<div class="applicant-profile col-md-12">
 
 		<div class="personal-info col-md-6">
@@ -16,11 +16,18 @@
 	
 		<div class="applicant-status-box col-md-6">
 			<p class="applied-for-on">Applied for <b><%= @job_applied_for.job.title %></b> on <i><%= @applicant.created_at.strftime("%b %d, %Y") %></i></p>
-			<p class="current-status">Current status: <%= @job_applied_for.application_status %></p>
-				<div class="status-bar col-md-offset-4"><%= render 'status' %></div>
-				<div class="buttons col-md-12">		
-					<%= link_to 'Contact', '#', :class => "contact-button" %>
-					<%= link_to 'Reject', '#', :class => "reject-button" %>
+				<div class="buttons col-md-12">
+					<% if @job_applied_for.application_status == "Application Received" %>
+						<%= link_to 'Keep', '#', :class => "keep-button" %>
+						<%= link_to 'Reject', '#', :class => "reject-button" %>
+					<% elsif @job_applied_for.application_status == "In Progress" %>
+						<%= link_to 'Accept', '#', :class => "accept-button" %>
+						<%= link_to 'Reject', '#', :class => "reject-button" %>
+						<% elsif @job_applied_for.application_status == "Rejected"%>
+						<p class="applicant-status"><%= @applicant.first_name %> <%= @applicant.last_name %> was <%= @job_applied_for.application_status.downcase %> for this role</p>
+						<% elsif @job_applied_for.application_status == "Accepted"%>
+						<p class="applicant-status"><%= @applicant.first_name %> <%= @applicant.last_name %> was <%= @job_applied_for.application_status.downcase %> for this role</p>
+					<% end %>
 				</div>	
 		</div>
 		<div class="notes-section col-md-12">

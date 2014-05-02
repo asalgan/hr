@@ -46,14 +46,15 @@ $(document).ready(function() {
 	// 	});
 
 	var favorites = $('.buttons');
-	var button_contact = $('.contact-button');
+	var button_keep = $('.keep-button');
+	var button_accept = $('.accept-button');
 	var button_reject = $('.reject-button');
-    var favoritesTop = favorites.offset().top;
-    var favoritesLeft = favorites.offset().left;
+  var favoritesTop = favorites.offset().top;
     $(window).scroll(function() {
         var makeItStick = favoritesTop < $(window).scrollTop();
         favorites.toggleClass('stuck', makeItStick);
-        button_contact.toggleClass('stuck', makeItStick);
+        button_keep.toggleClass('stuck', makeItStick);
+        button_accept.toggleClass('stuck', makeItStick);
         button_reject.toggleClass('stuck', makeItStick);
         favorites.css('center', makeItStick ? favoritesLeft : 0);
     });
