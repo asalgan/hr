@@ -4,12 +4,14 @@ class ApplicantsController < ApplicationController
 		@job = Job.find(params[:job_id])
     @applicants = @job.applicants
     @current_position = Job.find_by(:id => params[:job_id])
+
+    # @applicants = applicants.join(:job_application).where(:application_status => "Application Received")
 	end
 
   def show
     @applicant = Applicant.find(params[:id])
     @job_applied_for = JobApplication.find_by(:applicant_id => params[:id])
-    @notes = Note.all
+    @notes = Note.all.where(:applicant_id => params[:id])
   end
 
 	def create
@@ -32,16 +34,35 @@ class ApplicantsController < ApplicationController
     end
   end
 
+  def keep
+    @applicant = JobApplication.find_by(:applicant_id => params[:applicant_id])
+    @applicant.update_attributes(application_status: "In Progress")
+    redirect_to applicant_path(params[:applicant_id])
+  end
+
+  def accept
+    @applicant = JobApplication.find_by(:applicant_id => params[:applicant_id])
+    @applicant.update_attributes(application_status: "Accepted")
+    redirect_to applicant_path(params[:applicant_id])
+  end
+
+  def reject
+    @applicant = JobApplication.find_by(:applicant_id => params[:applicant_id])
+    @applicant.update_attributes(application_status: "Rejected")
+    redirect_to applicant_path(params[:applicant_id])
+  end
+
   private
 
     def applicant_params
-      params.require(:applicant).permit(:first_name, :last_name, :birthdate, :address, :age, :current_job_role, :current_job_company, :current_job_city, :resume, :resume_parse)
+      params.require(:applicant).permit(:first_name, :last_name, :birthdate, :address, :age, :current_job_role, :current_job_company, :current_job_city, :resume, :resume_parse, :cover_letter)
     end
 
     def new_job_application
       job_application = JobApplication.new
       job_application.job_id = params[:job_id]
       job_application.company_id = params[:company_id]
+      job_application.application_status = "Application Received"
       job_application.applicant_id = @applicant.id
       job_application.save
     end

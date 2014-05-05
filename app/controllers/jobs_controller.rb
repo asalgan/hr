@@ -55,6 +55,18 @@ class JobsController < ApplicationController
     end
   end
 
+  def make_inactive
+    @job = Job.find(params[:job_id])
+    @job.update_attributes(live_status: false)
+    redirect_to company_jobs_path(params[:company_id])
+  end
+
+  def make_active
+    @job = Job.find(params[:job_id])
+    @job.update_attributes(live_status: true)
+    redirect_to company_jobs_path(params[:company_id])
+  end
+
   private
 
     def set_job

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140430200950) do
+ActiveRecord::Schema.define(version: 20140505213850) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20140430200950) do
     t.string   "current_job_company"
     t.string   "current_job_role"
     t.string   "current_job_city"
-    t.integer  "rating",              default: 0
+    t.integer  "rating",                    default: 0
     t.string   "phone_number"
     t.string   "email_address"
     t.string   "resume_file_name"
@@ -35,6 +35,10 @@ ActiveRecord::Schema.define(version: 20140430200950) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "resume_parse"
+    t.string   "cover_letter_file_name"
+    t.string   "cover_letter_content_type"
+    t.integer  "cover_letter_file_size"
+    t.datetime "cover_letter_updated_at"
   end
 
   create_table "companies", force: true do |t|
@@ -65,6 +69,7 @@ ActiveRecord::Schema.define(version: 20140430200950) do
     t.string   "experience_level"
     t.integer  "job_code"
     t.string   "location"
+    t.boolean  "live_status",      default: true
   end
 
   create_table "notes", force: true do |t|

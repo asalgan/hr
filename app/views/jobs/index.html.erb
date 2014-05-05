@@ -4,30 +4,32 @@
     <div class="openings">
       <h1 class="category-header">Openings</h1>
       <%= link_to ' + New Opening', new_company_job_path, :class => "new-opening-button" %>
-      <% if @current_positions.empty? %>
-        <h4>Here you can create new positions by simply selecting the 'New Opening' button</h4>
-      <% else %>
-        <h4>Your company is growing! Congratulations!</h4>
-      <% end %>
+        <h4 class="openings-header col-md-6">From here, you can create new job openings by clicking the button on the right, or view/edit current openings below. You can also jump directly to an openings' applicants to view their profiles.</h4>
       <h2 class="current-header">Current</h2>
         <% if @current_positions.empty? %>
           <p><i>Doesn't look there are any openings right now. You can add an opening by clicking 'New Opening' at the top of this page</i></p>
         <% else %>
           <div class="open-positions-list">
             <ul>
-              <% @current_positions.each do |x| %>
+              <% @current_positions.order("created_at DESC").each do |x| %>
               <li>
                 <h2 class="job-title">
                   <%= link_to company_job_url(:id => "#{x.id}") do %>
                   <%= x.title %>
                   <% end %>
                 </h2>
-                <p class="time-ago"><i>Created <%= time_ago_in_words(x.created_at) %> ago</i></p>
+                <p class="time-ago"><i>Created <%= time_ago_in_words(x.created_at) %> ago</i></p><br>
                 <p class="applications">
                   <%= link_to job_applicants_path(:job_id => "#{x.id}") do %>
                   <%= JobApplication.where(:job_id => "#{x.id}").count %>
                   applicants
-                  <% end %> have applied for this position</p>
+                  <% end %> have applied for this position
+                </p>
+                <% if x.live_status == true %>
+                  <p class="live-status-true col-md-offset-2">Currently active</p>
+                <% elsif x.live_status == false %>
+                  <p class="live-status-false">Currently inactive</p>
+                <% end %>
               </li>
             <% end %>
           </div>

@@ -1,11 +1,19 @@
 <%= render 'layouts/page_layout' %>
 
-<%= form_tag(company_prospects_path, method: :get) do %>
-	<%= text_field_tag :search, params[:search], placeholder: "search" %>
-<% end %>
+<section class="col-md-12">
+	<div>
+		<%= form_tag(company_prospects_path, method: :get) do %>
+			<%= text_field_tag :search, params[:search], placeholder: "Search by name, skill, location, current job, or keyword", :class => "col-md-9 col-md-offset-1 prospect-search-bar" %>
+				<%= image_submit_tag('search.png', class: "prospect-search-submit") %>
+		<% end %>
+	</div>
 
-<% @applicants.each do |applicant| %>
-	<%= link_to applicant.full_name, applicant %>
-<% end %>
+	<div class="prospects-results">
+	<% @applicants.each do |applicant| %>
+		<li><%= link_to applicant.full_name, applicant %></li>
+	<% end %>
+	</div>
+
+</section>
 
 <%= render 'layouts/page_layout_closing_tags' %>

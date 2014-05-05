@@ -1,5 +1,5 @@
 class Job < ActiveRecord::Base
-	belongs_to :company, :dependent => :destroy
+	belongs_to :company
 	has_many :applicants, through: :job_applications
 	has_many :job_applications
 

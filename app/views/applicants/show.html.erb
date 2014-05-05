@@ -15,30 +15,30 @@
 		</div>
 	
 		<div class="applicant-status-box col-md-6">
-			<p class="applied-for-on">Applied for <b><%= @job_applied_for.job.title %></b> on <i><%= @applicant.created_at.strftime("%b %d, %Y") %></i></p>
+			<% if @job_applied_for.job.present? %>
+				<p class="applied-for-on">Applied for <b><%= @job_applied_for.job.title %></b> on <i><%= @applicant.created_at.strftime("%b %d, %Y") %></i>
+				</p>
 				<div class="buttons col-md-12">
-					<% if @job_applied_for.application_status == "Application Received" %>
-						<%= link_to 'Keep', '#', :class => "keep-button" %>
-						<%= link_to 'Reject', '#', :class => "reject-button" %>
-					<% elsif @job_applied_for.application_status == "In Progress" %>
-						<%= link_to 'Accept', '#', :class => "accept-button" %>
-						<%= link_to 'Reject', '#', :class => "reject-button" %>
-						<% elsif @job_applied_for.application_status == "Rejected"%>
-						<p class="applicant-status"><%= @applicant.first_name %> <%= @applicant.last_name %> was <%= @job_applied_for.application_status.downcase %> for this role</p>
-						<% elsif @job_applied_for.application_status == "Accepted"%>
-						<p class="applicant-status"><%= @applicant.first_name %> <%= @applicant.last_name %> was <%= @job_applied_for.application_status.downcase %> for this role</p>
-					<% end %>
+					<%= render 'status_buttons' %>
 				</div>	
+			<% else %>
+				<div class="col-md-12"><p class="job-deleted">The job applied for has been deleted</p></div>
+			<% end %>
+	
 		</div>
+
 		<div class="notes-section col-md-12">
 			<h4 class="notes-header">Notes</h4>
 			<div class="notebox col-md-10 col-md-offset-1">
-				<ul class="notes-list">
-				  <% @notes.each do |n| %>
-				    <%= render 'note', :note => n %>
-				  <% end %>
-				</ul>
-		
+				<% if @notes.present? %>
+					<ul class="notes-list">
+					  <% @notes.each do |n| %>
+					    <%= render 'note', :note => n %>
+					  <% end %>
+					</ul>
+				<% else %>
+					<p class="no-notes-state">No notes yet. You can quickly create a new note below</p>
+				<% end %>
 				<%= form_for Note.new, remote: true do |f| %>
       		<%= f.text_field :content, placeholder: 'Add notes here', size: 50 %>
       		<%= f.hidden_field :applicant_id, :value => @applicant.id  %>
@@ -46,18 +46,25 @@
     		<% end %>
 			</div>
 		</div>
-
-
+		
+		<div class="resume-section col-md-12">
+			<h4 class="resume-header">Applicant cover letter</h4>
+    <% if @applicant.cover_letter_file_name.present? %>
+			<iframe src="<%= @applicant.cover_letter.url %>" class="col-md-10 col-md-offset-1"></iframe>
+				<% else %>
+				<p class="no-resume col-md-offset-1"><%= @applicant.first_name %> hasn't submitted a cover letter</p>
+			<% end %>
+		</div>
 		<div class="resume-section col-md-12">
 			<h4 class="resume-header">Applicant resumé</h4>
     <% if @applicant.resume_file_name.present? %>
 			<iframe src="<%= @applicant.resume.url %>" class="col-md-10 col-md-offset-1"></iframe>
 				<% else %>
-				<p class="no-resume col-md-offset-1"><%= @applicant.name %> hasn't submitted a resumé</p>
+				<p class="no-resume col-md-offset-1"><%= @applicant.first_name %> hasn't submitted a resumé</p>
 			<% end %>
 		</div>
 
-		</div><!--end applicant-profile -->
 
+		</div><!--end applicant-profile -->
 
 <%= render 'layouts/page_layout_closing_tags' %>

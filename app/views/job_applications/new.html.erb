@@ -15,6 +15,7 @@
 			<div class="apply-box">
 				<h4 class="apply-header">Apply for this job</h4>
 				<%= render 'apply_form' %>
+				<span><script type="IN/Apply" data-companyId="<%= params[:company_id] %>" data-jobTitle="<%= @job_application.title %>" data-themeColor="#FF9900" data-size="medium" data-jobLocation="<%= @job_application.location %>" data-phone="required" data-jobId="<%= @job_application.id %>"></script></span>
 			</div>
 		</div>
 	</div>

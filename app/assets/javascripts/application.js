@@ -32,11 +32,11 @@ $(document).ready(function() {
 
   // $( "#tabs" ).tabs();
 
-  $('#tabs a').on('click', function(e)  {
-	    var currentAttrValue = $(this).attr('href');
-	    $(this).parent('li').addClass('active').siblings().removeClass('active');
-	    e.preventDefault();
-	});
+ //  $('#tabs a').on('click', function(e)  {
+	//     var currentAttrValue = $(this).attr('href');
+	//     $(this).parent('li').addClass('active').siblings().removeClass('active');
+	//     e.preventDefault();
+	// });
 
 	// $( ".nav-list" ).tabs();
 	// $('.nav-list a').on('click', function(e)  {

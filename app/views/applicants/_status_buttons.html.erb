@@ -1,0 +1,11 @@
+<% if @job_applied_for.application_status == "Application Received" %>
+	<%= link_to 'Keep', applicant_keep_path(:applicant_id => params[:id]), :class => "keep-button" %>
+	<%= link_to 'Reject', applicant_reject_path(:applicant_id => params[:id]), :class => "reject-button" %>
+<% elsif @job_applied_for.application_status == "In Progress" %>
+	<%= link_to 'Accept', applicant_accept_path(:applicant_id => params[:id]), :class => "accept-button" %>
+	<%= link_to 'Reject', applicant_reject_path(:applicant_id => params[:id]), :class => "reject-button" %>
+	<% elsif @job_applied_for.application_status == "Rejected"%>
+	<p class="applicant-status"><%= @applicant.first_name %> <%= @applicant.last_name %> was <%= @job_applied_for.application_status.downcase %> for this role</p>
+	<% elsif @job_applied_for.application_status == "Accepted"%>
+	<p class="applicant-status"><%= @applicant.first_name %> <%= @applicant.last_name %> was <%= @job_applied_for.application_status.downcase %> for this role</p>
+<% end %>

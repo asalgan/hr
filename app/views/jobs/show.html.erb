@@ -15,7 +15,11 @@
 					<p class="time-ago"><i>Updated <%= time_ago_in_words(@current_job.updated_at) %> ago</i></p>
 				</div>
 				<p><b>Guess what!</b><i> You can edit fields simply by clicking on them!</i></p>
-				<%= link_to 'Delete this job', company_job_path, :confirm => 'Are you sure you want to delete this job?', :method => :delete, class: "job-delete-button" %>
+				<% if @current_job.live_status == true %>
+					<%= link_to 'Make this job inactive', company_job_make_inactive_path(params[:company_id] && :job_id => params[:id]), method: :put, :confirm => 'Are you sure you want to make this job inactive?', class: "job-inactive-button" %>
+				<% elsif @current_job.live_status == false %>
+					<%= link_to 'Make this job active', company_job_make_active_path(params[:company_id] && :job_id => params[:id]), method: :put, :confirm => 'Are you sure you want to make this job active?', class: "job-inactive-button" %>
+				<% end %>
 				<br>
 				<%= render 'job_description' %>
 			</div>

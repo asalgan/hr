@@ -338,7 +338,8 @@ label {
         }
 
         .current-header {
-          margin-top: 90px;
+          padding-top: 100px;
+          margin-top: 70px;
         }
 
         .open-positions-list {
@@ -368,13 +369,29 @@ label {
               }
             }
 
+            .live-status-true, .live-status-false {
+              display: inline-block;
+              float: right;
+              margin: 0;
+            }
+
+            .live-status-true {
+              color: #52cc52;
+            }
+
+            .live-status-false {
+              color: #ff6666;
+            }
+
             .time-ago {
               float: right;
               color: #909090;
+              margin-bottom: 0px;
             }
 
             .applications {
               padding-top: 12px;
+              display: inline-block;
 
               a {
                 color: $darkteal;
@@ -543,7 +560,7 @@ label {
             font-size: 26px;
           }
 
-          .job-delete-button {
+          .job-inactive-button {
             color: red;
             background:none;
             text-decoration: none;
@@ -675,6 +692,11 @@ label {
   font-size: 54px;
   line-height: 60px;
   display: inline;
+}
+
+.openings-header {
+  line-height: 24px;
+  color: #5b5b5b;
 }
 
 .job-title-save-btn {
@@ -897,7 +919,7 @@ span.best_in_place {
   .applicant-status-box {
     height: 117px;
 
-    .applied-for-on {
+    .applied-for-on, .job-deleted {
       text-align: center;
       font-family: 'Noto Sans', sans-serif;
       font-size: 16px;
@@ -1091,62 +1113,30 @@ span.best_in_place {
   }
 }
 
-  // .applicant-tabs {
-  //   margin-top: 50px;
-  // }
+.prospect-search-bar {
+  height: 50px;
+  font-size: 18px;
+  font-family: 'Noto Sans', sans-serif;
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  border-right: none;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
 
+.prospect-search-submit {
+  height: 50px;
+  margin-top: 20px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
 
-// .tab-links:after {
-//   display:block;
-//   clear:both;
-//   content:'';
-// }
- 
-//  .tab-links {
-//   margin-bottom: 0px;
+.prospects-results {
+  width: 924px;
+  margin: 0 auto;
+  position: relative;
 
-//     li {
-//     margin:0px 0px;
-//     float: left;
-//     list-style:none;
-//   }
-
-//   a {
-//     padding:9px 15px;
-//     display:inline-block;
-//     background:white;
-//     font-size:16px;
-//     font-weight:600;
-//     color: gray;
-//     transition:all linear 0.10s;
-//     font-family: 'Noto Sans', sans-serif;
-
-//     &:hover {
-//       background:#666677;
-//       text-decoration:none;
-//     }
-//   }
-// }
-
-// li.active a, li.active a:hover {
-//   border-left: 1px solid #666677;
-//   border-right: 1px solid #666677;
-//   color: white;
-//   background-color:#666677;
-//   text-decoration:none;
-// }
- 
-//  /*----- Content of Tabs -----*/
-// .tab-content {
-//   padding:15px;
-//   border-top: 1px solid #666677;
-// }
- 
-// .tab {
-//   display:none;
-// }
-
-// .tab.active {
-//   display:block;
-// }
-
+ li {
+  list-style: none;
+ }
+}
