@@ -4,6 +4,7 @@ class JobsController < ApplicationController
   def index
     @jobs = Job.all
     @current_positions = Job.all.where(:company_id => current_user.company.id)
+    @openings = current_user.company.jobs
   end
 
   def show
