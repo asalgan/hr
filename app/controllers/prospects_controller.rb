@@ -1,4 +1,5 @@
 class ProspectsController < ApplicationController
+	before_filter :trial_expired?
 
   def index
     @company = Company.find(params[:company_id])

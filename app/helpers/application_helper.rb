@@ -12,4 +12,23 @@ module ApplicationHelper
     html.html_safe
   end
 
+  def remaining_days
+    if days_count > 0
+      days_count
+    else
+      0
+    end
+  end
+
+  def trial_expired?
+    if remaining_days <= 0
+     redirect_to trial_expired_path
+    end
+  end
+
+  def days_count
+    (current_user.created_at.to_date + 20.days) - Date.today
+  end
+
+
 end

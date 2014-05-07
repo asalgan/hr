@@ -1,6 +1,7 @@
 Hr::Application.routes.draw do
 
   resources :notes
+  resources :charges
 
 	root :to => "home#index"
 
@@ -29,6 +30,7 @@ Hr::Application.routes.draw do
   
   get "/companies/:company_id/jobs/:job_id/apply" => "job_applications#new", :as => :apply
   get "/companies/:company_id/jobs/:job_id/applicants" => "applicants#index", :as => :job_applicants
+  get "/create-account" => "trials#index", :as => :trial_expired
   # post ""
 
   devise_for :users, :controllers => {:registrations => "registrations"}

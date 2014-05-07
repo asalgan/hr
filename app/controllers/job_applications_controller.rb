@@ -1,4 +1,5 @@
 class JobApplicationsController < ApplicationController
+  before_filter :trial_expired?
   
 	def index
 		@disable_nav = true

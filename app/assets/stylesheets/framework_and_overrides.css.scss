@@ -70,7 +70,6 @@ body, html {
 .navbar-fixed-top {
   position: absolute;
 }
-
 .navbar-inverse {
   border-bottom: none;
 
@@ -100,6 +99,24 @@ body, html {
     float: right;
     font-weight: bold;
     font-size: 12px;
+
+    .trial-time-left {
+      margin-right: 15px;
+
+      a {
+        color: white;
+        font-weight: bold;
+        background-color: #ff6666;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin-top: 10px;
+        border-radius:5px;
+      
+        &:hover {
+          background-color: darken(#ff6666, 10%);
+        }
+      }
+    }
 
     .login-logout-link {
       color: gray;
@@ -242,6 +259,10 @@ label {
   @extend .btn;
   @extend .btn-primary;
   @extend .btn-xs;
+}
+
+.new-job-form {
+  background-color: #f8f9fb;
 }
 
 .homepage {
