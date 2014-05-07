@@ -1,6 +1,5 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
-  before_filter :trial_expired?
 
   def index
     @notes = Note.all

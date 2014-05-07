@@ -1,5 +1,4 @@
 class ApplicantsController < ApplicationController
-  before_filter :trial_expired?
 
 	def index
 		@job = Job.find(params[:job_id])

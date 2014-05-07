@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :trial_expired?
 
   def index
     @users = User.all

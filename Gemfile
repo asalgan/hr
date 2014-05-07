@@ -26,6 +26,8 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 group :development do
   gem 'hub', :require=>nil
   gem 'rails_layout'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 group :development, :test do
   gem 'rspec-rails'

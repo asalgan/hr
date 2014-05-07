@@ -4,24 +4,13 @@ class ChargesController < ApplicationController
 	end
 
 	def create
-	  # Amount in cents
-	  @amount = 500
-
-	  customer = Stripe::Customer.create(
-	    :email => 'example@stripe.com',
-	    :card  => params[:stripeToken]
-	  )
-
-	  charge = Stripe::Charge.create(
-	    :customer    => customer.id,
-	    :amount      => @amount,
-	    :description => 'Rails Stripe customer',
-	    :currency    => 'usd'
-	  )
-
-	rescue Stripe::CardError => e
-	  flash[:error] = e.message
-	  redirect_to charges_path
+	  @user = current_user
+	  if @user.create_customer(params[:stripeToken])
+	  	redirect_to root_url, notice: "You have successfully created a subscription account!"
+	  else
+	  	redirect_to :back, notice: "An error occurred and we were unable to process your credit card. Please make sure you've entered all the correct information and try again."
+	  end
 	end
+
 
 end
