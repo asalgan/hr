@@ -22,7 +22,6 @@ gem 'pg'
 gem 'pdf-reader'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
-
 group :development do
   gem 'hub', :require=>nil
   gem 'rails_layout'
