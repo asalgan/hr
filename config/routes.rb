@@ -32,7 +32,7 @@ Hr::Application.routes.draw do
   get "/companies/:company_id/jobs/:job_id/applicants" => "applicants#index", :as => :job_applicants
 
   get "/create-account" => "trials#index", :as => :trial_expired
-  post "/create-account" => "trials#index"
+  post "/create-account" => "trials#new"
 
   devise_for :users, :controllers => {:registrations => "registrations"}
 
