@@ -1,10 +1,9 @@
-<%# add navigation links to this file %>
-<%# if user_signed_in? %>
-	<!-- <li class="trial-time-left"><%#= link_to trial_expired_path do %>You have <%= current_user.remaining_days %> days left in your free trial<%# end %></li> -->
+<% if user_signed_in? %>
+	<li class="trial-time-left"><%= link_to trial_expired_path do %>You have <%= current_user.remaining_days %> days left in your free trial<% end %></li>
   <li class="login-logout-link"><%= link_to 'Edit account', edit_user_registration_path, :class => 'login-logout-link' %></li>
-<%# else %>
-  <li class="signup-link"><%#= link_to 'Sign up for free trial', new_user_registration_path %></li>
-<%# end %>
+<% else %>
+  <li class="signup-link"><%= link_to 'Sign up for free trial', new_user_registration_path %></li>
+<% end %>
 <% if user_signed_in? %>
   <li class="login-logout-link"><%= link_to 'Logout', destroy_user_session_path, :method=>'delete',:class => 'login-logout-link' %></li>
 <% else %>
