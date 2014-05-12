@@ -1,5 +1,6 @@
 class JobApplicationsController < ApplicationController
-  
+  before_action :signed_in_user, except: [:new, :create]
+    
 	def index
 		@disable_nav = true
 	end
@@ -12,6 +13,7 @@ class JobApplicationsController < ApplicationController
   end
 
   def create
+    @disable_nav = true
     @job_application = JobApplication.new(job_application_params)
     @applicant = Applicant.new(applicant_params)
 

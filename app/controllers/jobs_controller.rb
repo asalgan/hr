@@ -1,5 +1,7 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user
+  # before_filter :correct_user
 
   def index
     @jobs = Job.all
@@ -76,5 +78,10 @@ class JobsController < ApplicationController
 
     def job_params
       params.require(:job).permit(:title, :description, :job_code, :company_id, :employment_type, :experience_level, :department, :location, :live_status)
+    end
+
+    def correct_user
+      @job = current_user.company.jobs.where(:company_id == params[:company_id])
+      redirect_to root_url if @job.nil?
     end
 end

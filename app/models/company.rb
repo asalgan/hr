@@ -3,5 +3,6 @@ class Company < ActiveRecord::Base
 	has_many :jobs
 	has_many :applicants, through: :job_applications
 	has_many :job_applications
+	has_many :prospects
 
 end

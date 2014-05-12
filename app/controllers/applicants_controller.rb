@@ -1,11 +1,11 @@
 class ApplicantsController < ApplicationController
+  before_action :signed_in_user, except: [:new, :create]
+  # before_filter :correct_user
 
 	def index
 		@job = Job.find(params[:job_id])
     @applicants = @job.applicants
     @current_position = Job.find_by(:id => params[:job_id])
-
-    # @applicants = applicants.join(:job_application).where(:application_status => "Application Received")
 	end
 
   def show

@@ -1,6 +1,5 @@
 class CompaniesController < ApplicationController
   before_action :signed_in_user, only: [:index, :edit, :new, :update, :destroy]
-  before_action :correct_user, only: :destroy
   before_action :set_company, only: [:show, :edit, :update, :destroy]
 
   def index

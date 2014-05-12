@@ -907,6 +907,7 @@ span.best_in_place {
 
     .description {
       margin-top: 40px;
+      margin-bottom: 50px;
 
       p {
       font-size: 16px;
@@ -915,11 +916,11 @@ span.best_in_place {
     }
 
     .apply-box {
-      margin-top: 100px;
+      margin-top: 20px;
       margin-bottom: 100px;
       width: 100%;
-      height: 400px;
-      background-color: #eee;
+      height: 700px;
+      background-color: #f9f9f9;
 
       .apply-header {
         margin-left: 10px;
@@ -927,6 +928,49 @@ span.best_in_place {
         position: absolute;
         font-size: 14px;
         font-weight: 600;
+        margin-top: 100px;
+      }
+
+      .apply-form {
+        padding-top: 40px;
+
+        .new_applicant {
+          width: 600px;
+          margin: 0 auto;
+
+          label {
+            margin-top: 20px;
+            display: inline-block;
+            width: 200px;
+            color: #515357;
+            font-weight: 500;
+            font-size: 14px;
+          }
+
+          #applicant_first_name, #applicant_last_name, #applicant_current_job_role, #applicant_current_job_company, #applicant_current_job_city {
+            @extend %form-fields;
+            height: 38px;
+            width: 380px;
+            font-weight: 400;
+            font-size: 14px;
+            color: #515357;
+          }
+
+          #applicant_resume, #applicant_cover_letter {
+            display: inline-block;
+          }
+
+          .job-submit {
+            @extend %teal-button;
+            margin-right: 0px;
+            margin-top: 40px;
+            border-left: 0px;
+            border-top: 0px;
+            border-right: 0px;
+            float: none;
+            -webkit-font-smoothing: antialiased;
+          }
+        }
       }
     }
   }
@@ -1275,3 +1319,7 @@ span.best_in_place {
     }
   }
 }
+
+
+
+

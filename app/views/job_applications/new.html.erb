@@ -12,9 +12,12 @@
 
 			  We start by scouring the planet for the very best in men’s apparel, curating an ever-evolving assortment of pieces from our favorite designers. With the best inventory anywhere as our point of departure, a Stylist on our team hand-selects a trunk of items based on each customer’s needs and tastes. They keep what they love and send the rest right back to us, at no cost to them.</p>
 			</div>
+			<h4 class="apply-header">Apply for this job</h4>
 			<div class="apply-box">
-				<h4 class="apply-header">Apply for this job</h4>
-				<%= render 'apply_form' %>
+				
+				<div class="apply-form col-md-12">
+					<%= render 'apply_form' %>
+				</div>
 				<span><script type="IN/Apply" data-companyId="<%= params[:company_id] %>" data-jobTitle="<%= @job_application.title %>" data-themeColor="#FF9900" data-size="medium" data-jobLocation="<%= @job_application.location %>" data-phone="required" data-jobId="<%= @job_application.id %>"></script></span>
 			</div>
 		</div>
