@@ -49,7 +49,7 @@ $(document).ready(function() {
 	var button_keep = $('.keep-button');
 	var button_accept = $('.accept-button');
 	var button_reject = $('.reject-button');
-  // var favoritesTop = favorites.offset().top;
+  var favoritesTop = favorites.offset().top;
     $(window).scroll(function() {
         var makeItStick = favoritesTop < $(window).scrollTop();
         favorites.toggleClass('stuck', makeItStick);
@@ -60,11 +60,10 @@ $(document).ready(function() {
     });
 
   // This identifies your website in the createToken call below
-  Stripe.setPublishableKey('pk_test_wy2ucs4fBGznnLakgeGfeOx6');
+  Stripe.setPublishableKey('Ib8VnwitrhXqkB199Ro95Q9R');
 
   var stripeResponseHandler = function(status, response) {
-    console.log('here');
-    console.log(response);
+    alert('hey')
     var $form = $('#payment-form');
 
     if (response.error) {
@@ -81,7 +80,7 @@ $(document).ready(function() {
     }
   };
 
-  jQuery(function($) {
+  $(function($) {
     $('#payment-form').submit(function(e) {
       var $form = $(this);
 
@@ -94,6 +93,36 @@ $(document).ready(function() {
       return false;
     });
   });
+
+  //   Stripe.setPublishableKey('Ib8VnwitrhXqkB199Ro95Q9R');
+    
+  //   Stripe.card.createToken({
+  //     number: $('.card-number').val(),
+  //     cvc: $('.card-cvc').val(),
+  //     exp_month: $('.card-expiry-month').val(),
+  //     exp_year: $('.card-expiry-year').val()
+  //   }, stripeResponseHandler);
+
+  //   function stripeResponseHandler(status, response) {
+  //   if (response.error) {
+  //       // show the errors on the form
+  //       $(".payment-errors").text(response.error.message);
+  //   } else {
+  //       var form$ = $("#payment-form");
+  //       // token contains id, last4, and card type
+  //       var token = response['id'];
+  //       // insert the token into the form so it gets submitted to the server
+  //       form$.append("<input type='hidden' name='stripeToken' />").val(token);
+  //       // and submit
+  //       form$.get(0).submit();
+  //       }
+  //   }
+  //     Stripe.getToken(token, function(status, response){
+  //   if (status == 200 && !response.used)
+  //     alert('This token can still be used.');
+  //   else
+  //     alert('The token was invalid, or has already been used.');
+  // });
 
 });
 

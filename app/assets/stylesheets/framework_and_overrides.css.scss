@@ -325,7 +325,7 @@ label {
     margin-bottom: 30px;
 
     section.home-first {
-      height: 400px;
+      height: 300px;
       border-bottom: 1px solid #ddd;
 
       .intro {
@@ -341,6 +341,26 @@ label {
           padding-top: 30px;
           line-height: 30px;
         }
+      }
+    }
+
+    section.home-second, section.home-third{
+      height: 600px;
+      border-bottom: 1px solid #ddd;
+
+      .company-home-header {
+        text-align: center;
+        margin-top: 50px;
+        position: relative;
+      }
+
+      .company-home-description {
+        text-align: center;
+        line-height: 24px;
+      }
+
+      .create-opening-image-1 {
+        margin-top: 40px;
       }
     }
 
