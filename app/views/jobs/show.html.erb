@@ -2,7 +2,7 @@
 
 	<section class="job-description col-md-12">
 		<div class="job-description-first">
-			<h1 class="category-header">Job Description</h1>
+			<h1 class="category-header show-job-title job-info">  <%= best_in_place @job, :title, :type => :input, :path => company_job_path, :ok_button => "Save", :ok_button_class => "job-title-save-btn"%></h1>
 			<%= link_to 'Save and return', company_jobs_url, :class => "save-job-button" %>
 			<div class="job-details-form">
 				<div class="job-information">

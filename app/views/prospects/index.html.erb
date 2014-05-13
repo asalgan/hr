@@ -19,7 +19,7 @@
 			<span class="col-md-3"><li>Current job</li></span>
 			<span class="col-md-5"><li>Applied for</li></span>
 			<li>City</li>
-			<span class="quick-view"><li>View</li></span>
+			<!-- <span class="quick-view"><li>View</li></span> -->
 		</ul>
 		<% @applicants.each do |applicant| %>
 			<ul>
@@ -32,7 +32,7 @@
 						</span>
 						<span class="prospect-applied-for-job col-md-5"><%= Job.find(applicant.job_application.job_id).title %> (ID: <%= Job.find(applicant.job_application.job_id).job_code %>) </span>
 						<span class="prospect-city"><%= applicant.current_job_city %> </span> 
-						<i class="fa fa-eye"></i>
+						<!-- <i class="fa fa-eye"></i> -->
 					</li>
 				<% end %>
 			</ul>
