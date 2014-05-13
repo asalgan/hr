@@ -345,8 +345,8 @@ label {
     }
 
     section.home-second, section.home-third, section.home-fourth, section.home-fifth{
-      height: 600px;
       border-bottom: 1px solid #ddd;
+      height: 700px;
 
       .company-home-header {
         text-align: center;
@@ -361,6 +361,7 @@ label {
 
       .image {
         margin-top: 40px;
+        border-bottom: 2px solid #eee;
       }
     }
     
@@ -383,7 +384,7 @@ label {
     }
 
     section.home-fourth {
-      height: 700px;
+      height: 800px;
     }
 
     section.home-fifth {
@@ -919,7 +920,7 @@ span.best_in_place {
       margin-top: 20px;
       margin-bottom: 100px;
       width: 100%;
-      height: 700px;
+      height: 600px;
       background-color: #f9f9f9;
 
       .apply-header {
@@ -1298,6 +1299,7 @@ span.best_in_place {
         border-bottom: 1px solid #D0D0D0;
         width: 100%;
         padding: 10px 0px;
+        color: #666;
 
         &:hover {
           background-color: #e7e7e7;
@@ -1308,7 +1310,9 @@ span.best_in_place {
         }
 
         .current-role {
-
+          p{
+            display: inline-block;
+          }
         }
 
         .fa-eye {
@@ -1319,7 +1323,3 @@ span.best_in_place {
     }
   }
 }
-
-
-
-

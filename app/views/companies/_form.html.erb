@@ -2,7 +2,8 @@
 
 <%#= devise_error_messages! %>
   <div class="form-group">
-    <%= f.label :name %>
+    <h3>What's the name of your company?</h3>
+    <%#= f.label :name %>
     <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
   </div>
   <div>
@@ -10,7 +11,7 @@
   </div>
 
   <div class="form-group">
-    <%= f.submit 'Create company', :class => 'button right' %>
+    <%= f.submit 'Done!', :class => 'button right' %>
   </div>
 
 <% end %>

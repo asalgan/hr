@@ -1,11 +1,11 @@
 <div class="side-nav col-md-1">
 	<nav class="nav-buttons">
 		<ul class="nav-list">
-			<li><%= link_to home_company_url(current_user.company) do %>
+<!-- 			<li><%#= link_to home_company_url(current_user.company) do %>
 				<img src="/assets/home.png" alt="">
 				<span class="category">HOME</span>
 			</li>
-			<% end %>
+			<%# end %> -->
 			<li><%= link_to company_jobs_url(current_user.company) do %>
 				<img src="/assets/position.png" alt="">
 				<span class="category">JOBS</span>
@@ -17,11 +17,11 @@
 			</li>
 			<% end %>
 <!-- 			<li>
-				<%= link_to pipeline_company_url(current_user.company) do %>
+				<%#= link_to pipeline_company_url(current_user.company) do %>
 				<img src="/assets/pipeline.png" alt="">
 				<span class="category">PIPELINE</span>
 			</li> -->
-			<% end %>
+			<%# end %>
 		</ul>
 	</nav>
 </div>

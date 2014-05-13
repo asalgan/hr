@@ -2,7 +2,7 @@
 
 	<section class="home-first">
 		<div class="intro">
-			<h1>Hi <%= current_user.name.capitalize %></h1>
+			<h1>Hi, <%= current_user.name.capitalize %></h1>
 			<h4>We're here to help you find, recruit, and filter the best candidates for your team. Here are some steps to help you get started.</h4>
 		</div>
 	</section>
@@ -10,9 +10,9 @@
 	<section class="home-second">
 		<div>
 			<h3 class="company-home-header">Create a new opening</h3>
-			<h5 class="company-home-description col-md-10 col-md-offset-1">Create a new job opening by clicking on the "JOBS" tab on the left. You can view all current active and inactive openings, as well as create new ones and track applicants for every role you create.</h5>
-			<p class="homepage-link col-md-12"><%= link_to "Create opening", new_company_job_path(:company_id => params[:id]) %></p>
-			<img src="/assets/create_opening.png" alt="job-opening" class="image col-md-10 col-md-offset-1">
+			<h5 class="company-home-description col-md-10 col-md-offset-1">Create a new job opening by clicking on the "JOBS" tab on the left. You can view all active and inactive openings, create new ones and track applicants for every opening you create.</h5>
+			<p class="homepage-link col-md-12"><%= link_to "Create an opening now", new_company_job_path(:company_id => params[:id]) %></p>
+			<img src="/assets/openings.jpg" alt="job-opening" class="image col-md-10 col-md-offset-1">
 		</div>
 	</section>
 
@@ -20,7 +20,7 @@
 		<div>
 			<h3 class="company-home-header">View job applicants</h3>
 			<h5 class="company-home-description col-md-10 col-md-offset-1">View all of the applicants for a specific role.</h5>
-			<img src="/assets/applicant_list.png" alt="applicant-list" class="image col-md-10 col-md-offset-1">
+			<img src="/assets/applicants.jpg" alt="applicant-list" class="image col-md-10 col-md-offset-1">
 		</div>
 	</section>
 
@@ -28,7 +28,7 @@
 		<div>
 			<h3 class="company-home-header">View, rate, and decide on individual applicants</h3>
 			<h5 class="company-home-description col-md-10 col-md-offset-1">View all of the individual applicants' information, cover letter, and resume all from one page. Decide whether you want to keep the applicant or immediately reject him/her for the role. After keeping and interviewing the applicant, you can either accept or reject once a final decision is made.</h5>
-			<img src="/assets/applicant_profile.png" alt="applicant-profile" class="image col-md-10 col-md-offset-1">
+			<img src="/assets/applicant_profile.jpg" alt="applicant-profile" class="image col-md-10 col-md-offset-1">
 		</div>
 	</section>
 
@@ -37,7 +37,7 @@
 			<h3 class="company-home-header">View all past applicants</h3>
 			<h5 class="company-home-description col-md-10 col-md-offset-1">Don't just stash old applications, keep them as prospects for faster hiring when a new position opens up.</h5>
 			<p class="homepage-link col-md-12"><%= link_to "View prospects", company_prospects_path(:company_id => params[:id]) %></p>
-			<img src="/assets/prospects_list.png" alt="prospects-list" class="image col-md-10 col-md-offset-1">
+			<img src="/assets/prospects.jpg" alt="prospects-list" class="image col-md-10 col-md-offset-1">
 		</div>
 	</section>
 

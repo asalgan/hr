@@ -1,11 +1,19 @@
 <%= form_for(@applicant) do |f| %>
 	<div class="apply-form-title">
-		<%= f.label :first_name %>
-		<%= f.text_field :first_name, placeholder: "First name"%>
+		<%= f.label :first_name, "First name *" %>
+		<%= f.text_field :first_name, placeholder: "First name", required: :true %>
 	</div>
 	<div>
-		<%= f.label :last_name %>
-		<%= f.text_field :last_name, placeholder: "Last name" %>
+		<%= f.label :last_name, "Last name *" %>
+		<%= f.text_field :last_name, placeholder: "Last name", required: :true %>
+	</div>
+	<div>
+		<%= f.label :phone_number, "Phone number *" %>
+		<%= f.telephone_field :phone_number, placeholder: "Enter your phone number", required: :true %>
+	</div>
+	<div>
+		<%= f.label :email_address, "Email address *" %>
+		<%= f.email_field :email_address, placeholder: "Enter your email address", required: :true %>
 	</div>
 	<div>
 		<%= f.label :current_job_role, "Current role" %>
