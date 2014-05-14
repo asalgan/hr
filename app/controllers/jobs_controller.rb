@@ -6,7 +6,7 @@ class JobsController < ApplicationController
   def index
     @jobs = Job.all
     @current_positions = Job.all.where(:company_id => current_user.company.id)
-    @applicants = JobApplication.all.where(:company_id => current_user.company.id)
+    # @applicants = JobApplication.all.where(:company_id => current_user.company.id)
     @openings = current_user.company.jobs
   end
 
@@ -30,7 +30,7 @@ class JobsController < ApplicationController
 
     respond_to do |format|
       if @job.save
-        format.html { redirect_to company_jobs_url(:company_id => current_user.company.id), notice: 'Job was successfully created.' }
+        format.html { redirect_to company_job_url(:id => @job.id), notice: 'Job was successfully created.' }
         format.json { render action: 'show', status: :created, location: @job }
       else
         format.html { render action: 'new' }

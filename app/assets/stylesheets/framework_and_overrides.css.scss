@@ -587,6 +587,21 @@ label {
       height: 700px;
       position: relative;
 
+      .back-to-openings-button {
+        margin-top: 10px;
+
+        a{
+          text-decoration: none;
+          background-color: none;
+
+            &:hover {
+              background-color: transparent;
+              color: black;
+            }
+          }
+        }
+      
+
       .job-description-first {
         margin: 0 auto;
         position: relative;
@@ -594,18 +609,19 @@ label {
         margin-top: 40px;
 
         .save-job-button {
-          @extend %teal-button
+          @extend %teal-button;
         }
 
+
         .job-details-form {
-          margin-top: 70px;
+          margin-top: 30px;
           background-color: white;
           min-height: 890px;
           padding: 40px 30px;
           display:inline
 
           p {
-            display: inline;
+            display: inline-block;
           }
 
           .job-information {
@@ -614,6 +630,8 @@ label {
             vertical-align: middle;
             margin-bottom: 35px;
             height: 28px;
+
+            // <form class="form_in_place" action="javascript:void(0);" style="display:inline"><input type="text" name="title"><input type="submit" class="job-title-save-btn" value="Save"></form>
 
             p:nth-child(3) {
               float: right;
@@ -665,8 +683,6 @@ label {
               cursor: pointer;
             }
           }
-
-          // <form class="form_in_place" action="javascript:void(0);" style="display:inline"><input type="text" name="title"><input type="submit" class="job-title-save-btn" value="Save"></form>
 
           .show-job-title {
             font-size: 26px;
@@ -828,6 +844,10 @@ label {
 
   &:hover {
     background-color: lighten($darkteal, 10%)
+  }
+
+  &:nth-child(1) {
+    
   }
 }
 

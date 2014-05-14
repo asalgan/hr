@@ -5,7 +5,11 @@
       <h1 class="category-header">Openings</h1><p class="openings-count"><%= @openings.count %> openings</p>
       <%= link_to ' + New Opening', new_company_job_path, :class => "new-opening-button" %>
         <h4 class="openings-header col-md-6">From here, you can create new job openings by clicking the button on the right, or view/edit current openings below. You can also jump directly to an openings' applicants to view their profiles.</h4>
-      <h2 class="current-header">Current</h2>
+        <% if @current_positions.present? %>
+          <h2 class="current-header">Current</h2>
+        <% else %>
+          <% nil %>
+        <% end %>
         <% if @current_positions.empty? %>
           <p><i>Doesn't look there are any openings right now. You can add an opening by clicking 'New Opening' at the top of this page</i></p>
         <% else %>
@@ -27,9 +31,10 @@
                     <p class="live-status-false">Currently inactive</p>
                   <% end %>
       
-                  <% @applicants.where(:job_id => job.id ).order("created_at DESC").each do |application| %>
+                  <% job.applicants.order("created_at DESC").each do |applicant| %>
+                    <% job_application = job.job_applications.find_by_applicant_id(applicant.id) %>
                     <ul>
-                      <li class="job-applicant col-md-2"><%= link_to "#{application.applicant.full_name}", applicant_path(:id => application.applicant.id) %></li> <p class="application-status"><%= application.application_status %></p>
+                      <li class="job-applicant col-md-3"><%= link_to "#{applicant.full_name}", applicant_path(:id => applicant.id) %></li> <p class="application-status"><%= job_application.application_status %></p>
                     </ul>
                   <% end %>
             
