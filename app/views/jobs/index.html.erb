@@ -11,28 +11,36 @@
         <% else %>
           <div class="open-positions-list">
             <ul>
-              <% @current_positions.order("created_at DESC").each do |x| %>
-              <li>
-                <h2 class="job-title">
-                  <%= link_to company_job_url(:id => "#{x.id}") do %>
-                  <%= x.title %>
+              <% @current_positions.order("created_at DESC").each do |job| %>
+                <li class="position">
+                  <h2 class="job-title">
+                    <%= link_to company_job_url(:id => "#{job.id}") do %>
+                    <%= job.title %>
+                    <% end %>
+                  </h2>
+                  <p class="job-code">(ID: <%= job.job_code %>)</p>
+                  <p class="time-ago"><i>Created <%= time_ago_in_words(job.created_at) %> ago</i></p><br>
+
+                  <% if job.live_status == true %>
+                    <p class="live-status-true col-md-offset-2">Currently active</p>
+                  <% elsif job.live_status == false %>
+                    <p class="live-status-false">Currently inactive</p>
                   <% end %>
-                </h2>
-                <p class="job-code">(ID: <%= x.job_code %>)</p>
-                <p class="time-ago"><i>Created <%= time_ago_in_words(x.created_at) %> ago</i></p><br>
-                <p class="applications">
-                  <%= link_to job_applicants_path(:job_id => "#{x.id}") do %>
-                  <%= JobApplication.where(:job_id => "#{x.id}").count %>
-                  applicants
-                  <% end %> have applied for this position
-                </p>
-                <% if x.live_status == true %>
-                  <p class="live-status-true col-md-offset-2">Currently active</p>
-                <% elsif x.live_status == false %>
-                  <p class="live-status-false">Currently inactive</p>
-                <% end %>
-              </li>
-            <% end %>
+      
+                  <% @applicants.where(:job_id => job.id ).order("created_at DESC").each do |application| %>
+                    <ul>
+                      <li class="job-applicant col-md-2"><%= link_to "#{application.applicant.full_name}", applicant_path(:id => application.applicant.id) %></li> <p class="application-status"><%= application.application_status %></p>
+                    </ul>
+                  <% end %>
+            
+                    <!--<%#= link_to job_applicants_path(:job_id => "#{x.id}") do %>
+                    <%#= JobApplication.where(:job_id => "#{x.id}").count %>
+                    applicants -->
+                    <!-- <%# end %> have applied for this position -->
+
+                </li>
+              <% end %>
+            </ul>
           </div>
         <% end %>
     </div>

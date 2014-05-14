@@ -1,7 +1,6 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user
-  before_action :correct_user
 
   def index
     @notes = Note.all

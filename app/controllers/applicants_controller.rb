@@ -36,7 +36,7 @@ class ApplicantsController < ApplicationController
 
   def keep
     @applicant = JobApplication.find_by(:applicant_id => params[:applicant_id])
-    @applicant.update_attributes(application_status: "In Progress")
+    @applicant.update_attributes(application_status: "In Review")
     redirect_to applicant_path(params[:applicant_id])
   end
 

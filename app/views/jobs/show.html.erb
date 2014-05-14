@@ -7,9 +7,9 @@
 			<div class="job-details-form">
 				<div class="job-information">
 					<p>
-						<%= link_to job_applicants_path(:job_id => params[:id]) do %>
+				<!-- <%#= link_to job_applicants_path(:job_id => params[:id]) do %>
 						<%= @applicants.count %>
-					  Applicants<% end %>
+					  Applicants<#% end %> -->
 					</p>
 					<p></p>
 					<p class="time-ago"><i>Updated <%= time_ago_in_words(@current_job.updated_at) %> ago</i></p>

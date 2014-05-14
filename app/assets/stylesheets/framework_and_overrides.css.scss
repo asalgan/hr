@@ -422,28 +422,56 @@ label {
         .open-positions-list {
           margin-top: 20px;
 
-          ul li {
-            padding: 14px 20px;
-            border-bottom: 1px solid #D0D0D0;
+          ul {
 
-            &:first-child {
-              border-top: 1px solid #D0D0D0;
+            .position {
+              padding: 14px 20px 25px 20px;
+              border-bottom: 1px solid #D0D0D0;
+
+              &:first-child {
+                border-top: 1px solid #D0D0D0;
+              }
+
+              .job-title {
+                font-size: 20px;
+                display: inline;
+
+                a {
+                  color: $darkteal;
+                  text-decoration: none;
+                  background-color: none;
+
+                  &:hover {
+                    background-color: transparent;
+                    color: lighten($darkteal, 10%);
+                  }
+                }
+              }
             }
 
-            .job-title {
-              font-size: 20px;
-              display: inline;
+            .job-applicant {
+              margin-left: 10px;
+              padding-top: 5px;
+              display: inline-block;
+              font-size: 14px;
 
               a {
-                color: $darkteal;
                 text-decoration: none;
                 background-color: none;
+                color: #666;
 
                 &:hover {
                   background-color: transparent;
-                  color: lighten($darkteal, 10%);
+                  color: black;
+                  border-bottom: 1px solid black;
                 }
               }
+            }
+
+            .application-status {
+              padding-top: 5px;
+              margin-bottom: 0px;
+              color: #666;
             }
 
             .live-status-true, .live-status-false {
@@ -585,6 +613,7 @@ label {
             border-bottom: 1px solid #D8D8D8;
             vertical-align: middle;
             margin-bottom: 35px;
+            height: 28px;
 
             p:nth-child(3) {
               float: right;
