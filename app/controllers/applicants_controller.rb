@@ -1,6 +1,5 @@
 class ApplicantsController < ApplicationController
-  before_action :signed_in_user, except: [:new, :create]
-  # before_filter :correct_user
+  before_filter :authenticate_user!
 
 	def index
 		@job = Job.find(params[:job_id])

@@ -1,23 +1,19 @@
 class JobsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_job, only: [:show, :edit, :update, :destroy]
-  before_action :signed_in_user
-  # before_filter :correct_user
 
   def index
-    @jobs = Job.all
-    @current_positions = Job.all.where(:company_id => current_user.company.id)
-    # @applicants = JobApplication.all.where(:company_id => current_user.company.id)
-    @openings = current_user.company.jobs
+    @current_positions = current_company.jobs
   end
 
   def show
-    @current_job = Job.find(params[:id])
-    @applicants = JobApplication.where(:job_id => params[:id])
+    @current_job = current_company.jobs.find(params[:id])
+    @applicants = @current_job.job_applications
   end
 
   def new
     @job = Job.new
-    @company = current_user.company
+    @company = current_company
     @employment_type_array = Job.employment_types
     @experience_level_array = Job.experience_level
   end
@@ -81,8 +77,4 @@ class JobsController < ApplicationController
       params.require(:job).permit(:title, :description, :job_code, :company_id, :employment_type, :experience_level, :department, :location, :live_status)
     end
 
-    def correct_user
-      @job = current_user.company.jobs.where(:company_id == params[:company_id])
-      redirect_to root_url if @job.nil?
-    end
 end

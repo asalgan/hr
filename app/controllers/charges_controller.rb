@@ -1,6 +1,5 @@
 class ChargesController < ApplicationController
-	before_action :signed_in_user
-	# before_filter :correct_user
+	before_filter :authenticate_user!
 
 	def new
 	end
@@ -15,10 +14,5 @@ class ChargesController < ApplicationController
 	end
 
 	private
-
-	# def correct_user
- #    @company = current_user.companies.find_by(id: params[:id])
- #    redirect_to root_url if @company.nil?
- #  end
 
 end

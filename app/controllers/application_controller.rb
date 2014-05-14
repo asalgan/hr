@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   before_filter :needs_subscription?
   include ApplicationHelper
   include SessionsHelper
-  include CompaniesHelper
 
   def ignore_controllers
     ["sessions", "registrations", "passwords", "shared", "trials"]
@@ -17,6 +16,12 @@ class ApplicationController < ActionController::Base
       end
   	end
   end
+
+  def current_company 
+    @company ||= current_user.company
+  end
+
+  helper_method :current_company
 
 
 end

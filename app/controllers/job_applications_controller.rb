@@ -1,5 +1,5 @@
 class JobApplicationsController < ApplicationController
-  before_action :signed_in_user, except: [:new, :create]
+  before_filter :authenticate_user!
     
 	def index
 		@disable_nav = true

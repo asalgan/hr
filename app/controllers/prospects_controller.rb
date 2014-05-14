@@ -1,9 +1,8 @@
 class ProspectsController < ApplicationController
-	before_action :signed_in_user
-	# before_filter :correct_user
+	before_filter :authenticate_user!
 
   def index
-    @company = Company.find(params[:company_id])
+    @company = current_company
     @applicants = params[:search].blank? ? @company.applicants : @company.applicants.search_by_applicant_info(params[:search])
   end
 

@@ -1,2 +1,3 @@
+$(".no-notes-state").hide();
 $(".notes-list").append("<%= escape_javascript(render('applicants/note', :note => @note)) %>");
 $("#note_content").val("");

@@ -30,15 +30,15 @@
 		<div class="notes-section col-md-12">
 			<h4 class="notes-header">Notes</h4>
 			<div class="notebox col-md-10 col-md-offset-1">
-				<% if @notes.present? %>
-					<ul class="notes-list">
+				<ul class="notes-list">
+					<% if @notes.present? %>
 					  <% @notes.each do |n| %>
 					    <%= render 'note', :note => n %>
 					  <% end %>
-					</ul>
-				<% else %>
-					<p class="no-notes-state">No notes yet. You can quickly create a new note below</p>
-				<% end %>
+					<% else %>
+						<p class="no-notes-state">No notes yet. You can quickly create a new note below</p>
+					<% end %>
+				</ul>
 				<%= form_for Note.new, remote: true do |f| %>
       		<%= f.text_field :content, placeholder: 'Add notes here', size: 50 %>
       		<%= f.hidden_field :applicant_id, :value => @applicant.id  %>

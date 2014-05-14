@@ -2,7 +2,7 @@
 
   <section class="positions-first col-md-12">
     <div class="openings">
-      <h1 class="category-header">Openings</h1><p class="openings-count"><%= @openings.count %> openings</p>
+      <h1 class="category-header">Job Openings</h1><p class="openings-count"><%= @current_positions.count %> openings</p>
       <%= link_to ' + New Opening', new_company_job_path, :class => "new-opening-button" %>
         <h4 class="openings-header col-md-6">From here, you can create new job openings by clicking the button on the right, or view/edit current openings below. You can also jump directly to an openings' applicants to view their profiles.</h4>
         <% if @current_positions.present? %>
