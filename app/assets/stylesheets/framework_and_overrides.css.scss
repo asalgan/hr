@@ -472,6 +472,11 @@ label {
               padding-top: 5px;
               margin-bottom: 0px;
               color: #666;
+              display: inline-block;
+            }
+
+            .fa-star {
+              color: #FFD700;
             }
 
             .live-status-true, .live-status-false {

@@ -35,6 +35,11 @@
                     <% job_application = job.job_applications.find_by_applicant_id(applicant.id) %>
                     <ul>
                       <li class="job-applicant col-md-3"><%= link_to "#{applicant.full_name}", applicant_path(:id => applicant.id) %></li> <p class="application-status"><%= job_application.application_status %></p>
+                      <% if applicant.rating.present? %>
+                        <% applicant.rating.times do %>
+                          <i class="fa fa-star"></i>
+                        <% end %>
+                      <% end %>
                     </ul>
                   <% end %>
             
