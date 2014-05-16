@@ -2,29 +2,35 @@
 	<%= render 'status' %>
 	<div class="applicant-profile col-md-12">
 
-		<div class="personal-info col-md-6">
-			<h2 class="applicant-name"><%= @applicant.last_name %>, <%= @applicant.first_name %></h2>
-			<p class="current-job">
-				<b><%= @applicant.current_job_role %></b> at <b><%= @applicant.current_job_company %></b>
-			</p>
-			<p class="location">
-				<i class="fa fa-map-marker"></i>  <%= @applicant.current_job_city %>
-			</p>
-			<p class="contact-info"><%= @applicant.phone_number %></p>
-			<p class="contact-info"><%= @applicant.email_address %></p>
-		</div>
-	
-		<div class="applicant-status-box col-md-6">
-			<% if @job_applied_for.job.present? %>
-				<p class="applied-for-on">Applied for <b><%= @job_applied_for.job.title %></b> on <i><%= @applicant.created_at.strftime("%b %d, %Y") %></i>
+		<div class="row">
+			<div class="personal-info col-md-6">
+				<h2 class="applicant-name"><%= @applicant.first_name %> <%= @applicant.last_name %></h2>
+				<p class="current-job">
+					<b><%= @applicant.current_job_role %></b> at <b><%= @applicant.current_job_company %></b>
 				</p>
-				<div class="buttons col-md-12">
-					<%= render 'status_buttons' %>
-				</div>	
-			<% else %>
-				<div class="col-md-12"><p class="job-deleted">The job applied for has been deleted</p></div>
-			<% end %>
-	
+				<p class="location">
+					<i class="fa fa-map-marker"></i>  <%= @applicant.current_job_city %>
+				</p>
+				<p class="contact-info"><%= @applicant.phone_number %></p>
+				<p class="contact-info"><%= @applicant.email_address %></p>
+			</div>
+			
+			<div class="applicant-status-box col-md-6">
+				<% if @job_applied_for.job.present? %>
+					<p class="applied-for-on">Applied for <b><%= @job_applied_for.job.title %></b> on <i><%= @applicant.created_at.strftime("%b %d, %Y") %></i>
+					</p>
+					<div class="buttons col-md-12">
+						<%= render 'status_buttons' %>
+					</div>	
+				<% else %>
+					<div class="col-md-12"><p class="job-deleted">Looks like the job <%= @applicant.first_name %> has been deleted.</p></div>
+				<% end %>
+			</div>
+		</div>
+
+		<div class="rating col-md-3 col-md-offset-8">
+			<p class="col-md-offset-1">Give <%= @applicant.first_name %> a rating</p><br>
+			<div class="rating-dropdown col-md-9 col-md-offset-1"><%= best_in_place @applicant, :rating, :type => :select, :collection => [[0,0],[1,1],[2,2],[3,3],[4,4],[5,5]], :path => applicant_path  %> out of 5</div>
 		</div>
 
 		<div class="notes-section col-md-12">
@@ -63,7 +69,6 @@
 				<p class="no-resume col-md-offset-1"><%= @applicant.first_name %> hasn't submitted a resumé</p>
 			<% end %>
 		</div>
-
 
 		</div><!--end applicant-profile -->
 

@@ -23,6 +23,8 @@
 				<% end %>
 				<br>
 				<%= render 'job_description' %>
+				<h4 class="col-md-10 col-md-offset-1">Below is the unique URL to this job opening's application page. Copy it and post it on your website, job boards, and anywhere else you want to start searching for your next superstar employee.</h4>
+				<p class="copy-url-text col-md-6 col-md-offset-3"><%= "#{request.original_url}" + "/apply" %></p>
 			</div>
 		</div>
 	</section>

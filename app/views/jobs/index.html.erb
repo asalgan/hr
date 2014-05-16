@@ -6,7 +6,7 @@
       <%= link_to ' + New Opening', new_company_job_path, :class => "new-opening-button" %>
         <h4 class="openings-header col-md-6">From here, you can create new job openings by clicking the button on the right, or view/edit current openings below. You can also jump directly to an openings' applicants to view their profiles.</h4>
         <% if @current_positions.present? %>
-          <h2 class="current-header">Current</h2>
+          <h2 class="current-header">Unfilled</h2>
         <% else %>
           <% nil %>
         <% end %>
@@ -33,8 +33,8 @@
       
                   <% job.applicants.order("created_at DESC").each do |applicant| %>
                     <% job_application = job.job_applications.find_by_applicant_id(applicant.id) %>
-                    <ul>
-                      <li class="job-applicant col-md-3"><%= link_to "#{applicant.full_name}", applicant_path(:id => applicant.id) %></li> <p class="application-status"><%= job_application.application_status %></p>
+                    <ul class="applicant-info">
+                      <li class="job-applicant col-md-3"><%= link_to "#{applicant.full_name}", applicant_path(:id => applicant.id) %></li> <p class="application-status col-md-3"><%= job_application.application_status %></p>
                       <% if applicant.rating.present? %>
                         <% applicant.rating.times do %>
                           <i class="fa fa-star"></i>

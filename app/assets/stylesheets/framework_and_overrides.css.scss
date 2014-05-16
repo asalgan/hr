@@ -392,7 +392,7 @@ label {
     }
 
     section.positions-first {
-      height: 400px;
+      min-height: 400px;
       position: relative;
 
       .openings {
@@ -447,6 +447,10 @@ label {
                   }
                 }
               }
+
+              .applicant-info {
+                height: 24px;
+              }
             }
 
             .job-applicant {
@@ -458,7 +462,7 @@ label {
               a {
                 text-decoration: none;
                 background-color: none;
-                color: #666;
+                color: #444;
 
                 &:hover {
                   background-color: transparent;
@@ -476,6 +480,7 @@ label {
             }
 
             .fa-star {
+              margin-top: 10px;
               color: #FFD700;
             }
 
@@ -705,6 +710,20 @@ label {
               text-decoration: underline;
             }
           }
+        }
+
+        h4 {
+          text-align: center;
+          line-height: 24px;
+        }
+
+        .copy-url-text {
+          text-align: center;
+          padding: 10px 20px;
+          border: 2px solid #666688;
+          border-radius: 6px;
+          font-size: 16px;
+          margin-top: 20px;
         }
       }
     }
@@ -1194,14 +1213,31 @@ span.best_in_place {
     }
   }
 
+  .rating {
+    padding-bottom: 10px;
+    p {
+      display: inline-block;
+      font-size: 14px;
+    }
+
+    .rating-dropdown {
+      font-size: 16px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
   .notes-section {
     height: 390px;
-    margin-top: 40px;
+    margin-top: 10px;
 
     .notes-header {
       margin-top: 50px;
       color: #666688;
       padding-left: 15px;
+      padding-top: 15px;
     }
 
     .notebox {
@@ -1376,4 +1412,124 @@ span.best_in_place {
       }
     }
   }
+}
+
+
+.payment-section {
+  background-color: #f8f9fb;
+  margin-top: 80px;
+
+  #payment-form {
+  
+    .card-number, .cvc, .expiration-month, .expiration-year {
+      @extend %form-fields;
+      height: 38px;
+      font-weight: 400;
+      font-size: 14px;
+      color: #515357;
+      display: inline-block;
+    }
+
+    .card-number {
+      width: 380px;
+    }
+
+    .cvc {
+      width: 50px;
+    }
+
+    .expiration-month {
+      width: 50px;
+    }
+  }
+}
+
+.identified{
+  border-color:#2ecc71;
+}
+ 
+.identified:focus{
+  border-color:#2ecc71;
+  box-shadow: 0 0 .1875em #2ecc71;
+}
+ 
+.cc-num__wrap{
+  position:relative;
+}
+ 
+.card{
+  position:absolute;
+  display:block;
+  right:.375em;
+  top:50%;
+  margin-top:-10px;
+  width:28px;
+  height:19px;
+  background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjEwMHB4IiBoZWlnaHQ9IjEwMHB4IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTAwIDEwMCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPGc+CgkJPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0zLjExMSw3Ni4yOTZjMCwyLjg0NCwyLjMwNSw1LjE0OCw1LjE0Nyw1LjE0OGg4MS44OTEgICAgYzIuODQxLDAsNS4xNDctMi4zMDUsNS4xNDctNS4xNDh2LTMyLjg5SDMuMTExVjc2LjI5NnogTTY5LjY3OSw1NS42OTdoMTUuOTE0djE1LjkxNEg2OS42NzlWNTUuNjk3eiBNOTAuMTQ5LDE3LjUwM0g4LjI1OCAgICBjLTIuODQyLDAtNS4xNDcsMi4zMDUtNS4xNDcsNS4xNDd2Ny42OTNoOTIuMTg2VjIyLjY1Qzk1LjI5NywxOS44MDgsOTIuOTksMTcuNTAzLDkwLjE0OSwxNy41MDN6Ii8+Cgk8L2c+CjwvZz4KPC9zdmc+) no-repeat center center;
+  background-size: 100%;
+}
+ 
+.cardInfo-cc__exp,
+.cardInfo-cc__cvc{
+  float:left;
+  max-width:4.875em;
+}
+ 
+.cardInfo-cc__exp{
+  margin-right:.75em;
+}
+ 
+// .cc-num.visa + .card{
+//   background:url('visa.png') no-repeat center center;
+// }
+ 
+// .cc-num.amex + .card{
+//   background:url('amex.png') no-repeat center center;
+// }
+ 
+// .cc-num.mastercard + .card{
+//   background:url('mastercard.png') no-repeat center center;
+// }
+ 
+// .cc-num.diners + .card{
+//   background:url('diners.png') no-repeat center center;
+// }
+ 
+// .cc-num.discover + .card{
+//   background:url('discover.png') no-repeat center center;
+// }
+
+#cc-num, #cc-exp, #cc-cvc  {
+display: block;
+margin-top: .35em;
+padding: .35em;
+background: #fff;
+border: solid 1px #ccc;
+border-radius: .1875em;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+-webkit-transition: all 0.2s;
+transition: all 0.2s;
+-webkit-font-smoothing: antialiased;
+}
+
+#cc-num__wrap {
+background: #333131;
+color: #fefbe3;
+text-shadow: none;
+}
+
+.pay-button {
+  font-size: .875em;
+background: #2ecc71;
+border: solid 1px #29b765;
+padding: .375em .5em;
+color: #fff;
+border-radius: .1875em;
+}
+
+.cardInfo {
+  margin-top: 80px;
+  background-color: #f8f9fb;
 }

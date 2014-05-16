@@ -45,19 +45,41 @@ $(document).ready(function() {
 	// 	// e.preventDefault();
 	// 	});
 
-	var favorites = $('.buttons');
-	var button_keep = $('.keep-button');
-	var button_accept = $('.accept-button');
-	var button_reject = $('.reject-button');
-  var favoritesTop = favorites.offset().top;
-    $(window).scroll(function() {
-        var makeItStick = favoritesTop < $(window).scrollTop();
-        favorites.toggleClass('stuck', makeItStick);
-        button_keep.toggleClass('stuck', makeItStick);
-        button_accept.toggleClass('stuck', makeItStick);
-        button_reject.toggleClass('stuck', makeItStick);
-        favorites.css('center');
+
+
+	// var favorites = $('.buttons');
+	// var button_keep = $('.keep-button');
+	// var button_accept = $('.accept-button');
+	// var button_reject = $('.reject-button');
+ //  var favoritesTop = favorites.offset().top;
+ //    $(window).scroll(function() {
+ //        var makeItStick = favoritesTop < $(window).scrollTop();
+ //        favorites.toggleClass('stuck', makeItStick);
+ //        button_keep.toggleClass('stuck', makeItStick);
+ //        button_accept.toggleClass('stuck', makeItStick);
+ //        button_reject.toggleClass('stuck', makeItStick);
+ //        favorites.css('center');
+ //    });
+
+	$('.show-field').click(function(){
+        var n = $('.text-box').length + 1;
+        var box_html = $('<p class="text-box"><label for="box' + n + '">Box <span class="box-number">' + n + '</span></label> <input type="text" name="boxes[]" value="" id="box' + n + '" /> <a href="#" class="remove-box">Remove</a></p>');
+        box_html.hide();
+        $('p.text-box:last').after(box_html);
+        box_html.fadeIn('slow');
+        return false;
     });
+
+	$('.remove-box').click(function(){
+    // $(this).parent().css( 'background-color', '#FF6C6C' );
+    $(this).parent().fadeOut("slow", function() {
+        $(this).remove();
+        // $('.box-number').each(function(index){
+        //     $(this).text( index + 1 );
+        // });
+    });
+    return false;
+});
 
 });
 

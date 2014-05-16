@@ -1,5 +1,6 @@
 class ApplicantsController < ApplicationController
   before_filter :authenticate_user!
+  before_action :set_applicant, only: [:show, :edit, :update, :destroy]
 
 	def index
 		@job = Job.find(params[:job_id])
@@ -11,6 +12,9 @@ class ApplicantsController < ApplicationController
     @applicant = Applicant.find(params[:id])
     @job_applied_for = JobApplication.find_by(:applicant_id => params[:id])
     @notes = Note.all.where(:applicant_id => params[:id])
+  end
+
+  def edit
   end
 
 	def create
@@ -28,6 +32,18 @@ class ApplicantsController < ApplicationController
         format.json { render action: 'show', status: :created, location: @applicant }
       else
         format.html { render action: 'new' }
+        format.json { render json: @applicant.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update
+    respond_to do |format|
+      if @applicant.update(applicant_params)
+        format.html { redirect_to applicant_url, notice: 'Applicant was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
         format.json { render json: @applicant.errors, status: :unprocessable_entity }
       end
     end
@@ -53,8 +69,12 @@ class ApplicantsController < ApplicationController
 
   private
 
+    def set_applicant
+      @applicant = Applicant.find(params[:id])
+    end
+
     def applicant_params
-      params.require(:applicant).permit(:first_name, :last_name, :birthdate, :address, :age, :current_job_role, :current_job_company, :current_job_city, :resume, :resume_parse, :cover_letter, :phone_number, :email_address)
+      params.require(:applicant).permit(:first_name, :last_name, :birthdate, :address, :age, :current_job_role, :current_job_company, :current_job_city, :resume, :resume_parse, :cover_letter, :phone_number, :email_address, :rating)
     end
 
     def new_job_application
