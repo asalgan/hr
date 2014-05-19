@@ -266,15 +266,14 @@ label {
 }
 
 .homepage {
-  background-image: url(http://graphics8.nytimes.com/images/2013/09/22/magazine/22well/22well-superJumbo-v2.jpg);
-  background-repeat: no-repeat;
-  background-position: -100px;
-  overflow-x: hidden;
 
   .home-top-section {
-    margin-top: 100px;
+    margin-top: 50px;
     height: 480px;
     color: white;
+    background-image: url(http://graphics8.nytimes.com/images/2013/09/22/magazine/22well/22well-superJumbo-v2.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
 
     .home-header {
 
@@ -288,6 +287,7 @@ label {
         @extend %homepageheaders;
         width: 700px;
         font-size: 20px;
+        line-height: 26px;
       }
     }
   }
@@ -295,13 +295,78 @@ label {
   .home-second-section {
     background-color: white;
     color: black;
-    height: 600px;
+    height: 2, 00px;
 
     .home-second-section-header {
       line-height: 30px;
       text-align: center;
       margin-top: 30px;
       float: none;
+    }
+  }
+
+  section.home-second, section.home-third, section.home-fourth, section.home-fifth{
+    // border-bottom: 1px solid #ddd;
+    height: 800px;
+
+    .company-home-header {
+      text-align: center;
+      margin-top: 50px;
+      position: relative;
+    }
+
+    .company-home-description {
+      text-align: center;
+      line-height: 24px;
+    }
+
+    .image {
+      margin-top: 40px;
+      border-bottom: 2px solid #eee;
+    }
+  }
+  
+  .homepage-link {
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
+
+    a {
+      color: $darkteal;
+      text-decoration: none;
+      background-color: none;
+      font-size: 16px;
+
+      &:hover {
+        background-color: transparent;
+        color: lighten($darkteal, 10%);
+      }
+    }
+  }
+
+  section.home-fifth {
+    border: none;
+  }
+
+  section.signup {
+    height: 140px;
+
+  .signup-link {
+    margin-bottom: 100px;
+
+      a {
+        color: white;
+        font-weight: bold;
+        background-color: #ff6666;
+        padding: 15px 65px;
+        border-radius:5px;
+      
+        &:hover {
+          background-color: darken(#ff6666, 10%);
+          cursor: pointer;
+          text-decoration: none;
+        }
+      }
     }
   }
 }
@@ -342,53 +407,6 @@ label {
           line-height: 30px;
         }
       }
-    }
-
-    section.home-second, section.home-third, section.home-fourth, section.home-fifth{
-      border-bottom: 1px solid #ddd;
-      height: 700px;
-
-      .company-home-header {
-        text-align: center;
-        margin-top: 50px;
-        position: relative;
-      }
-
-      .company-home-description {
-        text-align: center;
-        line-height: 24px;
-      }
-
-      .image {
-        margin-top: 40px;
-        border-bottom: 2px solid #eee;
-      }
-    }
-    
-    .homepage-link {
-      display: inline-block;
-      text-align: center;
-      margin: 0 auto;
-
-      a {
-        color: $darkteal;
-        text-decoration: none;
-        background-color: none;
-        font-size: 16px;
-
-        &:hover {
-          background-color: transparent;
-          color: lighten($darkteal, 10%);
-        }
-      }
-    }
-
-    section.home-fourth {
-      height: 800px;
-    }
-
-    section.home-fifth {
-      border: none;
     }
 
     section.positions-first {

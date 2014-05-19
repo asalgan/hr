@@ -18,7 +18,7 @@ class CompaniesController < ApplicationController
 
   def show
     if user_signed_in?
-      redirect_to home_company_url
+      redirect_to company_jobs_url(current_user.company.id)
     end
   end
 
