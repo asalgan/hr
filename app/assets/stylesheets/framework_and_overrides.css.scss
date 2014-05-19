@@ -279,8 +279,8 @@ label {
 
       h1 {
         @extend %homepageheaders;
-        width: 300px;
         margin-bottom: 40px;
+        font-family: 'Noto Sans', sans-serif;
       }
 
       .home-subheader {
@@ -313,11 +313,15 @@ label {
       text-align: center;
       margin-top: 50px;
       position: relative;
+      font-family: 'Noto Sans', sans-serif;
+      font-weight: 600;
     }
 
     .company-home-description {
       text-align: center;
+      font-family: 'Noto Sans', sans-serif;
       line-height: 24px;
+      font-size: 16px;
     }
 
     .image {
@@ -344,15 +348,21 @@ label {
     }
   }
 
-  section.home-fifth {
-    border: none;
+  section.home-fourth {
+    height: 850px;
   }
 
   section.signup {
     height: 140px;
 
+    h3 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
   .signup-link {
     margin-bottom: 100px;
+    text-align: center;
 
       a {
         color: white;
