@@ -66,6 +66,7 @@ class JobsController < ApplicationController
     @job.update_attributes(live_status: true)
     redirect_to company_jobs_path(params[:company_id])
   end
+  
 
   private
 

@@ -25,14 +25,8 @@
 	</div>
 	<div>
 		<%= f.label :job_code, "Job Code (optional)" %>
-		<%= f.number_field :job_code, placeholder: "Enter Job Code" %>
+		<%= f.text_field :job_code, placeholder: "Enter Job Code" %>
 	</div>
-	<div class="new-questions">
-		<p class="show-field">click to add new field</p>
-		<p class="text-box">
-			
-			
-		</p>
 	<div>
 		<%= f.hidden_field :company_id, :value => current_company.id %>
 	</div>

@@ -410,8 +410,24 @@ label {
           border-radius: 10px;
         }
 
+        .blank-state {
+          margin-top: 30px;
+          background-image: url('/assets/job-openings-blank-state.jpg');
+          height: 300px;
+        }
+
         .new-opening-button {
           @extend %teal-button
+        }
+
+        .new-opening-button-blank-state {
+          @extend %teal-button;
+          float: left;
+          margin-top: 120px;
+
+          a {
+            text-align: center;
+          }
         }
 
         .current-header {
@@ -450,6 +466,13 @@ label {
 
               .applicant-info {
                 height: 24px;
+              }
+
+              .no-applicants {
+                margin-bottom: 0px;
+                margin-top: 10px;
+                color: gray;
+                font-style: italic;
               }
             }
 
@@ -894,8 +917,15 @@ label {
       padding: 0;
       margin: 0;
 
+      .job-opening-link a {
+        color: darken(#c1c7c7, 20%);
+
+        &:hover {
+          color: white;
+        }
+      }
+
       li {
-        height: 100px;
         vertical-align: baseline;
         margin: 0;
 

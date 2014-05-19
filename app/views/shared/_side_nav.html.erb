@@ -11,6 +11,16 @@
 				<span class="category">JOBS</span>
 			</li>
 			<% end %>
+			<% if current_company.jobs.present? %>
+				<% current_company.jobs.order("created_at DESC").each do |opening| %>
+					<li class="job-opening-link"><%= link_to company_job_url(:id => opening.id, company_id: current_company.id) do %>
+						<%= opening.title %>
+					<% end %>
+				<% end %>
+					<% else %>
+				<% nil %>
+			<% end %></li>
+			
 			<li><%= link_to company_prospects_url(current_company) do %>
 				<img src="/assets/prospects.png" alt="">
 				<span class="category">PROSPECTS</span>

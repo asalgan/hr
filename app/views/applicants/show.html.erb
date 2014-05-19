@@ -42,7 +42,7 @@
 					    <%= render 'note', :note => n %>
 					  <% end %>
 					<% else %>
-						<p class="no-notes-state">No notes yet. You can quickly create a new note below</p>
+						<img src="/assets/empty-state-notes.jpg" alt="" class="no-notes-state">
 					<% end %>
 				</ul>
 				<%= form_for Note.new, remote: true do |f| %>

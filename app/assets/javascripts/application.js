@@ -61,25 +61,6 @@ $(document).ready(function() {
  //        favorites.css('center');
  //    });
 
-	$('.show-field').click(function(){
-        var n = $('.text-box').length + 1;
-        var box_html = $('<p class="text-box"><label for="box' + n + '">Box <span class="box-number">' + n + '</span></label> <input type="text" name="boxes[]" value="" id="box' + n + '" /> <a href="#" class="remove-box">Remove</a></p>');
-        box_html.hide();
-        $('p.text-box:last').after(box_html);
-        box_html.fadeIn('slow');
-        return false;
-    });
-
-	$('.remove-box').click(function(){
-    // $(this).parent().css( 'background-color', '#FF6C6C' );
-    $(this).parent().fadeOut("slow", function() {
-        $(this).remove();
-        // $('.box-number').each(function(index){
-        //     $(this).text( index + 1 );
-        // });
-    });
-    return false;
-});
 
 });
 
