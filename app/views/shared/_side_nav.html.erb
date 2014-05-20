@@ -7,7 +7,7 @@
 			</li>
 			<%# end %> -->
 			<li><%= link_to company_jobs_url(current_company) do %>
-				<img src="/assets/position.png" alt="">
+				<i class="fa fa-folder-open-o"></i>
 				<span class="category">JOBS</span>
 			</li>
 			<% end %>
@@ -22,7 +22,7 @@
 			<% end %></li>
 			
 			<li><%= link_to company_prospects_url(current_company) do %>
-				<img src="/assets/prospects.png" alt="">
+				<i class="fa fa-users"></i>
 				<span class="category">PROSPECTS</span>
 			</li>
 			<% end %>
@@ -32,6 +32,11 @@
 				<span class="category">PIPELINE</span>
 			</li> -->
 			<%# end %>
+			<li><%= link_to edit_user_registration_path do %>
+				<i class="fa fa-cogs"></i>
+				<span class="category">SETTINGS</span>
+			</li>
+			<% end %>
 		</ul>
 	</nav>
 </div>
