@@ -1,9 +1,6 @@
 <p class="show-job-page-label">Description</p>
 <p class="show-job-description job-info">
-  We started to solve a simple problem – shopping for clothes in stores or online just doesn’t work for most guys. It’s overwhelming, inconvenient, and takes way too much time. With Trunk Club, guys discover awesome clothes that are perfect for them without ever having to go shopping. We combine top brands, expert service, and unparalleled convenience to deliver a highly personalized experience that helps guys look their best.
-
-  We start by scouring the planet for the very best in men’s apparel, curating an ever-evolving assortment of pieces from our favorite designers. With the best inventory anywhere as our point of departure, a Stylist on our team hand-selects a trunk of items based on each customer’s needs and tastes. They keep what they love and send the rest right back to us, at no cost to them.
-  <%#= @job.description %>
+  <%= @job.description.html_safe %>
 </p>
 
 <p class="show-job-page-label">Employment Type</p>
