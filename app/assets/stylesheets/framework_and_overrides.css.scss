@@ -309,9 +309,16 @@ label {
     // border-bottom: 1px solid #ddd;
     height: 800px;
 
-    .company-home-header {
+    h4 {
       text-align: center;
       margin-top: 50px;
+      color: #666688;
+      font-size: 26px;
+    }
+
+    .company-home-header {
+      text-align: center;
+      margin-top: 20px;
       position: relative;
       font-family: 'Noto Sans', sans-serif;
       font-weight: 600;
