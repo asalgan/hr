@@ -9,8 +9,7 @@ $ ->
     # to set options
     height:300  
     toolbar: [
-               ['insert', ['picture', 'link']],
-               ["table", ["table"]], 
+               ['insert', ['picture', 'link']], 
                ["style", ["style"]], 
                ["fontsize", ["fontsize"]], 
                ["color", ["color"]], 
