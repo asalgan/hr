@@ -104,13 +104,14 @@ body, html {
       margin-right: 15px;
 
       a {
-        color: white;
+        @extend %transition;
+        color: #ff6666;
         font-weight: bold;
-        background-color: #ff6666;
+        border: 1px solid #ff6666;
         padding-top: 5px;
         padding-bottom: 5px;
         margin-top: 10px;
-        border-radius:5px;
+        border-radius:28px;
       
         &:hover {
           background-color: darken(#ff6666, 10%);
@@ -624,7 +625,7 @@ label {
               color: #666;
             }
 
-            #job_title, #job_location, #job_department, #job_job_code {
+            #job_title, #job_location, #job_department, #job_job_code, #job_additional_question1, #job_additional_question2, #job_additional_question3 {
               @extend %form-fields;
               height: 32px;
             }

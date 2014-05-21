@@ -39,6 +39,8 @@ Hr::Application.routes.draw do
   resources :charges
   post "/charges/new" => "charges#new"
 
+  get "/companies/:company_id/jobs/:job_id/thank_you" => "job_applications#submitted_application", :as => :thanks
+
 
 
 end
