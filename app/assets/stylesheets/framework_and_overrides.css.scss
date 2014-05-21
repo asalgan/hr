@@ -690,6 +690,10 @@ label {
             display: inline-block;
           }
 
+          .guess {
+            padding-left: 0px;
+          }
+
           .job-information {
             border-top: 1px solid #D8D8D8;
             border-bottom: 1px solid #D8D8D8;
@@ -735,7 +739,7 @@ label {
 
           .show-job-page-label {
             color: #B8B8B8;
-            margin-top: 20px;
+            margin-top: 40px;
             margin-bottom: 5px;
             font-weight: bold;
           }
