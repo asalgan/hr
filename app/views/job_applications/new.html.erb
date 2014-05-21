@@ -3,16 +3,25 @@
 		<div class="application-main col-md-10 col-md-offset-1">
 			<h3 class="job-application-company"><%= @company.name %></h3>
 			<h2 class="job-application-title"><%= @job_application.title %></h2>
-			<p class="job-application-info"><b>Location:</b> <%= @job_application.location %></p>
-			<p class="job-application-info"><b>Department:</b> <%= @job_application.department %></p>
-			<p class="job-application-info"><b>Employment Type:</b> <%= @job_application.employment_type %></p>
-			<p class="job-application-info"><b>Min. Experience Level:</b> <%= @job_application.experience_level %></p><br>
+			<% if @job_application.location.present? %>
+				<p class="job-application-info"><b>Location:</b> <%= @job_application.location %></p>
+			<% end %>
+			<% if @job_application.department.present? %>
+				<p class="job-application-info"><b>Department:</b> <%= @job_application.department %></p>
+			<% end %>
+			<% if @job_application.employment_type.present? %>
+				<p class="job-application-info"><b>Employment Type:</b> <%= @job_application.employment_type %></p>
+			<% end %>
+			<% if @job_application.experience_level.present? %>
+				<p class="job-application-info"><b>Min. Experience Level:</b> <%= @job_application.experience_level %></p>
+			<% end %><br>
 			<div class="job-application-info description"><%= @job_application.description.html_safe %></p>
 			</div>
 			<h4 class="apply-header">Apply for this job</h4>
 			<div class="apply-box">
 				
 				<div class="apply-form col-md-12">
+					<p>* = required field</p>
 					<%= render 'apply_form' %>
 				</div>
 				<span><script type="IN/Apply" data-companyId="<%= params[:company_id] %>" data-jobTitle="<%= @job_application.title %>" data-themeColor="#FF9900" data-size="medium" data-jobLocation="<%= @job_application.location %>" data-phone="required" data-jobId="<%= @job_application.id %>"></script></span>

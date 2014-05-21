@@ -23,6 +23,7 @@ class CompaniesController < ApplicationController
   end
 
   def new
+    @disable_nav = true
     @company = Company.new
   end
 
