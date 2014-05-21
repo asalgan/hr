@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   end
 
   def days_count
-    (created_at.to_date + User::FREE_TRIAL_DAYS) - Date.today
+    ((created_at.to_date + User::FREE_TRIAL_DAYS) - Date.today).to_i
   end  
 
   def remaining_days

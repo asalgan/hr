@@ -5,7 +5,7 @@
 	</div>
 	<div>
 		<%= f.label :description, "Job Description *" %>
-		<%= f.text_area :description, class: "summernote", id:'post_content' %>
+		<%= f.text_area :description, class: "summernote", id:'post_content', required: :true %>
 	</div>
 	<div>
 		<%= f.label :employment_type, "Employment Type (optional)" %>
