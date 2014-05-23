@@ -20,6 +20,7 @@ gem 'fancybox2-rails'
 gem 'best_in_place', :git => 'https://github.com/aaronchi/best_in_place.git'
 gem 'pg'
 gem 'pdf-reader'
+gem 'zeroclipboard-rails'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 group :development do
@@ -27,6 +28,7 @@ group :development do
   gem 'rails_layout'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'quiet_assets'
 end
 group :development, :test do
   gem 'rspec-rails'

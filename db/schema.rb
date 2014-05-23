@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140521213156) do
+ActiveRecord::Schema.define(version: 20140523202445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,10 @@ ActiveRecord::Schema.define(version: 20140521213156) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
   create_table "job_applications", force: true do |t|
@@ -55,12 +59,15 @@ ActiveRecord::Schema.define(version: 20140521213156) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "application_status"
+    t.string   "additional_question1"
+    t.string   "additional_question2"
+    t.string   "additional_question3"
   end
 
   create_table "jobs", force: true do |t|
     t.string   "title"
     t.text     "description"
-    t.boolean  "filled",               default: false
+    t.boolean  "filled",              default: false
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -69,11 +76,9 @@ ActiveRecord::Schema.define(version: 20140521213156) do
     t.string   "experience_level"
     t.integer  "job_code"
     t.string   "location"
-    t.boolean  "live_status",          default: true
+    t.boolean  "live_status",         default: true
     t.string   "additional_question"
-    t.string   "additional_question1"
-    t.string   "additional_question2"
-    t.string   "additional_question3"
+    t.boolean  "filled_status",       default: false
   end
 
   create_table "notes", force: true do |t|

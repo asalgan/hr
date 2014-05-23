@@ -45,6 +45,8 @@ class CompaniesController < ApplicationController
   end
 
   def update
+    @company = current_company
+
     respond_to do |format|
       if @company.update(company_params)
         format.html { redirect_to @company, notice: 'Company was successfully updated.' }
@@ -67,7 +69,7 @@ class CompaniesController < ApplicationController
   private
 
     def company_params
-      params.require(:company).permit(:name, :user_id)
+      params.require(:company).permit(:name, :user_id, :logo)
     end
 
 end

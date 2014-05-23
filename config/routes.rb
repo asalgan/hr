@@ -15,6 +15,8 @@ Hr::Application.routes.draw do
       put :make_inactive      
       get :make_active
       put :make_active
+      get :change_job_status
+      put :change_job_status
     end
     resources :prospects
   end
@@ -39,7 +41,7 @@ Hr::Application.routes.draw do
   resources :charges
   post "/charges/new" => "charges#new"
 
-  get "/companies/:company_id/jobs/:job_id/thank_you" => "job_applications#submitted_application", :as => :thanks
+  get "/thank-you" => "applicants#submitted_application", :as => :thanks
 
 
 

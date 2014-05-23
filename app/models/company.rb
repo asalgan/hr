@@ -5,4 +5,7 @@ class Company < ActiveRecord::Base
 	has_many :job_applications
 	has_many :prospects
 
+	has_attached_file :logo
+  validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
+
 end

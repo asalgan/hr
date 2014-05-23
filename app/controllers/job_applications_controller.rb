@@ -17,16 +17,17 @@ class JobApplicationsController < ApplicationController
     @job_application = JobApplication.new(job_application_params)
     @applicant = Applicant.new(applicant_params)
 
-    respond_to do |format|
-      if @job_application.save && @applicant.save
-        format.html { redirect_to company_job_job_applications_path, notice: 'Thank you for applying' }
-        format.json { render action: 'show', status: :created, location: @job_application }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @job_application.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #   if @job_application.save && @applicant.save
+    #     format.html { redirect_to company_job_job_applications_path, notice: 'Thank you for applying' }
+    #     format.json { render action: 'show', status: :created, location: @job_application }
+    #   else
+    #     format.html { render action: 'new' }
+    #     format.json { render json: @job_application.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
+
 
   private
 

@@ -1,5 +1,5 @@
 class ApplicantsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, only: [:index, :show, :edit, :update, :destroy]
   before_action :set_applicant, only: [:show, :edit, :update, :destroy]
 
 	def index
@@ -28,7 +28,7 @@ class ApplicantsController < ApplicationController
         else 
           nil
         end
-        format.html { redirect_to root_path, notice: 'Thank you for applying' }
+        format.html { redirect_to thanks_url, notice: 'Thank you for applying' }
         format.json { render action: 'show', status: :created, location: @applicant }
       else
         format.html { render action: 'new' }
@@ -65,6 +65,10 @@ class ApplicantsController < ApplicationController
     @applicant = JobApplication.find_by(:applicant_id => params[:applicant_id])
     @applicant.update_attributes(application_status: "Rejected")
     redirect_to applicant_path(params[:applicant_id])
+  end
+
+  def submitted_application
+    @disable_nav = true
   end
 
   private

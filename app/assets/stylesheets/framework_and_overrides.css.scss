@@ -49,6 +49,11 @@ $darkteal: #55B4B0;
   opacity: .8;
 }
 
+body, html {
+  -webkit-font-smoothing: antialiased;
+  background-color: #f8f9fb;
+}
+
 a {
 text-decoration: none;
 background-color: none;
@@ -56,11 +61,6 @@ background-color: none;
   &:hover {
     background-color: transparent;
   }
-}
-
-body, html {
-  -webkit-font-smoothing: antialiased;
-  background-color: #f8f9fb;
 }
 
 .container {
@@ -740,7 +740,6 @@ label {
 
           .show-job-page-label {
             color: #B8B8B8;
-            margin-top: 40px;
             margin-bottom: 5px;
             font-weight: bold;
           }
@@ -749,6 +748,7 @@ label {
             margin-top: 10px;
             margin-bottom: 40px;
             font-size: 15px;
+            display: inline-block;
             
             &:hover {
               cursor: pointer;
@@ -771,6 +771,19 @@ label {
               text-decoration: underline;
             }
           }
+
+          .my_clip_button {
+            color: white;
+            margin-top: 20px;
+            border: none;
+            background-color: #666688;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            font-family: AvenirLT-Heavy,Helvetica Neue,Helvetica,Arial,sans-serif;
+            letter-spacing: 1px;
+            height: 42px;
+            margin-bottom: 60px;
+          }
         }
 
         h4 {
@@ -782,7 +795,8 @@ label {
           text-align: center;
           padding: 10px 20px;
           border: 2px solid #666688;
-          border-radius: 6px;
+          border-top-left-radius: 5px;
+          border-bottom-left-radius: 5px;
           font-size: 16px;
           margin-top: 20px;
           margin-bottom: 60px;
@@ -1003,16 +1017,30 @@ span.best_in_place {
   .application-main {
     margin-top: 40px;
 
+    .job-application-company {
+      max-height: 150px;
+      max-width: 150px;
+      margin-bottom: 10px;
+    }
+
     .job-application-title {
-      margin-top: 40px;
+      margin-top: 60px;
       font-weight: 600;
-      font-family:  'Open Sans Light', Arial, Helvetica, sans-serif
+      font-family:'Noto Sans', sans-serif;
+      display: inline-block;
     }
 
     .job-application-info {
       display: inline-block;
-      margin-right: 20px;
+      margin-right: 40px;
       color: #505050;
+      font-size: 14px;
+      font-family:'Noto Sans', sans-serif;
+
+      .fa-map-marker {
+        padding-left: 10px;
+        padding-right: 5px;
+      }
     }
 
     p:nth-child(3) {
@@ -1076,13 +1104,30 @@ span.best_in_place {
           .job-submit {
             @extend %teal-button;
             margin-right: 0px;
-            margin-top: 40px;
+            margin-top: 50px;
             border-left: 0px;
             border-top: 0px;
             border-right: 0px;
             float: none;
             -webkit-font-smoothing: antialiased;
           }
+        }
+      }
+    }
+
+    .application-page-footer {
+      text-align: center;
+      height: 40px;
+      margin-bottom: 40px;
+      border-top: 1px solid #ccc;
+
+      a {
+        background-color: transparent;
+        text-decoration: none;
+        color: #515357;
+
+        &:hover {
+          color: $darkteal;
         }
       }
     }
@@ -1579,7 +1624,7 @@ span.best_in_place {
   .edit-form {
     margin: 0 auto;
     position: relative;
-    width: 924px;
+    // width: 924px;
     margin-top: 40px;
 
     #user_name, #user_email, #user_password, #user_password_confirmation, #user_current_password {
@@ -1615,5 +1660,139 @@ span.best_in_place {
         }
       }
     }
+  }
+
+  .upload-logo {
+    margin-top: 40px;
+
+    .finish-editing-button {
+      @extend %teal-button;
+      margin-right: 0px;
+      margin-top: 40px;
+      border-left: 0px;
+      border-top: 0px;
+      border-right: 0px;
+      float: none;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .logo-info {
+      margin-top: 10px;
+    }
+  }
+}
+
+.thank-you-page {
+  background-color: #f8f9fb;
+  text-align: center;
+
+  .thank-you-main {
+    margin-top: 50px;
+    font-family: 'Noto Sans', sans-serif;
+
+    h4 {
+      margin-top: 30px;
+    }
+  }
+}
+
+$switchTransition: .15s ease-out;
+
+.switch {
+  position: relative;
+  margin-top: 30px;
+  display: inline-block;
+  vertical-align: top;
+  width: 96px;
+  height: 22px;
+  padding: 3px;
+  background-color: #F8F8F8;
+  border-radius: 18px;
+  box-shadow: inset 0 -1px #F8F8F8,
+              inset 0 1px 1px rgba(black, .05);
+  cursor: pointer;
+}
+
+.switch-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.switch-label {
+  position: relative;
+  display: block;
+  height: inherit;
+  font-size: 10px;
+  text-transform: uppercase;
+  background: #47a8d8;
+  border-radius: inherit;
+  box-shadow: inset 0 1px 2px rgba(black, .12),
+              inset 0 0 2px rgba(black, .15);
+  @include transition($switchTransition);
+  @include transition-property(opacity background);
+
+  &:before, &:after {
+    position: absolute;
+    top: 50%;
+    margin-top: -.5em;
+    line-height: 1;
+    @include transition(inherit);
+  }
+
+  &:before {
+    content: attr(data-on);
+    right: 11px;
+    color: #F8F8F8;
+    text-shadow: 0 1px rgba(black, .2);
+    
+  }
+
+  &:after {
+    content: attr(data-off);
+    left: 11px;
+    color: #aaa;
+    text-shadow: 0 1px rgba(#F8F8F8, .5);
+    opacity: 0;
+  }
+
+  .switch-input:checked ~ & {
+    background: #eceeef;
+    box-shadow: inset 0 1px 2px rgba(black, .15),
+                inset 0 0 3px rgba(black, .2);
+    &:before { opacity: 0; }
+    &:after { opacity: 1; }
+  }
+}
+
+.switch-handle {
+  position: absolute;
+  top: 5px;
+  left: 4px;
+  width: 18px;
+  height: 18px;
+  background: #F8F8F8;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px rgba(black, .2);
+  @include transition(left #{$switchTransition});
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -6px 0 0 -6px;
+    width: 12px;
+    height: 12px;
+    background: #f9f9f9;
+    border-radius: 6px;
+    box-shadow: inset 0 1px rgba(black, .02);
+  }
+
+  .switch-input:checked ~ & {
+    left: 73px;
+    box-shadow: -1px 1px 5px rgba(black, .2);
+    border-radius: 1px solid #aaa;
   }
 }

@@ -1,7 +1,7 @@
 <%= render 'layouts/page_layout' %>
 
 <section class="edit-page">
-  <div class="edit-form">
+  <div class="edit-form col-md-7">
     <h3>Edit my account</h3>
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :role => 'form'}) do |f| %>
       <%= devise_error_messages! %>
@@ -41,6 +41,14 @@
       <p>Unhappy? Shoot us an email and let's talk about it. Otherwise..</p>
       <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button right' %>
     </div>
+  </div>
+  <div class="upload-logo col-md-5">
+    <h3>Upload your company logo</h3>
+    <%= form_for(current_company) do |f| %>
+      <%= f.file_field :logo %>
+      <%= f.submit 'Save', :class => 'finish-editing-button' %>
+    <% end %>
+    <p class="logo-info">The logo will appear on your job application forms</p>
   </div>
 </section>
 

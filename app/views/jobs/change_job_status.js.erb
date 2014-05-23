@@ -1,0 +1,15 @@
+  $("#onoffswitch").change(function() {
+    if ($("#onoffswitch").is(':checked')) {
+      $.ajax({
+        url: "/companies/#{:company_id}/jobs/#{:job_id}/change_job_status", 
+        type: "POST", 
+        data: { $(this).attr("id"), Value:"1" }
+      } else {
+      	$.ajax({
+	        url: "/companies/#{:company_id}/jobs/#{:job_id}/change_job_status", 
+	        type: "POST", 
+	        data: { $(this).attr("id"), Value:"0" }
+        });
+      }
+    }
+  });

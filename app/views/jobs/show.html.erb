@@ -4,6 +4,14 @@
 		<p class="back-to-openings-button"><%= link_to "&#8592 Back to all openings".html_safe, company_jobs_url %></p>
 		<div class="job-description-first">
 			<h1 class="category-header show-job-title job-info">  <%= best_in_place @job, :title, :type => :input, :path => company_job_path, :ok_button => "Save", :ok_button_class => "job-title-save-btn"%></h1>
+
+			<label class="switch">
+	      <!-- <input type="checkbox" class="switch-input"> -->
+	    <%= check_box 'onoffswitch', company_job_change_job_status_path(:job_id => params[:id]), id:"onoffswitch", class: 'switch-input', remote: true, method: :post %>
+	      <span class="switch-label" data-off="Filled" data-on="Unfilled" ></span>
+	      <span class="switch-handle"></span>
+    	</label>
+
 			<%#= link_to 'Save and return', company_jobs_url, :class => "save-job-button" %>
 			<div class="job-details-form">
 				<div class="job-information">
@@ -21,10 +29,13 @@
 				<% elsif @current_job.live_status == false %>
 					<%= link_to 'Make this job active', company_job_make_active_path(params[:company_id] && :job_id => params[:id]), method: :put, :confirm => 'Are you sure you want to make this job active?', class: "job-inactive-button" %>
 				<% end %>
-				<br>
-				<%= render 'job_description' %>
+				<br><br>
+				<%= render 'job_description' %><br>
 				<h4 class="col-md-10 col-md-offset-1">Below is the unique URL to this job opening's application page. Copy it and post it on your website, job boards, and anywhere else you want to start searching for your next superstar employee.</h4>
-				<p class="copy-url-text col-md-6 col-md-offset-3"><%= "#{request.original_url}" + "/apply" %></p>
+				<p class="copy-url-text col-md-6 col-md-offset-2" id='fe_text'><%= "#{request.original_url}" + "/apply" %></p>  
+				<button class='my_clip_button' data-clipboard-target='fe_text' data-clipboard-text='Default clipboard text from attribute' id='d_clip_button' title='Click me to copy to clipboard.'>
+    			Copy to clipboard
+  			</button>
 			</div>
 		</div>
 	</section>

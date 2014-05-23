@@ -66,6 +66,19 @@ class JobsController < ApplicationController
     @job.update_attributes(live_status: true)
     redirect_to company_jobs_path(params[:company_id])
   end
+
+  def change_job_status
+    @job = Job.find(params[:job_id])
+      if @job.filled_status = true
+    @job.update_attributes(filled_status: false)
+     elsif @job.filled_status = false
+      @job.update_attributes(filled_status: true)
+    end
+     
+     respond_to do |format|
+        format.js
+     end
+  end
   
 
   private
