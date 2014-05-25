@@ -1,73 +1,19 @@
+<%= render 'layouts/page_layout' %>
 
-<!-- <div class="col-md-6 col-md-offset-3 payment-section">
- 
-<%#= form_tag "/charges", method: :post, id: 'payment-form' do %>
-  <span class="payment-errors"></span>
+  <section class="billing">
 
-  <div class="form-row">
-    <label>
-      <span class="col-md-3">Card Number</span>
-      <input type="text" size="20" data-stripe="number" class="card-number"/>
-    </label>
-  </div>
-
-  <div class="form-row">
-    <label>
-      <span class="col-md-3">CVC</span>
-      <input type="text" size="4" data-stripe="cvc" class="cvc"/>
-    </label>
-  </div>
-
-  <div class="form-row">
-    <label>
-      <span class="col-md-3">Expiration (MM/YYYY)</span>
-      <input type="text" size="2" data-stripe="exp-month" class="expiration-month"/>
-    </label>
-    <span> / </span>
-    <input type="text" size="4" data-stripe="exp-year" class="expiration-year"/>
-  </div>
-
-  <button type="submit">Submit Payment</button>
-<%# end %>
-</div>
- -->
-
-
-
-
-<%= form_tag "/charges", class: "cardInfo col-md-4 col-md-offset-4", method: :post, id: 'payment-form' do %>
- 
-  <fieldset class="cardInfo-cardDetails">
- 
-    <div class="form-row cardInfo__cc-num">
-      <label for="cc-num"><abbr title="required">*</abbr><span>Card Number</span></label>
-      <div class="cc-num__wrap">
-        <!-- using type="tel" because type="number" doesn’t pass HTML5 form validation with jQuery.payment formatting -->
-        <input id="cc-num" type="tel" class="paymentInput cc-num" data-stripe="number" placeholder="•••• •••• •••• ••••" autocompletetype="cc-number" required="required">
-        <span class="card" aria-hidden="true"></span>
-      </div>
-    </div>
- 
-    <div class="form-row cardInfo__cc-exp">
-      <label for="cc-exp"><abbr title="required">*</abbr><span>Expires</span></label>
-      <input id="cc-exp" type="tel" class="paymentInput cc-exp" data-stripe="exp-month" placeholder="MM" autocompletetype="cc-exp" required="required">
+    <div class="billing-form">
+      <h1 class="category-header">Create an account</h1>
+      <h3 class="cc-header col-md-4 col-md-offset-4">Credit card information</h3>
+      <%= render 'payment_form' %>
     </div>
 
-    <div class="form-row cardInfo__cc-exp">
-      <label for="cc-exp"><abbr title="required">*</abbr><span>Expires</span></label>
-      <input id="cc-exp" type="tel" class="paymentInput cc-exp" placeholder="YYYY" data-stripe="exp-year" autocompletetype="cc-exp" required="required">
+    <div class="pricing">
+      <h3 class="pricing-header col-md-4 col-md-offset-4">Pricing information</h3>
+      <p class="col-md-6 col-md-offset-3 pricing-subheader">We don't like awkward pricing tiers or unnecessary sales calls. We make pricing simple and affordable.</p>
+      <h1 class="price col-md-4 col-md-offset-4">$19 <span class="per-month"> / month </span></h1>
     </div>
- 
-    <div class="form-row cardInfo__cc-cvc">
-      <label for="cc-cvc"><abbr title="required">*</abbr><span>CVC</span></label>
-      <input id="cc-cvc" type="tel" class="paymentInput cc-cvc" data-stripe="cvc" placeholder="CVC" autocompletetype="cc-cvc" required="required">
-    </div>
- 
-    <div class="cardInfo__submission">
-      <input class="pay-button" name="commit" type="submit" value="Make Payment">
-      <a class="cancel-link" href="/">Cancel</a>
-    </div>
-    
-  </fieldset>
- 
-<% end %>
+
+  </section>
+
+<%= render 'layouts/page_layout_closing_tags' %>

@@ -1,16 +1,13 @@
 <div class="side-nav col-md-1">
 	<nav class="nav-buttons">
 		<ul class="nav-list">
-<!-- 			<li><%#= link_to home_company_url(current_company) do %>
-				<img src="/assets/home.png" alt="">
-				<span class="category">HOME</span>
-			</li>
-			<%# end %> -->
+
 			<li><%= link_to company_jobs_url(current_company) do %>
 				<i class="fa fa-folder-open"></i>
 				<span class="category">JOBS</span>
 			</li>
 			<% end %>
+
 			<% if current_company.jobs.present? %>
 				<% current_company.jobs.order("created_at DESC").each do |opening| %>
 					<li class="job-opening-link"><%= link_to company_job_url(:id => opening.id, company_id: current_company.id) do %>
@@ -24,17 +21,13 @@
 				<span class="category">PROSPECTS</span>
 			</li>
 			<% end %>
-<!-- 			<li>
-				<%#= link_to pipeline_company_url(current_company) do %>
-				<img src="/assets/pipeline.png" alt="">
-				<span class="category">PIPELINE</span>
-			</li> -->
-			<%# end %>
+
 			<li><%= link_to edit_user_registration_path do %>
 				<i class="fa fa-cogs"></i>
 				<span class="category">SETTINGS</span>
 			</li>
 			<% end %>
+			
 		</ul>
 	</nav>
 </div>

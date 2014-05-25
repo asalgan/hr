@@ -1,0 +1,33 @@
+<%= form_tag "/charges", class: "cardInfo col-md-8 col-md-offset-2", method: :post, id: 'payment-form' do %>
+       
+  <fieldset class="cardInfo-cardDetails">
+ 
+    <div class="form-row cardInfo__cc-num col-md-12">
+      <label for="cc-num"><abbr title="required">*</abbr><span>Card Number</span></label>
+      <div class="cc-num__wrap">
+        <!-- using type="tel" because type="number" doesn’t pass HTML5 form validation with jQuery.payment formatting -->
+        <input id="cc-num" type="tel" class="paymentInput cc-num col-md-12" data-stripe="number" placeholder="•••• •••• •••• ••••" autocompletetype="cc-number" required="required">
+        <span class="card" aria-hidden="true"></span>
+      </div>
+    </div>
+ 
+    <div class="form-row cardInfo__cc-exp col-md-6">
+      <label for="cc-exp"><abbr title="required">*</abbr><span>Expiration</span></label>
+      <input id="cc-exp" type="tel" class="paymentInput cc-exp col-md-4" data-stripe="exp-month" placeholder="MM" autocompletetype="cc-exp" required="required"> 
+
+      <input id="cc-exp" type="tel" class="paymentInput cc-exp col-md-4" placeholder="YYYY" data-stripe="exp-year" autocompletetype="cc-exp" required="required">
+    </div><br>
+
+    <div class="form-row cardInfo__cc-cvc col-md-6">
+    <label for="cc-cvc"><abbr title="required">*</abbr><span>CVC</span></label>
+      <input id="cc-cvc" type="tel" class="paymentInput cc-cvc col-md-12" data-stripe="cvc" placeholder="CVC" autocompletetype="cc-cvc" required="required">
+    </div>
+ 
+    <div class="cardInfo__submission col-md-6">
+      <input class="pay-button col-md-6" name="commit" type="submit" value="Save">
+      <a class="cancel-link" href="/">Cancel</a>
+    </div>
+    
+  </fieldset>
+ 
+<% end %>

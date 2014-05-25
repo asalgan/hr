@@ -33,7 +33,7 @@
 				<%= render 'job_description' %><br>
 				<h4 class="col-md-10 col-md-offset-1">Below is the unique URL to this job opening's application page. Copy it and post it on your website, job boards, and anywhere else you want to start searching for your next superstar employee.</h4>
 				<p class="copy-url-text col-md-6 col-md-offset-2" id='fe_text'><%= "#{request.original_url}" + "/apply" %></p>  
-				<button class='my_clip_button' data-clipboard-target='fe_text' data-clipboard-text='Default clipboard text from attribute' id='d_clip_button' title='Click me to copy to clipboard.'>
+				<button class='my_clip_button' data-clipboard-target='fe_text' id='d_clip_button'>
     			Copy to clipboard
   			</button>
 			</div>
