@@ -1,6 +1,7 @@
 class ApplicantsController < ApplicationController
   before_filter :authenticate_user!, only: [:index, :show, :edit, :update, :destroy]
   before_action :set_applicant, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :needs_subscription?, only: [:new, :create, :new_job_application, :resume_parser]
 
 	def index
 		@job = Job.find(params[:job_id])

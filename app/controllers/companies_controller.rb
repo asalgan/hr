@@ -1,6 +1,5 @@
 class CompaniesController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :needs_subscription?
 
   def index
     @companies = Company.all

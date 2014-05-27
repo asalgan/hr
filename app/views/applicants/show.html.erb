@@ -30,7 +30,7 @@
 
 		<div class="rating col-md-3 col-md-offset-8">
 			<p class="col-md-offset-1">Give <%= @applicant.first_name %> a rating</p><br>
-			<div class="rating-dropdown col-md-9 col-md-offset-1"><%= best_in_place @applicant, :rating, :type => :select, :collection => [[0,0],[1,1],[2,2],[3,3],[4,4],[5,5]], :path => applicant_path  %> out of 5</div>
+			<div class="rating-dropdown col-md-9 col-md-offset-1"><%= best_in_place @applicant, :rating, :type => :select, :collection => [[1,1],[2,2],[3,3],[4,4],[5,5]], :path => applicant_path  %> out of 5</div>
 		</div>
 
 		<div class="notes-section col-md-12">

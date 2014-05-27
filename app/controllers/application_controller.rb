@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   def ignore_controllers
-    ["sessions", "registrations", "passwords", "shared", "trials"]
+    ["home", "sessions", "registrations", "passwords", "shared", "trials", "job_applications"]
   end
 
   def needs_subscription?

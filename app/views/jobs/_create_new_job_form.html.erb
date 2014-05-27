@@ -8,11 +8,11 @@
 		<%= f.text_area :description, class: "summernote", id:'post_content' %>
 	</div>
 	<div>
-		<%= f.label :employment_type, "Employment Type (optional)" %>
+		<%= f.label :employment_type, "Employment Type" %>
 		<%= f.select :employment_type, @employment_type_array, class: "form-control" %>
 	</div>
 	<div>
-		<%= f.label :experience_level, "Experience Level Needed (optional)" %>
+		<%= f.label :experience_level, "Experience Level Needed" %>
 		<%= f.select :experience_level, @experience_level_array %>
 	</div>
 	<div>
