@@ -32,7 +32,7 @@ class NotesController < ApplicationController
   def update
     respond_to do |format|
       if @note.update(note_params)
-        format.html { redirect_to @note, notice: 'Note was successfully updated.' }
+        format.html { redirect_to @note }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

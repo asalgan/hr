@@ -29,7 +29,7 @@ class ApplicantsController < ApplicationController
         else 
           nil
         end
-        format.html { redirect_to thanks_url, notice: 'Thank you for applying' }
+        format.html { redirect_to thanks_url }
         format.json { render action: 'show', status: :created, location: @applicant }
       else
         format.html { render action: 'new' }
@@ -41,7 +41,7 @@ class ApplicantsController < ApplicationController
   def update
     respond_to do |format|
       if @applicant.update(applicant_params)
-        format.html { redirect_to applicant_url, notice: 'Applicant was successfully updated.' }
+        format.html { redirect_to applicant_url }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
