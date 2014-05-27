@@ -1,7 +1,9 @@
 <% if user_signed_in? %>
-	<li class="trial-time-left"><%= link_to trial_expired_path do %>
+	<% if current_user.stripe_customer_token.blank? %>
+		<li class="trial-time-left"><%= link_to trial_expired_path do %>
 		You have <%= current_user.remaining_days %> days left in your free trial
-		<% end %>
+	<% end %>
+<% end %>
 	</li>
 <% else %>
   <li class="signup-link"><%= link_to 'Sign up for a free trial', new_user_registration_path %></li>

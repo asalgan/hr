@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          
   has_one :company, :dependent => :destroy
 
-  FREE_TRIAL_DAYS = 40
+  FREE_TRIAL_DAYS = 10
 
   def create_customer(stripeToken)
 	  customer = Stripe::Customer.create(

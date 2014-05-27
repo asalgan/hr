@@ -92,7 +92,7 @@ class ApplicantsController < ApplicationController
 
     def resume_parser
       applicant = Applicant.last
-      io = open('https://dl.dropboxusercontent.com/u/97849947/Alan%20Resume.pdf')
+      io = open('https://s3.amazonaws.com/HRAPP/applicants/resumes/000/000/' + "#{applicant.id}" + "/original/" + "#{applicant.resume_file_name}")
       reader = PDF::Reader.new(io)
       reader.pages.each do |page|
         applicant.resume_parse = page.text.squish

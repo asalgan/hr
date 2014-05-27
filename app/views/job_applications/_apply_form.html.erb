@@ -16,16 +16,16 @@
 		<%= f.email_field :email_address, required: :true %>
 	</div>
 	<div>
-		<%= f.label :current_job_role, "Current role" %>
-		<%= f.text_field :current_job_role, placeholder: "What is your current title?" %>
+		<%= f.label :current_job_role, "Current role *" %>
+		<%= f.text_field :current_job_role, placeholder: "What is your current title?", required: :true %>
 	</div>
 	<div>
-		<%= f.label :current_job_company, "Current company" %>
-		<%= f.text_field :current_job_company, placeholder: "Company where you currently work" %>
+		<%= f.label :current_job_company, "Current company *" %>
+		<%= f.text_field :current_job_company, placeholder: "Company where you currently work", required: :true %>
 	</div>
 	<div>
-		<%= f.label :current_job_city, "Current city" %>
-		<%= f.text_field :current_job_city, placeholder: "Where is your current company located?" %>
+		<%= f.label :current_job_city, "Current city *" %>
+		<%= f.text_field :current_job_city, placeholder: "Where is your current company located?", required: :true %>
 	</div>
 	<div>
 		<%= f.label :resume %>
