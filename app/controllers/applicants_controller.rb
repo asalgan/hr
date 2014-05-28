@@ -24,7 +24,7 @@ class ApplicantsController < ApplicationController
     respond_to do |format|
       if @applicant.save
         new_job_application
-        if @applicant.resume.present?
+        if @applicant.resume.present? && @applicant.resume_content_type == "application/pdf"
           resume_parser
         else 
           nil

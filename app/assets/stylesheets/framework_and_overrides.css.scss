@@ -1691,6 +1691,14 @@ span.best_in_place {
         font-size: 16px;
       }
     }
+
+    .questions {
+      height: 250px;
+
+      .part-a, .part-b {
+        height: 250px;
+      }
+    }
   }  
 }
 
