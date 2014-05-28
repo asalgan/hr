@@ -5,14 +5,23 @@
 		<div class="job-description-first">
 			<h1 class="category-header show-job-title job-info">  <%= best_in_place @job, :title, :type => :input, :path => company_job_path, :ok_button => "Save", :ok_button_class => "job-title-save-btn"%></h1>
 
-			<label class="switch">
-	      <!-- <input type="checkbox" class="switch-input"> -->
-	    <%= check_box 'onoffswitch', company_job_change_job_status_path(:job_id => params[:id]), id:"onoffswitch", class: 'switch-input', remote: true, method: :post %>
-	      <span class="switch-label" data-off="Filled" data-on="Unfilled" ></span>
+<!-- 			<label class="switch">
+	    <%#= check_box 'onoffswitch', company_job_change_job_status_path(:job_id => params[:id]), id:"onoffswitch", class: 'switch-input', remote: true, method: :post %>
+	      <span class="switch-label" data-off="Filled" data-on="Unfilled" data-attribute="<%= @job.id %>"></span>
 	      <span class="switch-handle"></span>
-    	</label>
+    	</label> -->
+  		<% if @current_job.filled_status == false %>
+				<p class="status job-open"><%= link_to company_job_filled_path(:job_id => params[:id]) do %>
+					<i class="fa fa-square-o"></i>
+					<span>Open</span></p>
+				<% end %>
+			<% elsif @current_job.live_status == true %>
+				<p class="status job-filled"><%= link_to company_job_unfilled_path(:job_id => params[:id]) do %>
+					<i class="fa fa-check-square"></i>
+					<span>Filled</span></p>
+				<% end %>
+			<% end %>
 
-			<%#= link_to 'Save and return', company_jobs_url, :class => "save-job-button" %>
 			<div class="job-details-form">
 				<div class="job-information">
 					<p>

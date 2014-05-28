@@ -15,8 +15,10 @@ Hr::Application.routes.draw do
       put :make_inactive      
       get :make_active
       put :make_active
-      get :change_job_status
-      put :change_job_status
+      get :filled
+      put :filled
+      get :unfilled
+      put :unfilled
     end
     resources :prospects
   end
@@ -42,7 +44,6 @@ Hr::Application.routes.draw do
   post "/charges/new" => "charges#new"
 
   get "/thank-you" => "applicants#submitted_application", :as => :thanks
-
 
 
 end

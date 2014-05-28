@@ -4,6 +4,8 @@ class JobsController < ApplicationController
 
   def index
     @current_positions = current_company.jobs
+    @current_positions_unfilled = current_company.jobs.where(:filled_status == false)
+    @current_positions_filled = current_company.jobs.where(:filled_status == true)
   end
 
   def show
@@ -67,17 +69,16 @@ class JobsController < ApplicationController
     redirect_to company_jobs_path(params[:company_id])
   end
 
-  def change_job_status
+  def filled
     @job = Job.find(params[:job_id])
-      if @job.filled_status = true
+    @job.update_attributes(filled_status: true)
+    redirect_to company_job_path(:id => params[:job_id])
+  end
+
+  def unfilled
+    @job = Job.find(params[:job_id])
     @job.update_attributes(filled_status: false)
-     elsif @job.filled_status = false
-      @job.update_attributes(filled_status: true)
-    end
-     
-     respond_to do |format|
-        format.js
-     end
+    redirect_to company_job_path(:id => params[:job_id])
   end
   
 

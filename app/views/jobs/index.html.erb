@@ -9,7 +9,7 @@
       <% end %>
         <h4 class="openings-header col-md-6">From here, you can create new job openings and view/edit current openings below. You can also jump directly to an openings' applicants to view their profiles.</h4>
     </div>
-      <% if @current_positions.present? %>
+      <% if @current_positions_unfilled.present? %>
         <h2 class="current-header">Unfilled</h2>
       <% end %>
       <% if @current_positions.empty? %>
@@ -19,7 +19,7 @@
       <% else %>
         <div class="open-positions-list">
           <ul>
-            <% @current_positions.order("created_at DESC").each do |job| %>
+            <% @current_positions_unfilled.order("created_at DESC").each do |job| %>
               <li class="position">
                 <h2 class="job-title">
                   <%= link_to company_job_url(:id => "#{job.id}") do %>

@@ -47,10 +47,10 @@ $(document).ready(function() {
  //    });
 
   // $("#onoffswitch").change(function() {
-  //   if ($("#onoffswitch").is(':checked')) {
   //     $.ajax({
-  //       url: "/companies/#{:company_id}/jobs/:job_id/change_job_status",
-  //       type: 'POST'
+  //       url: "/companies/#{:company_id}/jobs/#{:job_id}/change_job_status",
+  //       type: 'POST',
+  //       data: 
   //     });
   //   }
   // });
