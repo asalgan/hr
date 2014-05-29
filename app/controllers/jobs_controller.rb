@@ -4,8 +4,8 @@ class JobsController < ApplicationController
 
   def index
     @current_positions = current_company.jobs
-    @current_positions_unfilled = current_company.jobs.where(:filled_status == false)
-    @current_positions_filled = current_company.jobs.where(:filled_status == true)
+    @current_positions_unfilled = @current_positions.where(:filled_status == false)
+    @current_positions_filled = @current_positions.where(:filled_status == true)
   end
 
   def show
