@@ -25,11 +25,9 @@ $(document).ready(function() {
 	var sHTML = $('.summernote').code();
 	$('.summernote').code(sHTML);
 
-
 	$(".best_in_place").best_in_place();
 
-	var clip = new ZeroClipboard($("#d_clip_button"))
-
+	var clip = new ZeroClipboard($("#d_clip_button"));
 
 	// var favorites = $('.buttons');
 	// var button_keep = $('.keep-button');
