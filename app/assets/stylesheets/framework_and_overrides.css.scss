@@ -474,6 +474,7 @@ label {
 
         .current-header {
           margin-top: 100px;
+          color: #444;
         }
 
         .positions-list {
@@ -497,7 +498,7 @@ label {
                 a {
                   color: $darkteal;
                   text-decoration: none;
-                  background-color: none;
+                  background-color: transparent;
 
                   &:hover {
                     background-color: transparent;
@@ -526,11 +527,9 @@ label {
               float: none;
 
               a {
-                text-decoration: none;
                 color: #444;
 
                 &:hover {
-                  background-color: transparent;
                   color: black;
                   text-decoration: underline;
                 }
