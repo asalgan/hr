@@ -17,6 +17,11 @@ module Hr
       g.helper_specs false
     end
 
+    config.to_prepare do
+      Devise::SessionsController.layout "base"
+      Devise::RegistrationsController.layout "base"
+    end
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
