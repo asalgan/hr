@@ -1,55 +1,62 @@
 <% content_for :title do %>Settings<% end %>
 
-<section class="edit-page">
-  <div class="edit-form col-md-7">
-    <h3>Edit my account</h3>
-    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :role => 'form'}) do |f| %>
-      <%= devise_error_messages! %>
-      <div class="form-group">
-        <%= f.label :name %>
-        <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
-      </div>
-      <div class="form-group">
-        <%= f.label :email %>
-        <%= f.email_field :email, class: 'form-control' %>
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-        <% end %>
-      </div>
-      <fieldset>
-        <p>Leave these fields blank if you don't want to change your password.</p>
-        <div class="form-group">
-          <%= f.label :password %>
-          <%= f.password_field :password, :autocomplete => 'off', class: 'form-control' %>
+<div class="container">
+  <div class="content">
+    <%= render 'layouts/side_nav' %>
+    <div class="main col-md-11 col-md-offset-1">
+      <section class="edit-page">
+        <div class="edit-form col-md-7">
+          <h3>Edit my account</h3>
+          <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :role => 'form'}) do |f| %>
+            <%= devise_error_messages! %>
+            <div class="form-group">
+              <%= f.label :name %>
+              <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= f.label :email %>
+              <%= f.email_field :email, class: 'form-control' %>
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+              <% end %>
+            </div>
+            <fieldset>
+              <p>Leave these fields blank if you don't want to change your password.</p>
+              <div class="form-group">
+                <%= f.label :password %>
+                <%= f.password_field :password, :autocomplete => 'off', class: 'form-control' %>
+              </div>
+              <div class="form-group">
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation, class: 'form-control' %>
+              </div>
+            </fieldset>
+            <fieldset>
+              <p>You must enter your current password to make changes.</p>
+              <div class="form-group">
+                <%= f.label :current_password %>
+                <%= f.password_field :current_password, class: 'form-control' %>
+              </div>
+            </fieldset>
+            <%= f.submit 'Update', :class => 'finish-editing-button' %>
+          <% end %>
+          <div class="cancel-account">
+            <h3>Cancel Account</h3>
+            <p>Unhappy? Shoot us an email and let's talk about it. Otherwise..</p>
+            <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button right' %>
+          </div>
         </div>
-        <div class="form-group">
-          <%= f.label :password_confirmation %>
-          <%= f.password_field :password_confirmation, class: 'form-control' %>
+        <div class="upload-logo col-md-5">
+          <h3>Upload your company logo</h3>
+          <%= form_for(current_company) do |f| %>
+            <%= f.file_field :logo %>
+            <%= f.submit 'Save', :class => 'finish-editing-button' %>
+          <% end %>
+          <p class="logo-info">The logo will appear on your job application forms</p>
         </div>
-      </fieldset>
-      <fieldset>
-        <p>You must enter your current password to make changes.</p>
-        <div class="form-group">
-          <%= f.label :current_password %>
-          <%= f.password_field :current_password, class: 'form-control' %>
-        </div>
-      </fieldset>
-      <%= f.submit 'Update', :class => 'finish-editing-button' %>
-    <% end %>
-    <div class="cancel-account">
-      <h3>Cancel Account</h3>
-      <p>Unhappy? Shoot us an email and let's talk about it. Otherwise..</p>
-      <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button right' %>
+      </section>
     </div>
   </div>
-  <div class="upload-logo col-md-5">
-    <h3>Upload your company logo</h3>
-    <%= form_for(current_company) do |f| %>
-      <%= f.file_field :logo %>
-      <%= f.submit 'Save', :class => 'finish-editing-button' %>
-    <% end %>
-    <p class="logo-info">The logo will appear on your job application forms</p>
-  </div>
-</section>
+</div>
 
 
