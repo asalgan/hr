@@ -14,21 +14,11 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <header>
-      <%= render 'layouts/navigation' unless @disable_nav %>
-    </header>
+  <header>
+    <%= render 'layouts/navigation' unless @disable_nav %>
+  </header>
 
-    <%#= render 'layouts/messages' %>
+  <%= yield %>
 
-    <div class="company-page">
-      <div class="container">
-        <div class="content">
-          <%= render 'shared/side_nav' %>
-          <div class="main col-md-11 col-md-offset-1">
-            <%= yield %>
-          </div>
-        </div>
-      </div>
-    </div>
   </body>
 </html>
