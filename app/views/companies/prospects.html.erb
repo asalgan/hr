@@ -1,14 +1,9 @@
-
-
 <%= form_tag(prospects_company_path, method: :get) do %>
-<%= text_field_tag :search, params[:search], placeholder: "search" %>
+	<%= text_field_tag :search, params[:search], placeholder: "search" %>
 <% end %>
 
  
 <% @applicants.each do |prospect| %>
-<%= prospect.applicant.first_name %>
-<%= prospect.applicant.last_name %>
+	<%= prospect.applicant.first_name %>
+	<%= prospect.applicant.last_name %>
 <% end %>
-
-
-
