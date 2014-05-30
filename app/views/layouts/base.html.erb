@@ -5,11 +5,9 @@
   <title><%= (content_for?(:title) ? yield(:title) + " | " : "") + "EasyHire" %></title>
   <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Hr" %>">
   <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
-  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <script data-turbolinks-track="true" src="/assets/bootstrap/tooltip.js?body=1"></script>
-
   <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.payment/1.0.2/jquery.payment.min.js"></script>-->
   <%= csrf_meta_tags %>
 </head>
@@ -22,12 +20,10 @@
 
   <%= content_for?(:content) ? yield(:content) : yield %>
 
-<% if @needs_stripe %>
-<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-<script>
-Stripe.setPublishableKey('<%= ENV['PUBLISHABLE_KEY'] %>');
-</script>
-<% end %>
+  <% if @needs_stripe %>
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script>Stripe.setPublishableKey('<%= ENV['PUBLISHABLE_KEY'] %>');</script>
+  <% end %>
 
 </body>
 </html>
