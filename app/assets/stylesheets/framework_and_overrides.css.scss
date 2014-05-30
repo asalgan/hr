@@ -121,6 +121,7 @@ background-color: transparent;
 
     .login-logout-link {
       color: gray;
+      @extend %transition;
       
       .login-logout-link:hover {
         color: darken($teal, 20%);
@@ -132,6 +133,7 @@ background-color: transparent;
       margin-right: 15px;
 
       a {
+        @extend %transition;
         color: white;
         font-weight: bold;
         background-color: #ff6666;
@@ -375,6 +377,7 @@ label {
     text-align: center;
 
       a {
+        @extend %transition;
         color: white;
         font-weight: bold;
         background-color: #ff6666;
