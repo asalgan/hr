@@ -17,7 +17,7 @@
     <%= render 'layouts/navigation' unless @disable_nav %>
   </header>
 
-  <%= yield %>
+  <%= content_for?(:content) ? yield(:content) : yield %>
 
   </body>
 </html>
