@@ -46,15 +46,6 @@ $(document).ready(function() {
  //        favorites.css('center');
  //    });
 
-  // $("#onoffswitch").change(function() {
-  //     $.ajax({
-  //       url: "/companies/#{:company_id}/jobs/#{:job_id}/change_job_status",
-  //       type: 'POST',
-  //       data: 
-  //     });
-  //   }
-  // });
-
 
 });
 
