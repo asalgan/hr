@@ -17,7 +17,18 @@
     <header>
       <%= render 'layouts/navigation' unless @disable_nav %>
     </header>
-      <%#= render 'layouts/messages' %>
-    <%= yield %>
+
+    <%#= render 'layouts/messages' %>
+
+    <div class="company-page">
+      <div class="container">
+        <div class="content">
+          <%= render 'shared/side_nav' %>
+          <div class="main col-md-11 col-md-offset-1">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

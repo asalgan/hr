@@ -1,4 +1,4 @@
-<%= render 'layouts/page_layout' %>
+
 
 <%= form_tag(prospects_company_path, method: :get) do %>
 <%= text_field_tag :search, params[:search], placeholder: "search" %>
@@ -10,5 +10,5 @@
 <%= prospect.applicant.last_name %>
 <% end %>
 
-<%= render 'layouts/page_layout_closing_tags' %>
+
 
