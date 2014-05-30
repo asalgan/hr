@@ -1,44 +1,40 @@
+<section class="home-first">
+	<div class="intro">
+		<h1>Hi, <%= current_user.name.capitalize %></h1>
+		<h4>We're here to help you find, recruit, and filter the best candidates for your team. Here are some steps to help you get started.</h4>
+	</div>
+</section>
 
+<section class="home-second">
+	<div>
+		<h3 class="company-home-header">Create a new opening</h3>
+		<h5 class="company-home-description col-md-10 col-md-offset-1">Create a new job opening by clicking on the "JOBS" tab on the left. You can view all active and inactive openings, create new ones and track applicants for every opening you create.</h5>
+		<p class="homepage-link col-md-12"><%= link_to "Create an opening now", new_company_job_path(:company_id => params[:id]) %></p>
+		<img src="/assets/openings.jpg" alt="job-opening" class="image col-md-10 col-md-offset-1">
+	</div>
+</section>
 
-	<section class="home-first">
-		<div class="intro">
-			<h1>Hi, <%= current_user.name.capitalize %></h1>
-			<h4>We're here to help you find, recruit, and filter the best candidates for your team. Here are some steps to help you get started.</h4>
-		</div>
-	</section>
+<section class="home-third">
+	<div>
+		<h3 class="company-home-header">View job applicants</h3>
+		<h5 class="company-home-description col-md-10 col-md-offset-1">View all of the applicants for a specific opening.</h5>
+		<img src="/assets/applicants.jpg" alt="applicant-list" class="image col-md-10 col-md-offset-1">
+	</div>
+</section>
 
-	<section class="home-second">
-		<div>
-			<h3 class="company-home-header">Create a new opening</h3>
-			<h5 class="company-home-description col-md-10 col-md-offset-1">Create a new job opening by clicking on the "JOBS" tab on the left. You can view all active and inactive openings, create new ones and track applicants for every opening you create.</h5>
-			<p class="homepage-link col-md-12"><%= link_to "Create an opening now", new_company_job_path(:company_id => params[:id]) %></p>
-			<img src="/assets/openings.jpg" alt="job-opening" class="image col-md-10 col-md-offset-1">
-		</div>
-	</section>
+<section class="home-fourth">
+	<div>
+		<h3 class="company-home-header">View, rate, and decide on individual applicants</h3>
+		<h5 class="company-home-description col-md-10 col-md-offset-1">We make the review process as seamless as possible. Decide whether you want to keep the applicant or immediately reject him/her for the opening with a single click, let us handle the rest.</h5>
+		<img src="/assets/applicant_profile.jpg" alt="applicant-profile" class="image col-md-10 col-md-offset-1">
+	</div>
+</section>
 
-	<section class="home-third">
-		<div>
-			<h3 class="company-home-header">View job applicants</h3>
-			<h5 class="company-home-description col-md-10 col-md-offset-1">View all of the applicants for a specific opening.</h5>
-			<img src="/assets/applicants.jpg" alt="applicant-list" class="image col-md-10 col-md-offset-1">
-		</div>
-	</section>
-
-	<section class="home-fourth">
-		<div>
-			<h3 class="company-home-header">View, rate, and decide on individual applicants</h3>
-			<h5 class="company-home-description col-md-10 col-md-offset-1">We make the review process as seamless as possible. Decide whether you want to keep the applicant or immediately reject him/her for the opening with a single click, let us handle the rest.</h5>
-			<img src="/assets/applicant_profile.jpg" alt="applicant-profile" class="image col-md-10 col-md-offset-1">
-		</div>
-	</section>
-
-	<section class="home-fifth">
-		<div>
-			<h3 class="company-home-header">View all past applicants</h3>
-			<h5 class="company-home-description col-md-10 col-md-offset-1">Don't just stash old applications. Quickly sort through past applicants to fill a new opening, so that you'll always have a list of prospects.</h5>
-			<p class="homepage-link col-md-12"><%= link_to "View your prospects", company_prospects_path(:company_id => params[:id]) %></p>
-			<img src="/assets/prospects.jpg" alt="prospects-list" class="image col-md-10 col-md-offset-1">
-		</div>
-	</section>
-
-
+<section class="home-fifth">
+	<div>
+		<h3 class="company-home-header">View all past applicants</h3>
+		<h5 class="company-home-description col-md-10 col-md-offset-1">Don't just stash old applications. Quickly sort through past applicants to fill a new opening, so that you'll always have a list of prospects.</h5>
+		<p class="homepage-link col-md-12"><%= link_to "View your prospects", company_prospects_path(:company_id => params[:id]) %></p>
+		<img src="/assets/prospects.jpg" alt="prospects-list" class="image col-md-10 col-md-offset-1">
+	</div>
+</section>
