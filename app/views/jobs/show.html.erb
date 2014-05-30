@@ -1,7 +1,7 @@
 <% content_for :title do %><%= @job.title %><% end %>
 
 	<section class="job-description col-md-12">
-		<p class="back-to-openings-button"><%= link_to "&#8592 Back to all openings".html_safe, company_jobs_url %></p>
+		<p class="back-to-openings-button"><%= link_to "&#8592; Back to all openings".html_safe, company_jobs_url %></p>
 		<div class="job-description-first">
 			<h1 class="category-header show-job-title job-info">  <%= best_in_place @job, :title, :type => :input, :path => company_job_path, :ok_button => "Save", :ok_button_class => "job-title-save-btn"%></h1>
 
@@ -11,15 +11,19 @@
 	      <span class="switch-handle"></span>
     	</label> -->
   		<% if @current_job.filled_status == false %>
-				<p class="status job-open"><%= link_to company_job_filled_path(:job_id => params[:id]) do %>
-					<i class="fa fa-square-o"></i>
-					<span>Open</span></p>
-				<% end %>
+				<p class="status job-open">
+					<%= link_to company_job_filled_path(:job_id => params[:id]) do %>
+						<i class="fa fa-square-o"></i>
+						<span>Open</span>
+					<% end %>
+				</p>
 			<% elsif @current_job.live_status == true %>
-				<p class="status job-filled"><%= link_to company_job_unfilled_path(:job_id => params[:id]) do %>
-					<i class="fa fa-check-square"></i>
-					<span>Filled</span></p>
-				<% end %>
+				<p class="status job-filled">
+					<%= link_to company_job_unfilled_path(:job_id => params[:id]) do %>
+						<i class="fa fa-check-square"></i>
+						<span>Filled</span>
+					<% end %>
+				</p>
 			<% end %>
 
 			<div class="job-details-form">
