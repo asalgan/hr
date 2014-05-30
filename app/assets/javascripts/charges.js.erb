@@ -1,7 +1,4 @@
 $(function(){
-  // This identifies your website in the createToken call below
-  Stripe.setPublishableKey('<%= ENV['PUBLISHABLE_KEY'] %>');
-
   var stripeResponseHandler = function(status, response) {
     var $form = $('#payment-form');
 
