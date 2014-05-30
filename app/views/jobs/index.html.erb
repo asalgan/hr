@@ -40,12 +40,17 @@
                   <% job.applicants.order("created_at DESC").each do |applicant| %>
                     <% job_application = job.job_applications.find_by_applicant_id(applicant.id) %>
                     <ul class="applicant-info">
-                      <li class="job-applicant col-md-3"><%= link_to "#{applicant.full_name}", applicant_path(:id => applicant.id) %></li> <p class="application-status col-md-3"><%= job_application.application_status %></p>
-                      <% if applicant.rating.present? %>
-                        <% applicant.rating.times do %>
-                          <i class="fa fa-star"></i>
+                      <li class="job-applicant">
+                        <%= link_to "#{applicant.full_name}", applicant_path(:id => applicant.id) %>
+                        <p class="application-status col-md-3">
+                          <%= job_application.application_status %>
+                        </p>
+                        <% if applicant.rating.present? %>
+                          <% applicant.rating.times do %>
+                            <i class="fa fa-star"></i>
+                          <% end %>
                         <% end %>
-                      <% end %>
+                      </li>
                     </ul>
                   <% end %>
                 <% else %>
@@ -87,12 +92,15 @@
                   <% job.applicants.order("created_at DESC").each do |applicant| %>
                     <% job_application = job.job_applications.find_by_applicant_id(applicant.id) %>
                     <ul class="applicant-info">
-                      <li class="job-applicant col-md-3"><%= link_to "#{applicant.full_name}", applicant_path(:id => applicant.id) %></li> <p class="application-status col-md-3"><%= job_application.application_status %></p>
-                      <% if applicant.rating.present? %>
-                        <% applicant.rating.times do %>
-                          <i class="fa fa-star"></i>
+                      <li class="job-applicant col-md-3">
+                        <%= link_to "#{applicant.full_name}", applicant_path(:id => applicant.id) %>
+                        <p class="application-status col-md-3"><%= job_application.application_status %></p>
+                        <% if applicant.rating.present? %>
+                          <% applicant.rating.times do %>
+                            <i class="fa fa-star"></i>
+                          <% end %>
                         <% end %>
-                      <% end %>
+                      </li>
                     </ul>
                   <% end %>
                 <% else %>
