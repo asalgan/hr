@@ -10,6 +10,8 @@ class JobApplicationsController < ApplicationController
     @job_application = Job.find(params[:job_id])
     @company = Company.find_by(:id => @job_application.company_id)
     @applicant = Applicant.new
+    @page_class = "application-page"
+    render layout: 'base'
   end
 
   def create
