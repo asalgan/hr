@@ -25,6 +25,8 @@ class CompaniesController < ApplicationController
   def new
     @disable_nav = true
     @company = Company.new
+    @page_class = "company-page"
+    render layout: 'base'
   end
 
   def edit
