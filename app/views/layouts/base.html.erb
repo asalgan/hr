@@ -12,7 +12,7 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body class="<%= yield(:layout_class) %><%= @page_class %>">
+<body class="<%= yield(:layout_class) %> <%= @page_class %>">
 
   <header>
     <%= render 'layouts/navigation' unless @disable_nav %>
