@@ -5,26 +5,26 @@
 
 <p class="show-job-page-label">Employment Type</p>
 <p class="show-job-employment-type job-info">
-  <%= best_in_place @job, :employment_type, :type => :select, :collection => Job.employment_types_for_select, :path => company_job_path %>
+  <%= @job.employment_type %>
 </p>
 
 <p class="show-job-page-label">Location</p>
 <p class="show-job-location job-info">
-  <%= best_in_place @job, :location, :type => :input, :path => company_job_path, :ok_button => "Save", :ok_button_class => "job-title-save-btn" %>
+  <%= @job.location %>
 </p>
 
 <p class="show-job-page-label">Minimum Experience</p>
 <p class="show-job-minimum-experience job-info">
-  <%= best_in_place @job, :experience_level, :type => :select, :collection => Job.experience_level_for_select, :path => company_job_path %>
+  <%= @job.experience_level %>
 </p>
 
 <p class="show-job-page-label">Department</p>
 <p class="show-job-department job-info">
-  <%= best_in_place @job, :department, :type => :input, :path => company_job_path, :ok_button => "Save", :ok_button_class => "job-title-save-btn" %>
+  <%= @job.department %>
 </p>
 
 <p class="show-job-page-label">Job Code</p>
 <p class="show-job-code job-info">
-  <%= best_in_place @job, :job_code, :type => :input, :path => company_job_path, :ok_button => "Save", :ok_button_class => "job-title-save-btn" %>
+  <%= @job.job_code %>
 </p>
 

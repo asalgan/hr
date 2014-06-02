@@ -21,6 +21,10 @@ class JobsController < ApplicationController
   end
 
   def edit
+    @job = Job.find(params[:id])
+    @company = Company.find(params[:company_id])
+    @employment_type_array = Job.employment_types
+    @experience_level_array = Job.experience_level
   end
 
   def create
