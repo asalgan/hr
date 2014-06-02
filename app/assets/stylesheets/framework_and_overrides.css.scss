@@ -691,6 +691,9 @@ label {
         // .save-job-button {
         //   @extend %teal-button;
         // }
+        .edit-opening-button {
+          @extend %teal-button
+        }
 
         .status {
           display: inline-block;
@@ -755,8 +758,6 @@ label {
             vertical-align: middle;
             margin-bottom: 35px;
             height: 28px;
-
-            // <form class="form_in_place" action="javascript:void(0);" style="display:inline"><input type="text" name="title"><input type="submit" class="job-title-save-btn" value="Save"></form>
 
             p:nth-child(3) {
               float: right;
@@ -980,27 +981,6 @@ label {
   margin-bottom: 40px;
 }
 
-.job-title-save-btn {
-  background-color: $darkteal;
-  width: 40px;
-  height: 31px;
-  border: none;
-  font-size: 12px;
-  color: white;
-  vertical-align: middle;
-  margin-left: 10px;
-  margin-bottom: 7px;
-  @extend %transition;
-
-  &:hover {
-    background-color: lighten($darkteal, 10%)
-  }
-
-  &:nth-child(1) {
-    
-  }
-}
-
 .side-nav {
   position: absolute;
   padding: 0px;
@@ -1051,15 +1031,6 @@ label {
 
 .note-editor .note-editable {
   background-color: white;
-}
-
-span.best_in_place {
-  padding: 1px;
-   &:hover {
-    border: 1px dashed gray;
-    padding: 1px;
-    background-color: #F0F0F0;
-   }
 }
 
 .application-page {
