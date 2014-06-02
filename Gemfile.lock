@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/aaronchi/best_in_place.git
+  revision: 1152e2256afd485e66602833fd99d09d60994841
+  specs:
+    best_in_place (2.1.0)
+      jquery-rails
+      rails (>= 3.1)
+
+GIT
   remote: https://github.com/stripe/stripe-ruby
   revision: 79cdeb054539909102fa29df94a97bfb435ac909
   specs:
@@ -229,6 +237,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk
+  best_in_place!
   better_errors
   binding_of_caller
   bootstrap-sass

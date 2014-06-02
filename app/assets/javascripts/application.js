@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require fancybox
+//= require best_in_place
 //= require summernote.min
 //= require zeroclipboard
 //= require_tree .
