@@ -29,21 +29,22 @@ $(document).ready(function() {
 
 	var clip = new ZeroClipboard($("#d_clip_button"));
 
-	// var favorites = $('.buttons');
-	// var button_keep = $('.keep-button');
-	// var button_accept = $('.accept-button');
-	// var button_reject = $('.reject-button');
- //  var favoritesTop = favorites.offset().top;
- //    $(window).scroll(function() {
- //        var makeItStick = favoritesTop < $(window).scrollTop();
- //        favorites.toggleClass('stuck', makeItStick);
- //        button_keep.toggleClass('stuck', makeItStick);
- //        button_accept.toggleClass('stuck', makeItStick);
- //        button_reject.toggleClass('stuck', makeItStick);
- //        favorites.css('center');
- //    });
-
-
+	if ($('body').hasClass('applicant')) {
+		var favorites = $('.buttons');
+		var button_keep = $('.keep-button');
+		var button_accept = $('.accept-button');
+		var button_reject = $('.reject-button');
+	  var favoritesTop = favorites.offset().top;
+    $(window).scroll(function() {
+        var makeItStick = favoritesTop < $(window).scrollTop();
+        favorites.toggleClass('stuck', makeItStick);
+        button_keep.toggleClass('stuck', makeItStick);
+        button_accept.toggleClass('stuck', makeItStick);
+        button_reject.toggleClass('stuck', makeItStick);
+        favorites.css('center');
+    });
+  }
+  
 });
 
 
