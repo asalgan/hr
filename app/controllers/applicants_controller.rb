@@ -13,6 +13,7 @@ class ApplicantsController < ApplicationController
     @applicant = Applicant.find(params[:id])
     @job_applied_for = JobApplication.find_by(:applicant_id => params[:id])
     @notes = Note.all.where(:applicant_id => params[:id])
+    @page_class = "applicant"
   end
 
   def edit
