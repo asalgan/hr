@@ -6,6 +6,6 @@ class Company < ActiveRecord::Base
 	has_many :prospects
 
 	has_attached_file :logo
-  validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
+  validates_attachment_content_type :logo, :content_type => %w(image/jpeg image/jpg image/png)
 
 end
