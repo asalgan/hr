@@ -202,7 +202,13 @@ label {
 .signup-page, .edit-user-page, .signin-page {
   background-color: #f8f9fb;
 }
-
+.signin-page {
+  .checkbox {
+    #user_remember_me {
+      margin-left: 0px;
+    }
+  }
+}
 .authform {
   padding-top: 30px;
   max-width: 320px;
