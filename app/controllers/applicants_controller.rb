@@ -71,6 +71,8 @@ class ApplicantsController < ApplicationController
 
   def submitted_application
     @disable_nav = true
+    @page_class = "thank-you-page"
+    render layout: 'base'
   end
 
   private
