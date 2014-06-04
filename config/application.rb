@@ -20,6 +20,8 @@ module Hr
     config.to_prepare do
       Devise::SessionsController.layout "base" 
       Devise::RegistrationsController.layout "base"
+      Devise::PasswordsController.layout "base"
+      Devise::UnlocksController.layout "base"
     end
 
     # Settings in config/environments/* take precedence over those specified here.
