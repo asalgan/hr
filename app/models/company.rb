@@ -8,6 +8,7 @@ class Company < ActiveRecord::Base
 	has_attached_file :logo	
   validates_attachment :logo,
   	content_type: {content_type: ['image/jpeg', 'image/jpg', 'image/png']},
-  	:size => { :in => 0..500.kilobytes }
+  	:size => { :in => 0..500.kilobytes },
+  	:bucket => 'HRAPP'
 
 end
