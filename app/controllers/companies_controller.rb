@@ -49,10 +49,10 @@ class CompaniesController < ApplicationController
 
     respond_to do |format|
       if @company.update(company_params)
-        format.html { redirect_to @company }
+        format.html { redirect_to edit_user_registration_url }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { redirect_to edit_user_registration_url, notice: "Please make sure your image is in .JPEG, .JPG, or .PNG format and less than 500kb"}
         format.json { render json: @company.errors, status: :unprocessable_entity }
       end
     end
