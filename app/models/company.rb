@@ -6,6 +6,8 @@ class Company < ActiveRecord::Base
 	has_many :prospects
 
 	has_attached_file :logo	
-  validates_attachment_content_type :logo, :content_type => ['image/jpeg', 'image/jpg', 'image/png']
+  validates_attachment :logo,
+  	content_type: {content_type: ['image/jpeg', 'image/jpg', 'image/png']},
+  	:size => { :in => 0..500.kilobytes }
 
 end
