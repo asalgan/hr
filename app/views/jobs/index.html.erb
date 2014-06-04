@@ -4,7 +4,12 @@
   <div class="openings">
 
     <div class="first-section">
-    <h1 class="category-header">Job Openings</h1><p class="openings-count"><%= @current_positions.count %> openings</p>
+    <h1 class="category-header">Job Openings</h1>
+    <p class="openings-count"><%= @current_positions.count %>
+      <% if @current_positions.count == 1 %> opening
+      <% else %> openings
+      <% end %>
+    </p>
     <% if @current_positions.present? %>
       <%= link_to ' + New Opening', new_company_job_path, :class => "new-opening-button" %>
     <% end %>
@@ -34,11 +39,11 @@
               <p class="job-code">(ID: <%= job.job_code %>)</p>
               <p class="time-ago"><i>Created <%= time_ago_in_words(job.created_at) %> ago</i></p><br>
 
-              <% if job.live_status == true %>
+         <!--<#% if job.live_status == true %>
                 <p class="live-status-true col-md-offset-2">Currently active</p>
-              <% elsif job.live_status == false %>
+              <#% elsif job.live_status == false %>
                 <p class="live-status-false">Currently inactive</p>
-              <% end %>
+              <#% end %> -->
 
               <% if job.applicants.present? %>
                 <% job.applicants.order("created_at DESC").each do |applicant| %>
@@ -82,11 +87,11 @@
             <p class="job-code">(ID: <%= job.job_code %>)</p>
             <p class="time-ago"><i>Created <%= time_ago_in_words(job.created_at) %> ago</i></p><br>
 
-            <% if job.live_status == true %>
+       <!-- <#% if job.live_status == true %>
               <p class="live-status-true col-md-offset-2">Currently active</p>
-            <% elsif job.live_status == false %>
+            <#% elsif job.live_status == false %>
               <p class="live-status-false">Currently inactive</p>
-            <% end %>
+            <#% end %> -->
 
             <% if job.applicants.present? %>
               <% job.applicants.order("created_at DESC").each do |applicant| %>
