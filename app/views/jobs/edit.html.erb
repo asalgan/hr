@@ -1,7 +1,10 @@
 <section class="openings-first col-md-12">
-
+  <p class="back-to-job-button"><%= link_to "&#8592; Back to opening".html_safe, company_job_url %></p>
   <div class="new-job-section">
-    <h1 class="category-header">Edit Job Opening</h1>
+    <h1 class="category-header"><%= @job.title %></h1>
+    <h4 class="openings-header col-md-12">
+        <span class="col-md-6">You can make changes to the job opening below. When you're done, click the button on the bottom of the page and you're all set!</span>
+      </h4>
     <div class="new-job-form">
       <p class="job-details-header">Enter Job Details</p>
       <div class="new_job">
