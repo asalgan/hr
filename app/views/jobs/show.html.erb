@@ -1,6 +1,9 @@
 <% content_for :title do %><%= current_company.name %> - <%= @job.title %><% end %>
 
 <section class="job-description col-md-12">
+	<% if flash[:notice] %>
+    <%= render 'layouts/messages' %>
+  <% end %>
 	<p class="back-to-openings-button"><%= link_to "&#8592; Back to all openings".html_safe, company_jobs_url %></p>
 	<div class="job-description-first">
 		<h1 class="category-header show-job-title job-info">  <%= @job.title %></h1>
@@ -10,6 +13,9 @@
       <span class="switch-label" data-off="Filled" data-on="Unfilled" data-attribute="<%= @job.id %>"></span>
       <span class="switch-handle"></span>
   	</label> -->
+
+  	<%= link_to 'Edit opening', edit_company_job_path, :class => "edit-opening-button" %>
+  	
 		<% if @current_job.filled_status == false %>
 			<p class="status job-open">
 				<%= link_to company_job_filled_path(:job_id => params[:id]) do %>
@@ -17,6 +23,7 @@
 					<span>Open</span>
 				<% end %>
 			</p>
+			<span class="open-filled-description">Click to change status from open to filled</span>
 		<% elsif @current_job.live_status == true %>
 			<p class="status job-filled">
 				<%= link_to company_job_unfilled_path(:job_id => params[:id]) do %>
@@ -24,9 +31,8 @@
 					<span>Filled</span>
 				<% end %>
 			</p>
+			<span class="open-filled-description">Click to change status from filled to still open</span>
 		<% end %>
-
-		<%= link_to 'Edit opening', edit_company_job_path, :class => "edit-opening-button" %>
 
 		<div class="job-details-form">
 			<div class="job-information">

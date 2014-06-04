@@ -1,6 +1,9 @@
 <% content_for :title do %>Job Openings<% end %>
 
 <section class="positions-first col-md-12">
+  <% if flash[:notice] %>
+    <%= render 'layouts/messages' %>
+  <% end %>
   <div class="openings">
 
     <div class="first-section">
@@ -14,7 +17,8 @@
       <%= link_to ' + New Opening', new_company_job_path, :class => "new-opening-button" %>
     <% end %>
       <h4 class="openings-header col-md-12">
-        <span class="col-md-6">From here, you can create new job openings and view/edit current openings below. You can also jump directly to an openings' applicants to view their profiles.</span></h4>
+        <span class="col-md-6">From here, you can create new job openings and view/edit current openings below. You can also jump directly to an openings' applicants to view their profiles.</span>
+      </h4>
   </div>
     <% if @current_positions_unfilled.present? %>
       <h2 class="current-header">Unfilled</h2>
