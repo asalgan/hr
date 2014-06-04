@@ -44,6 +44,12 @@ $(document).ready(function() {
         favorites.css('center');
     });
   }
+
+  $.notifyBar({
+    html: "Thank you, your settings were updated!",
+    delay: 2000,
+    animationSpeed: "normal"
+  });  
   
 });
 
