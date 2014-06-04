@@ -258,10 +258,6 @@ label {
   @extend .btn-xs;
 }
 
-.new-job-form {
-  background-color: #f8f9fb;
-}
-
 // HOMEPAGE
 
 .home {
@@ -594,20 +590,36 @@ label {
     }
 
     section.openings-first {
-      height: 1250px;
+      min-height: 1250px;
       position: relative;
+      
+      .back-to-job-button {
+        margin-top: 10px;
+        display: inline-block;
 
+        a{
+          @extend %transition;
+          text-decoration: none;
+          background-color: none;
+
+            &:hover {
+              background-color: transparent;
+              color: black;
+            }
+          }
+        }
       .new-job-section {
         margin: 0 auto;
         position: relative;
         width: 924px;
         margin-top: 40px;
+        padding-bottom: 40px;
 
         .new-job-form {
-          margin-top: 70px;
+          margin-top: 120px;
           background-color: #eee;
-          height: 1050px;
-          padding: 40px 30px;
+          min-height: 1050px;
+          padding: 40px 30px 0px 30px;
 
           label {
             margin-top: 20px;
@@ -683,11 +695,10 @@ label {
         width: 924px;
         margin-top: 40px;
 
-        // .save-job-button {
-        //   @extend %teal-button;
-        // }
         .edit-opening-button {
-          @extend %teal-button
+          @extend %teal-button;
+          margin-right: 30px;
+          margin-top: -30px;
         }
 
         .status {
@@ -703,6 +714,11 @@ label {
             text-transform: uppercase;
             font-size: 12px;
           }
+        }
+
+        .open-filled-description {
+          font-style: italic;
+          color: #909090;
         }
 
         .job-open {
@@ -1775,6 +1791,15 @@ label {
     .logo-info {
       margin-top: 10px;
     }
+
+    .current-logo {
+      margin-top: 10px;
+    }
+
+    .edit-logo {
+      max-height: 150px;
+      max-width: 150px;
+    }
   }
 }
 
@@ -1888,45 +1913,3 @@ label {
 //     border-radius: 1px solid #aaa;
 //   }
 // }
-
-.jquery-notify-bar {
-  width:100%;
-  position:fixed;
-  top:0;
-  left:0;
-  z-index:32768;
-  background-color:#efefef;
-  font-size:18px;
-  color:#000;
-  text-align:center;
-  font-family: Arial, Verdana, sans-serif;
-  padding:20px 0px;
-  cursor: pointer;
-  border-bottom:1px solid #ddd;
-  -webkit-box-shadow: inset 0 -1px 0 0 #fff;
-     -moz-box-shadow: inset 0 -1px 0 0 #fff;
-          box-shadow: inset 0 -1px 0 0 #fff;
-background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0)));
-background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
-background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
-background-image: -o-linear-gradient(rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
-background-image: linear-gradient(rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
-}
-.jquery-notify-bar.bottom {
-  bottom:0;
-  top:auto;
-  border-top:1px solid #ddd;
-  border-bottom:0;
-  -webkit-box-shadow: inset 0 1px 0 0 #fff;
-     -moz-box-shadow: inset 0 1px 0 0 #fff;
-          box-shadow: inset 0 1px 0 0 #fff;
-}
-
-.jquery-notify-bar.success {
-  color:#060;
-  background-color:#BBFFB6;
-}
-.jquery-notify-bar.success .notify-bar-text-wrapper {
-  background: transparent url("tick.png") no-repeat center left;
-  padding-left:20px;
-}
