@@ -11,6 +11,7 @@ class JobsController < ApplicationController
   def show
     @current_job = current_company.jobs.find(params[:id])
     @applicants = @current_job.job_applications
+    @page_class = "show-job"
   end
 
   def new

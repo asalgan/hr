@@ -27,7 +27,9 @@ $(document).ready(function() {
 
 	$(".best_in_place").best_in_place();
 
-	var clip = new ZeroClipboard($("#d_clip_button"));
+  if ($('body').hasClass('show-job')) {
+	  var clip = new ZeroClipboard($("#d_clip_button"));
+  }
 
 	if ($('body').hasClass('applicant')) {
 		var favorites = $('.buttons');
@@ -45,11 +47,11 @@ $(document).ready(function() {
     });
   }
 
-  $.notifyBar({
-    html: "Thank you, your settings were updated!",
-    delay: 2000,
-    animationSpeed: "normal"
-  });  
+  // $.notifyBar({
+  //   html: "Thank you, your settings were updated!",
+  //   delay: 2000,
+  //   animationSpeed: "normal"
+  // });  
   
 });
 
