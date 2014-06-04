@@ -58,6 +58,13 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def destroy_logo
+    @company = current_company
+    @company.logo.destroy
+    @company.save
+    redirect_to edit_user_registration_path
+  end
+
   def destroy
     @company.destroy
     respond_to do |format|

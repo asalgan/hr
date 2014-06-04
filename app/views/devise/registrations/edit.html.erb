@@ -58,10 +58,12 @@
             <%= f.hidden_field :company, :value => current_company.id %>
             <%= f.submit 'Save', :class => 'finish-editing-button' %>
           <% end %>
-          <p class="logo-info">The logo below will appear on your job application forms</p>
           <% if current_company.logo_file_name.present? %>
-            <!-- <p class="current-logo">Current logo</p> -->
+            <p class="logo-info">The logo below will appear on your job application forms</p>
             <h3 class="edit-logo"><%= image_tag current_company.logo.url %></h3>
+            <%= link_to 'Delete', delete_logo_url, method: :delete, :confirm => 'Are you sure you want to delete your logo?', class: "delete-logo" %>
+          <% else %>
+            <p class="logo-info">You don't have a logo currently uploaded, you can upload one above!</p>
           <% end %>
         </div>
 

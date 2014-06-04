@@ -45,5 +45,7 @@ Hr::Application.routes.draw do
 
   get "/thank-you" => "applicants#submitted_application", :as => :thanks
 
+  delete "/delete-logo" => "companies#destroy_logo", :as => :delete_logo
+
 
 end
