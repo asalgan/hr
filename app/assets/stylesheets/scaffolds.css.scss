@@ -31,17 +31,18 @@ div {
 
 .field_with_errors {
   padding: 2px;
-  background-color: red;
+  background-color: #c00;
   display: table;
 }
 
 #error_explanation {
-  width: 450px;
-  border: 2px solid red;
+  width: 272px;
   padding: 7px;
   padding-bottom: 0;
   margin-bottom: 20px;
   background-color: #f0f0f0;
+  @extend .alert;
+  @extend .alert-danger;
   h2 {
     text-align: left;
     font-weight: bold;
@@ -54,6 +55,12 @@ div {
   }
   ul li {
     font-size: 12px;
-    list-style: square;
+    list-style: none;
+    color: #c00;
+    text-align: center;
   }
+}
+
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+  background-color: white;
 }
