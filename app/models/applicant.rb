@@ -14,6 +14,7 @@ class Applicant < ActiveRecord::Base
     'application/doc', 'application/docx', 'application/x-soffice']
 
   has_attached_file :cover_letter
+
   validates_attachment_content_type :cover_letter, :content_type =>['application/txt', 'text/plain',
     'application/pdf', 'application/msword',
     'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
@@ -27,5 +28,20 @@ class Applicant < ActiveRecord::Base
   	"#{first_name} #{last_name}"
   end
 
+  def resume_present_and_pdf?
+    self.resume.present? && self.resume_content_type == "application/pdf"
+  end
+
+  def resume_present_and_doc?
+    self.resume.present? && self.resume_content_type == "application/doc" || 'application/docx' ||'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || 'application/x-soffice' || 'application/msword' || 'application/vnd.oasis.opendocument.text'
+  end
+
+  def cover_letter_present_and_pdf?
+    self.resume.present? && self.resume_content_type == "application/pdf"
+  end
+
+  def cover_letter_present_and_doc?
+    self.resume.present? && self.resume_content_type == "application/doc" || 'application/docx' ||'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || 'application/x-soffice' || 'application/msword' || 'application/vnd.oasis.opendocument.text'
+  end
 end
 

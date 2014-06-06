@@ -1,6 +1,7 @@
 <% content_for :title do %><%= @applicant.full_name %><% end %>
 
 	<%= render 'status' %>
+	
 	<div class="applicant-profile col-md-12">
 
 		<div class="row">
@@ -15,7 +16,6 @@
 				<p class="contact-info"><%= @applicant.phone_number %></p>
 				<p class="contact-info"><%= @applicant.email_address %></p>
 			</div>
-			
 			<div class="applicant-status-box col-md-6">
 				<% if @job_applied_for.job.present? %>
 					<p class="applied-for-on">Applied for <b><%= @job_applied_for.job.title %></b> on <i><%= @applicant.created_at.strftime("%b %d, %Y") %></i>
@@ -56,21 +56,26 @@
 		
 		<div class="resume-section col-md-12">
 			<h4 class="resume-header">Applicant cover letter</h4>
-    <% if @applicant.cover_letter_file_name.present? %>
-			<iframe src="<%= @applicant.cover_letter.url %>" class="col-md-10 col-md-offset-1"></iframe>
-				<% else %>
+    	<% if @applicant.cover_letter_present_and_pdf? %>
+				<iframe src="<%= @applicant.cover_letter.url %>" class="col-md-10 col-md-offset-1"></iframe>
+			<% elsif @applicant.cover_letter_present_and_doc? %>
+				<p>Cover letter</p>
+			<% else %>
 				<p class="no-resume col-md-offset-1"><%= @applicant.first_name %> hasn't submitted a cover letter</p>
 			<% end %>
 		</div>
+
 		<div class="resume-section col-md-12">
 			<h4 class="resume-header">Applicant resumé</h4>
-    <% if @applicant.resume_file_name.present? %>
-			<iframe src="<%= @applicant.resume.url %>" class="col-md-10 col-md-offset-1"></iframe>
-				<% else %>
+    	<% if @applicant.resume_present_and_pdf? %>
+				<iframe src="<%= @applicant.resume.url %>" class="col-md-10 col-md-offset-1"></iframe>
+			<% elsif @applicant.resume_present_and_doc? %>
+				<p>Word document</p>
+			<% else %>
 				<p class="no-resume col-md-offset-1"><%= @applicant.first_name %> hasn't submitted a resumé</p>
 			<% end %>
 		</div>
 
-		</div><!--end applicant-profile -->
+	</div><!--end applicant-profile -->
 
 
