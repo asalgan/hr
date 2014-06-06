@@ -49,22 +49,9 @@ $darkteal: #55B4B0;
   opacity: .8;
 }
 
-body, html {
-  -webkit-font-smoothing: antialiased;
+.navbar {
+  margin-bottom: 0px;
   background-color: #f8f9fb;
-}
-
-a {
-text-decoration: none;
-background-color: transparent;
-
-  &:hover {
-    background-color: transparent;
-  }
-}
-
-.container {
-  // min-height:100%;
 }
 
 .navbar-fixed-top {
@@ -125,7 +112,7 @@ background-color: transparent;
       
       .login-logout-link:hover {
         color: darken($teal, 20%);
-        background-color: #f9f9f9;
+        // background-color: #f9f9f9;
       }
     }
 
@@ -150,52 +137,6 @@ background-color: transparent;
   }
 }
 
-span {
-  padding: 0;
-  border: 0;
-  font: inherit;
-  font-size: 100%;
-  vertical-align: baseline;
-}
-
-img {
-  @extend .img-responsive;
-  margin: 0 auto;
-  }
-
-ul {
-  list-style: none;
-  padding:0;
-}
-
-label {
-  display: block;
-}
-.navbar {
-  margin-bottom: 0px;
-  background-color: white;
-}
-
-.column {
-  @extend .col-md-6;
-  @extend .text-center;
-  }
-.form {
-  @extend .col-md-6;
-  }
-.form-centered {
-  @extend .col-md-6;
-  @extend .text-center;
-  }
-.submit {
-  @extend .btn;
-  @extend .btn-primary;
-  @extend .btn-lg;
-  }
-
-.signup-page, .edit-user-page, .signin-page, .forgot-password {
-  background-color: #f8f9fb;
-}
 .signin-page {
   .checkbox {
     #user_remember_me {
@@ -258,6 +199,10 @@ label {
   @extend .btn-xs;
 }
 
+img {
+  @extend .img-responsive;
+  margin: 0 auto;
+}
 // HOMEPAGE
 
 .home {
@@ -289,21 +234,7 @@ label {
     }
   }
 
-  // .home-second-section {
-  //   background-color: white;
-  //   color: black;
-  //   // height: 200px;
-
-  //   .home-second-section-header {
-  //     line-height: 30px;
-  //     text-align: center;
-  //     margin-top: 30px;
-  //     float: none;
-  //   }
-  // }
-
-  section.home-second, section.home-third, section.home-fourth, section.home-fifth{
-    // border-bottom: 1px solid #ddd;
+  section.home-second, section.home-third, section.home-fourth, section.home-fifth {
     height: 800px;
     background-color: white;
 
@@ -395,7 +326,7 @@ label {
 }
 
 .content {
-  margin-top: 88px;
+  margin-top: 65px;
   min-height: 800px;
 
   .main {
@@ -540,6 +471,12 @@ label {
               margin-bottom: 0px;
               color: #666;
               display: inline-block;
+
+               .applicant-accepted {
+                 
+                  font-weight: 600;
+                
+              }
             }
 
             .fa-star {
@@ -601,6 +538,7 @@ label {
         display: inline-block;
 
         a{
+          color: #666;
           @extend %transition;
           text-decoration: none;
           background-color: none;
@@ -683,6 +621,7 @@ label {
           @extend %transition;
           text-decoration: none;
           background-color: none;
+          color: #666;
 
             &:hover {
               background-color: transparent;
@@ -1043,6 +982,8 @@ label {
   background-color: white;
 }
 
+// JOB APPLICATION (PUBLIC) PAGE
+
 .application-page {
   background-color: white;
 
@@ -1201,7 +1142,6 @@ label {
     color: white;
   }
 }
-
 
 
 .applicant-profile {
@@ -1448,6 +1388,8 @@ label {
   }
 }
 
+// PROSPECTS PAGE
+
 .all-prospects {
   margin: 0 auto;
   position: relative;
@@ -1475,59 +1417,42 @@ label {
       margin-bottom: 20px;
       font-weight: 600;
 
-      li{
+      li {
         display: inline-block;
         font-size: 16px;
       }
-
-      .quick-view {
-          padding-left: 70px;
-        }
-      }
-
-    ul {
-      margin-bottom: 0px;
     }
 
-    a {
-      text-decoration: none;
-      background-color: none;
-      width: 100%;
-
-      &:hover {
-        background-color: transparent;
-        color: black;
-      }
+    .prospect-info {
+      margin-bottom: 0px;
 
       .prospect {
         list-style: none;
-        border-bottom: 1px solid #D0D0D0;
-        width: 100%;
-        padding: 10px 0px;
-        color: #666;
 
         &:hover {
           background-color: #e7e7e7;
         }
 
-        .prospect-name {
-          font-weight: 600;
-        }
+        a {
+          color: #666;
+          text-decoration: none;
+          border-bottom: 1px solid #D0D0D0;
+          width: 100%;
+          color: #666;
+          display: inline-block;
+          padding: 10px 0px;
 
-        .current-role {
-          p{
-            display: inline-block;
+          &:hover {
+            background-color: transparent;
+            color: black;
           }
-        }
-
-        .fa-eye {
-          float: right;
-          padding-right: 15px;
         }
       }
     }
   }
 }
+
+// BILLING PAGE
 
 .billing {
   position: relative;
@@ -1661,9 +1586,9 @@ label {
       }
 
       #cc-num__wrap {
-      background: #333131;
-      color: #fefbe3;
-      text-shadow: none;
+        background: #333131;
+        color: #fefbe3;
+        text-shadow: none;
       }
 
       .pay-button {
@@ -1733,6 +1658,8 @@ label {
   }  
 }
 
+// USER/COMPANY EDIT PAGE
+
 .edit-page {
   min-height: 400px;
   position: relative;
@@ -1740,7 +1667,6 @@ label {
   .edit-form {
     margin: 0 auto;
     position: relative;
-    // width: 924px;
     margin-top: 40px;
 
     #user_name, #user_email, #user_password, #user_password_confirmation, #user_current_password {
@@ -1812,6 +1738,8 @@ label {
     }
   }
 }
+
+// THANK YOU FOR APPLYING PAGE
 
 .thank-you-page {
   background-color: #f8f9fb;
