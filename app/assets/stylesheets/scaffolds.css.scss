@@ -1,5 +1,4 @@
 body {
-  // background-color: #fff;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -15,11 +14,52 @@ pre {
 }
 
 a {
-  color: #000;
-  &:visited {
-    color: #666;
+text-decoration: none;
+background-color: transparent;
+
+  &:hover {
+    background-color: transparent;
   }
 }
+
+span {
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+img {
+  @extend .img-responsive;
+  margin: 0 auto;
+  }
+
+ul {
+  list-style: none;
+  padding:0;
+}
+
+label {
+  display: block;
+}
+
+.column {
+  @extend .col-md-6;
+  @extend .text-center;
+  }
+.form {
+  @extend .col-md-6;
+  }
+.form-centered {
+  @extend .col-md-6;
+  @extend .text-center;
+  }
+.submit {
+  @extend .btn;
+  @extend .btn-primary;
+  @extend .btn-lg;
+  }
 
 div {
   &.field, &.actions {
@@ -57,10 +97,6 @@ div {
     color: #c00;
     text-align: center;
   }
-}
-
-input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
-  background-color: white;
 }
 
 .alert {
