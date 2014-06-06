@@ -54,7 +54,7 @@
                   <% job_application = job.job_applications.find_by_applicant_id(applicant.id) %>
                   <ul class="applicant-info">
                     <li class="job-applicant">
-                      <%= link_to "#{applicant.full_name}", applicant_path(:id => applicant.id), class: "col-md-3" %>
+                      <%= link_to "#{applicant.full_name}", applicant_path(:id => applicant.id), class: "col-md-4" %>
                       <p class="application-status col-md-3">
                         <%= job_application.application_status %>
                       </p>
@@ -102,8 +102,13 @@
                 <% job_application = job.job_applications.find_by_applicant_id(applicant.id) %>
                 <ul class="applicant-info">
                   <li class="job-applicant">
-                    <%= link_to "#{applicant.full_name}", applicant_path(:id => applicant.id), class: "col-md-3" %>
-                    <p class="application-status col-md-3"><%= job_application.application_status %></p>
+                    <% if applicant.job_application.application_status == "Accepted" %>
+                      <b><%= link_to "#{applicant.full_name}", applicant_path(:id => applicant.id), class: "col-md-4" %>
+                      <p class="application-status col-md-3"><%= job_application.application_status %></p></b>
+                    <% else %>
+                      <%= link_to "#{applicant.full_name}", applicant_path(:id => applicant.id), class: "col-md-4" %>
+                      <p class="application-status col-md-3"><%= job_application.application_status %></p>
+                    <% end %>
                     <% if applicant.rating.present? %>
                       <% applicant.rating.times do %>
                         <i class="fa fa-star"></i>
