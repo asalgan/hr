@@ -15,26 +15,24 @@
 
 		<div class="prospects-results">
 			<ul class="prospect-list-headers">
-				<span class="col-md-2"><li>Name</li></span>
-				<span class="col-md-3"><li>Current job</li></span>
-				<span class="col-md-5"><li>Applied for</li></span>
+				<li class="col-md-3">Name</li>
+				<li class="col-md-3">Current job</li>
+				<li class="col-md-4">Applied for</li>
 				<li>City</li>
-				<!-- <span class="quick-view"><li>View</li></span> -->
 			</ul>
 			<% @applicants.each do |applicant| %>
-				<ul>
-					<%= link_to applicant_path(:id => applicant.id) do %>
-						<li class="prospect"> 
-							<span class="prospect-name col-md-2"><%= applicant.full_name %></span> 
+				<ul class="prospect-info">
+					<li class="prospect"> 
+						<%= link_to applicant_path(:id => applicant.id) do %>
+							<span class="prospect-name col-md-3"><%= applicant.full_name %></span> 
 							<span class="current-role col-md-3">
 								<span class="prospect-role"><%= applicant.current_job_role %></span> at
 								<span class="prospect-company"><%= applicant.current_job_company %></span> 
 							</span>
-							<span class="prospect-applied-for-job col-md-5"><%= Job.find(applicant.job_application.job_id).title %> (ID: <%= Job.find(applicant.job_application.job_id).job_code %>) </span>
-							<span class="prospect-city"><%= applicant.current_job_city %> </span> 
-							<!-- <i class="fa fa-eye"></i> -->
-						</li>
-					<% end %>
+							<span class="prospect-applied-for-job col-md-4"><%= Job.find(applicant.job_application.job_id).title %> (ID: <%= Job.find(applicant.job_application.job_id).job_code %>) </span>
+							<span class="prospect-city"><%= applicant.current_job_city %></span>
+						<% end %>
+					</li>
 				</ul>
 			<% end %>
 		</div>
