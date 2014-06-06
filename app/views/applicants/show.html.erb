@@ -1,10 +1,11 @@
 <% content_for :title do %><%= @applicant.full_name %><% end %>
 
 	<%= render 'status' %>
-	
+
 	<div class="applicant-profile col-md-12">
 
 		<div class="row">
+
 			<div class="personal-info col-md-6">
 				<h2 class="applicant-name"><%= @applicant.first_name %> <%= @applicant.last_name %></h2>
 				<p class="current-job">
@@ -16,6 +17,7 @@
 				<p class="contact-info"><%= @applicant.phone_number %></p>
 				<p class="contact-info"><%= @applicant.email_address %></p>
 			</div>
+
 			<div class="applicant-status-box col-md-6">
 				<% if @job_applied_for.job.present? %>
 					<p class="applied-for-on">Applied for <b><%= @job_applied_for.job.title %></b> on <i><%= @applicant.created_at.strftime("%b %d, %Y") %></i>
@@ -59,7 +61,7 @@
     	<% if @applicant.cover_letter_present_and_pdf? %>
 				<iframe src="<%= @applicant.cover_letter.url %>" class="col-md-10 col-md-offset-1"></iframe>
 			<% elsif @applicant.cover_letter_present_and_doc? %>
-				<p>Cover letter</p>
+				<%= link_to "Download file (.doc/.docx)", @applicant.cover_letter.url, class: "download-file" %>
 			<% else %>
 				<p class="no-resume col-md-offset-1"><%= @applicant.first_name %> hasn't submitted a cover letter</p>
 			<% end %>
@@ -70,12 +72,12 @@
     	<% if @applicant.resume_present_and_pdf? %>
 				<iframe src="<%= @applicant.resume.url %>" class="col-md-10 col-md-offset-1"></iframe>
 			<% elsif @applicant.resume_present_and_doc? %>
-				<p>Word document</p>
+				<%= link_to "Download file (.doc/.docx)", @applicant.resume.url, class: "download-file" %>
 			<% else %>
 				<p class="no-resume col-md-offset-1"><%= @applicant.first_name %> hasn't submitted a resumé</p>
 			<% end %>
 		</div>
 
-	</div><!--end applicant-profile -->
+	</div>
 
 

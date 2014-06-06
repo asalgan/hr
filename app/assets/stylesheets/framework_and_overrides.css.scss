@@ -1116,6 +1116,7 @@ img {
 }
 
 .application-status-tags {
+  height: 30px;
 
   .application-received, .in-progress, .decision-made, .accepted, .rejected {
     text-align: center;
@@ -1142,7 +1143,6 @@ img {
     color: white;
   }
 }
-
 
 .applicant-profile {
   margin: 0 auto;
@@ -1366,11 +1366,29 @@ img {
   .resume-section {
     margin-top: 40px;
     padding-bottom: 20px;
+    min-height: 100px;
 
     .resume-header {
       color: #666688;
       padding-left: 15px;
       height: 20px;
+    }
+
+    .download-file {
+      padding: 10px 20px;
+      background-color: #ebecf0;
+      border: 1px solid #dfe0e4;
+      color: #515357;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-left: 15px;
+      position: absolute;
+
+      &:hover {
+        text-decoration: none;
+        background-color: darken(#ebecf0, 8%);
+      }
     }
 
     iframe {

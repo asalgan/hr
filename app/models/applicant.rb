@@ -33,15 +33,15 @@ class Applicant < ActiveRecord::Base
   end
 
   def resume_present_and_doc?
-    self.resume.present? && self.resume_content_type == "application/doc" || 'application/docx' ||'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || 'application/x-soffice' || 'application/msword' || 'application/vnd.oasis.opendocument.text'
+    self.resume.present? && ["application/doc", 'application/docx', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/x-soffice', 'application/msword', 'application/vnd.oasis.opendocument.text'].include?(self.resume_content_type)
   end
 
   def cover_letter_present_and_pdf?
-    self.resume.present? && self.resume_content_type == "application/pdf"
+    self.resume.present? && self.cover_letter_content_type == "application/pdf"
   end
 
   def cover_letter_present_and_doc?
-    self.resume.present? && self.resume_content_type == "application/doc" || 'application/docx' ||'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || 'application/x-soffice' || 'application/msword' || 'application/vnd.oasis.opendocument.text'
+    self.resume.present? && ["application/doc", 'application/docx', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/x-soffice', 'application/msword', 'application/vnd.oasis.opendocument.text'].include?(self.cover_letter_content_type)
   end
 end
 
