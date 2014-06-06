@@ -75,6 +75,7 @@ class ApplicantsController < ApplicationController
     render layout: 'base'
   end
 
+
   private
 
     def set_applicant
