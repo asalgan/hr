@@ -1061,6 +1061,13 @@ img {
             font-size: 14px;
           }
 
+          p {
+            color: #666;
+            margin: 0px;
+            padding: 0px;
+            display: inline-block;
+          }
+
           #applicant_first_name, #applicant_last_name, #applicant_phone_number, #applicant_email_address, #applicant_current_job_role, #applicant_current_job_company, #applicant_current_job_city {
             @extend %form-fields;
             height: 38px;

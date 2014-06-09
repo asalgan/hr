@@ -97,7 +97,6 @@ class ApplicantsController < ApplicationController
 
     def resume_parser
       applicant = Applicant.last
-      # io = open('https://s3.amazonaws.com/HRAPP/applicants/resumes/000/000/' + "#{applicant.id}" + "/original/" + "#{applicant.resume_file_name}")
       io = open("#{applicant.resume.url}")
       reader = PDF::Reader.new(io)
       reader.pages.each do |page|
