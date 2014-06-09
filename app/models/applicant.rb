@@ -6,21 +6,18 @@ class Applicant < ActiveRecord::Base
 	has_one :job_application
 
  	has_attached_file :resume
-  validates_attachment_content_type :resume, :content_type =>['application/txt', 'text/plain',
+
+  validates_attachment :resume, 
+    content_type: {content_type: ['application/txt', 'text/plain',
     'application/pdf', 'application/msword',
-    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-    'application/vnd.oasis.opendocument.text',
-    'application/x-vnd.oasis.opendocument.text',
-    'application/doc', 'application/docx', 'application/x-soffice']
+    'application/doc', 'application/docx', 'application/x-soffice']}
 
   has_attached_file :cover_letter
 
-  validates_attachment_content_type :cover_letter, :content_type =>['application/txt', 'text/plain',
+  validates_attachment :cover_letter, 
+    content_type: {content_type: ['application/txt', 'text/plain',
     'application/pdf', 'application/msword',
-    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-    'application/vnd.oasis.opendocument.text',
-    'application/x-vnd.oasis.opendocument.text',
-    'application/doc', 'application/docx', 'application/x-soffice']
+    'application/doc', 'application/docx', 'application/x-soffice']}
 
   pg_search_scope :search_by_applicant_info, :against => [:current_job_role, :first_name, :last_name, :current_job_company, :current_job_city, :resume_parse]
 

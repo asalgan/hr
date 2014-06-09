@@ -33,7 +33,7 @@ class ApplicantsController < ApplicationController
         format.html { redirect_to thanks_url }
         format.json { render action: 'show', status: :created, location: @applicant }
       else
-        format.html { render action: 'new' }
+        format.html { redirect_to apply_url(:company_id => params[:company_id], :job_id => params[:job_id]), notice: "Please make sure your resume and cover letter are in .pdf, .doc, or .docx format"}
         format.json { render json: @applicant.errors, status: :unprocessable_entity }
       end
     end

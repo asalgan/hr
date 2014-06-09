@@ -1,5 +1,8 @@
 <div class="container">
 	<div class="application-main col-md-10 col-md-offset-1">
+		<% if flash[:notice] %>
+    	<%= render 'layouts/messages' %>
+  	<% end %>
 		<% if @company.logo_file_name.present? %>
 		<h3 class="job-application-company"><%= image_tag @company.logo.url %></h3>
 		<% end %>
