@@ -1,3 +1,5 @@
+require 'yomu'
+
 class ApplicantsController < ApplicationController
   before_filter :authenticate_user!, only: [:index, :show, :edit, :update, :destroy]
   before_action :set_applicant, only: [:show, :edit, :update, :destroy]
@@ -26,7 +28,7 @@ class ApplicantsController < ApplicationController
       if @applicant.save
         new_job_application
         if @applicant.resume.present? && @applicant.resume_content_type == "application/pdf"
-          resume_parser
+          # resume_parser
         else 
           nil
         end
@@ -95,14 +97,15 @@ class ApplicantsController < ApplicationController
       job_application.save
     end
 
-    def resume_parser
-      applicant = Applicant.last
-      io = open('https://s3.amazonaws.com/HRAPP/applicants/resumes/000/000/' + "#{applicant.id}" + "/original/" + "#{applicant.resume_file_name}")
-      reader = PDF::Reader.new(io)
-      reader.pages.each do |page|
-        applicant.resume_parse = page.text.squish
-      end
-      applicant.save
-    end
+    # def resume_parser
+    #   applicant = Applicant.last
+    #   io = open('https://s3.amazonaws.com/HRAPP/applicants/resumes/000/000/' + "#{applicant.id}" + "/original/" + "#{applicant.resume_file_name}")
+    #   reader = PDF::Reader.new(io)
+    #   reader.pages.each do |page|
+    #     applicant.resume_parse = page.text.squish
+    #   end
+    #   applicant.save
+    # end
+
 
 end
