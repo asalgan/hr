@@ -30,6 +30,8 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'quiet_assets'
+  gem 'capistrano'
+  gem 'capistrano-rails', '~> 1.1'
 end
 group :development, :test do
   gem 'rspec-rails'
