@@ -6,15 +6,14 @@
   <% end %>
 	<p class="back-to-openings-button"><%= link_to "&#8592; Back to all openings".html_safe, company_jobs_url %></p>
 	<div class="job-description-first">
-		<h1 class="category-header show-job-title job-info">  <%= @job.title %></h1>
+		<%= link_to 'Edit opening', edit_company_job_path, :class => "edit-opening-button" %>
+		<h1 class="category-header show-job-title job-info">  <%= @job.title %></h1><br>
 
 		<!-- <label class="switch">
     <%#= check_box 'onoffswitch', company_job_change_job_status_path(:job_id => params[:id]), id:"onoffswitch", class: 'switch-input', remote: true, method: :post %>
       <span class="switch-label" data-off="Filled" data-on="Unfilled" data-attribute="<%= @job.id %>"></span>
       <span class="switch-handle"></span>
   	</label> -->
-
-  	<%= link_to 'Edit opening', edit_company_job_path, :class => "edit-opening-button" %>
 
 		<% if @current_job.filled_status == false %>
 			<p class="status job-open">
