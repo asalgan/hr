@@ -212,10 +212,10 @@ img {
     height: 480px;
     color: white;
     background-image: url('/assets/desk.jpg');
+    background-size: cover;
     // background-image: url(http://graphics8.nytimes.com/images/2013/09/22/magazine/22well/22well-superJumbo-v2.jpg);
     background-repeat: no-repeat;
     background-position: 0px -200px;
-    background-size: 100%;
 
     .home-header {
 
