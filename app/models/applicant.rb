@@ -1,11 +1,11 @@
 class Applicant < ActiveRecord::Base
-	include PgSearch
+  include PgSearch
 
-	has_many :jobs, through: :job_applications
-	has_many :notes
-	has_one :job_application
+  has_many :jobs, through: :job_applications
+  has_many :notes
+  has_one :job_application
 
- 	has_attached_file :resume
+  has_attached_file :resume
 
   validates_attachment :resume, 
     content_type: {content_type: ['application/txt', 'text/plain',
