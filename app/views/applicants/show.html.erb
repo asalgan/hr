@@ -1,83 +1,83 @@
 <% content_for :title do %><%= @applicant.full_name %><% end %>
 
-	<%= render 'status' %>
+  <%= render 'status' %>
 
-	<div class="applicant-profile col-md-12">
+  <div class="applicant-profile col-md-12">
 
-		<div class="row">
+    <div class="row">
 
-			<div class="personal-info col-md-6">
-				<h2 class="applicant-name"><%= @applicant.first_name %> <%= @applicant.last_name %></h2>
-				<p class="current-job">
-					<b><%= @applicant.current_job_role %></b> at <b><%= @applicant.current_job_company %></b>
-				</p>
-				<p class="location">
-					<i class="fa fa-map-marker"></i>  <%= @applicant.current_job_city %>
-				</p>
-				<p class="contact-info"><%= @applicant.phone_number %></p>
-				<p class="contact-info"><%= @applicant.email_address %></p>
-			</div>
+      <div class="personal-info col-md-6">
+        <h2 class="applicant-name"><%= @applicant.first_name %> <%= @applicant.last_name %></h2>
+        <p class="current-job">
+          <b><%= @applicant.current_job_role %></b> at <b><%= @applicant.current_job_company %></b>
+        </p>
+        <p class="location">
+          <i class="fa fa-map-marker"></i>  <%= @applicant.current_job_city %>
+        </p>
+        <p class="contact-info"><%= @applicant.phone_number %></p>
+        <p class="contact-info"><%= @applicant.email_address %></p>
+      </div>
 
-			<div class="applicant-status-box col-md-6">
-				<% if @job_applied_for.job.present? %>
-					<p class="applied-for-on">Applied for <b><%= @job_applied_for.job.title %></b> on <i><%= @applicant.created_at.strftime("%b %d, %Y") %></i>
-					</p>
-					<div class="buttons col-md-12">
-						<%= render 'status_buttons' %>
-					</div>	
-				<% else %>
-					<div class="col-md-12"><p class="job-deleted">Looks like the job <%= @applicant.first_name %> has been deleted.</p></div>
-				<% end %>
-			</div>
-		</div>
+      <div class="applicant-status-box col-md-6">
+        <% if @job_applied_for.job.present? %>
+          <p class="applied-for-on">Applied for <b><%= @job_applied_for.job.title %></b> on <i><%= @applicant.created_at.strftime("%b %d, %Y") %></i>
+          </p>
+          <div class="buttons col-md-12">
+            <%= render 'status_buttons' %>
+          </div>  
+        <% else %>
+          <div class="col-md-12"><p class="job-deleted">Looks like the job <%= @applicant.first_name %> has been deleted.</p></div>
+        <% end %>
+      </div>
+    </div>
 
-		<div class="rating col-md-3 col-md-offset-8">
-			<p class="col-md-offset-1">Give <%= @applicant.first_name %> a rating</p><br>
-			<div class="rating-dropdown col-md-9 col-md-offset-1"><%= best_in_place @applicant, :rating, :type => :select, :collection => [[1,1],[2,2],[3,3],[4,4],[5,5]], :path => applicant_path  %> out of 5</div>
-		</div>
+    <div class="rating col-md-3 col-md-offset-8">
+      <p class="col-md-offset-1">Give <%= @applicant.first_name %> a rating</p><br>
+      <div class="rating-dropdown col-md-9 col-md-offset-1"><%= best_in_place @applicant, :rating, :type => :select, :collection => [[1,1],[2,2],[3,3],[4,4],[5,5]], :path => applicant_path  %> out of 5</div>
+    </div>
 
-		<div class="notes-section col-md-12">
-			<h4 class="notes-header">Notes</h4>
-			<div class="notebox col-md-10 col-md-offset-1">
-				<ul class="notes-list">
-					<% if @notes.present? %>
-					  <% @notes.each do |n| %>
-					    <%= render 'note', :note => n %>
-					  <% end %>
-					<% else %>
-						<img src="/assets/empty-state-notes.jpg" alt="" class="no-notes-state">
-					<% end %>
-				</ul>
-				<%= form_for Note.new, remote: true do |f| %>
-      		<%= f.text_field :content, placeholder: 'Add notes here', size: 50 %>
-      		<%= f.hidden_field :applicant_id, :value => @applicant.id  %>
-      		<%= f.submit "Create note", :class => "note-submit" %>
-    		<% end %>
-			</div>
-		</div>
-		
-		<div class="resume-section col-md-12">
-			<h4 class="resume-header">Applicant cover letter</h4>
-    	<% if @applicant.cover_letter_present_and_pdf? %>
-				<iframe src="<%= @applicant.cover_letter.url %>" class="col-md-10 col-md-offset-1"></iframe>
-			<% elsif @applicant.cover_letter_present_and_doc? %>
-				<%= link_to "Download file (.doc/.docx)", @applicant.cover_letter.url, class: "download-file" %>
-			<% else %>
-				<p class="no-resume col-md-offset-1"><%= @applicant.first_name %> hasn't submitted a cover letter</p>
-			<% end %>
-		</div>
+    <div class="notes-section col-md-12">
+      <h4 class="notes-header">Notes</h4>
+      <div class="notebox col-md-10 col-md-offset-1">
+        <ul class="notes-list">
+          <% if @notes.present? %>
+            <% @notes.each do |n| %>
+              <%= render 'note', :note => n %>
+            <% end %>
+          <% else %>
+            <img src="/assets/empty-state-notes.jpg" alt="" class="no-notes-state">
+          <% end %>
+        </ul>
+        <%= form_for Note.new, remote: true do |f| %>
+          <%= f.text_field :content, placeholder: 'Add notes here', size: 50 %>
+          <%= f.hidden_field :applicant_id, :value => @applicant.id  %>
+          <%= f.submit "Create note", :class => "note-submit" %>
+        <% end %>
+      </div>
+    </div>
+    
+    <div class="resume-section col-md-12">
+      <h4 class="resume-header">Applicant cover letter</h4>
+      <% if @applicant.cover_letter_present_and_pdf? %>
+        <iframe src="<%= @applicant.cover_letter.url %>" class="col-md-10 col-md-offset-1"></iframe>
+      <% elsif @applicant.cover_letter_present_and_doc? %>
+        <%= link_to "Download file (.doc/.docx)", @applicant.cover_letter.url, class: "download-file" %>
+      <% else %>
+        <p class="no-resume col-md-offset-1"><%= @applicant.first_name %> hasn't submitted a cover letter</p>
+      <% end %>
+    </div>
 
-		<div class="resume-section col-md-12">
-			<h4 class="resume-header">Applicant resumé</h4>
-    	<% if @applicant.resume_present_and_pdf? %>
-				<iframe src="<%= @applicant.resume.url %>" class="col-md-10 col-md-offset-1"></iframe>
-			<% elsif @applicant.resume_present_and_doc? %>
-				<%= link_to "Download file (.doc/.docx)", @applicant.resume.url, class: "download-file" %>
-			<% else %>
-				<p class="no-resume col-md-offset-1"><%= @applicant.first_name %> hasn't submitted a resumé</p>
-			<% end %>
-		</div>
+    <div class="resume-section col-md-12">
+      <h4 class="resume-header">Applicant resumé</h4>
+      <% if @applicant.resume_present_and_pdf? %>
+        <iframe src="<%= @applicant.resume.url %>" class="col-md-10 col-md-offset-1"></iframe>
+      <% elsif @applicant.resume_present_and_doc? %>
+        <%= link_to "Download file (.doc/.docx)", @applicant.resume.url, class: "download-file" %>
+      <% else %>
+        <p class="no-resume col-md-offset-1"><%= @applicant.first_name %> hasn't submitted a resumé</p>
+      <% end %>
+    </div>
 
-	</div>
+  </div>
 
 
