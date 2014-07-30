@@ -1,9 +1,9 @@
 class JobApplicationsController < ApplicationController
   before_filter :authenticate_user!, only: [:index, :show, :edit, :update, :destroy]
     
-	def index
-		@disable_nav = true
-	end
+  def index
+    @disable_nav = true
+  end
   
   def new
     @disable_nav = true
