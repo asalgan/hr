@@ -5,8 +5,8 @@ class ChargesController < ApplicationController
 	end
 
 	def create
-		@user = current_user
-		
+	@user = current_user
+
 		if @user.create_customer(params[:stripeToken])
 			redirect_to root_url, notice: "Thank you for subscribing! You're ready to start hiring!"
 		else
