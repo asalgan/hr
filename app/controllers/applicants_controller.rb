@@ -3,11 +3,11 @@ class ApplicantsController < ApplicationController
   before_action :set_applicant, only: [:show, :edit, :update, :destroy]
   skip_before_filter :needs_subscription?, only: [:new, :create, :new_job_application, :resume_parser]
 
-	def index
-		@job = Job.find(params[:job_id])
+  def index
+    @job = Job.find(params[:job_id])
     @applicants = @job.applicants
     @current_position = Job.find_by(:id => params[:job_id])
-	end
+  end
 
   def show
     @applicant = Applicant.find(params[:id])
