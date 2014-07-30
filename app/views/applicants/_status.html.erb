@@ -1,19 +1,19 @@
 <div class="application-status-tags">
-	<% if @job_applied_for.application_status == "Application Received"%>
-		<p class="application-received col-md-4 green">Application received</p>
-		<p class="in-progress col-md-4 gray">In review</p>
-		<p class="decision-made col-md-4 gray">Decision made</p>
-	<% elsif @job_applied_for.application_status == "In Review"%>
-		<p class="application-received col-md-4 gray">Application received</p>
-		<p class="in-progress col-md-4 green">In review</p>
-		<p class="decision-made col-md-4 gray">Decision made</p>
-	<% elsif @job_applied_for.application_status == "Accepted" %>
-		<p class="application-received col-md-4 gray">Application received</p>
-		<p class="in-progress col-md-4 gray">Application in progress</p>
-		<p class="accepted col-md-4 green">Accepted</p>
-	<% elsif @job_applied_for.application_status == "Rejected" %>
-		<p class="application-received col-md-4 gray">Application received</p>
-		<p class="in-progress col-md-4 gray">Application in progress</p>
-		<p class="rejected col-md-4 red">Rejected</p>
-	<% end %>
+  <% if @job_applied_for.application_status == "Application Received"%>
+    <p class="application-received col-md-4 green">Application received</p>
+    <p class="in-progress col-md-4 gray">In review</p>
+    <p class="decision-made col-md-4 gray">Decision made</p>
+  <% elsif @job_applied_for.application_status == "In Review"%>
+    <p class="application-received col-md-4 gray">Application received</p>
+    <p class="in-progress col-md-4 green">In review</p>
+    <p class="decision-made col-md-4 gray">Decision made</p>
+  <% elsif @job_applied_for.application_status == "Accepted" %>
+    <p class="application-received col-md-4 gray">Application received</p>
+    <p class="in-progress col-md-4 gray">Application in progress</p>
+    <p class="accepted col-md-4 green">Accepted</p>
+  <% elsif @job_applied_for.application_status == "Rejected" %>
+    <p class="application-received col-md-4 gray">Application received</p>
+    <p class="in-progress col-md-4 gray">Application in progress</p>
+    <p class="rejected col-md-4 red">Rejected</p>
+  <% end %>
 </div>
