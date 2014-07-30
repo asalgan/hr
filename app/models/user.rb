@@ -36,11 +36,11 @@ class User < ActiveRecord::Base
   end
 
   def no_subscription?
-  	stripe_customer_token.blank?
+    stripe_customer_token.blank?
   end
 
   def needs_subscription?
-  	trial_expired? && no_subscription?
+    trial_expired? && no_subscription?
   end
 
   def delete_customer
