@@ -21,22 +21,22 @@
 
 $(document).ready(function() { 
 
-	$('.summernote').summernote();
-	var sHTML = $('.summernote').code();
-	$('.summernote').code(sHTML);
+  $('.summernote').summernote();
+  var sHTML = $('.summernote').code();
+  $('.summernote').code(sHTML);
 
-	$(".best_in_place").best_in_place();
+  $(".best_in_place").best_in_place();
 
   if ($('body').hasClass('show-job')) {
-	  var clip = new ZeroClipboard($("#d_clip_button"));
+    var clip = new ZeroClipboard($("#d_clip_button"));
   }
 
-	if ($('body').hasClass('applicant')) {
-		var favorites = $('.buttons');
-		var button_keep = $('.keep-button');
-		var button_accept = $('.accept-button');
-		var button_reject = $('.reject-button');
-	  var favoritesTop = favorites.offset().top;
+  if ($('body').hasClass('applicant')) {
+    var favorites = $('.buttons');
+    var button_keep = $('.keep-button');
+    var button_accept = $('.accept-button');
+    var button_reject = $('.reject-button');
+    var favoritesTop = favorites.offset().top;
     $(window).scroll(function() {
         var makeItStick = favoritesTop < $(window).scrollTop();
         favorites.toggleClass('stuck', makeItStick);
