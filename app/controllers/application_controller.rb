@@ -11,10 +11,10 @@ class ApplicationController < ActionController::Base
   def needs_subscription?
     if user_signed_in?
       return if ignore_controllers.include?(controller_name)
-    	if current_user.needs_subscription?
-    		redirect_to trial_expired_path
+      if current_user.needs_subscription?
+        redirect_to trial_expired_path
       end
-  	end
+    end
   end
 
   def current_company 
