@@ -61,16 +61,6 @@ GEM
     bullet (4.11.3)
       activesupport (>= 3.0.0)
       uniform_notifier (>= 1.6.0)
-    capistrano (3.0.1)
-      i18n
-      rake (>= 10.0.0)
-      sshkit (>= 0.0.23)
-    capistrano-bundler (1.1.2)
-      capistrano (~> 3.0)
-      sshkit (~> 1.2)
-    capistrano-rails (1.1.0)
-      capistrano (>= 3.0.0)
-      capistrano-bundler (>= 1.0.0)
     capybara (2.1.0)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -138,9 +128,6 @@ GEM
     mini_portile (0.6.0)
     minitest (4.7.5)
     multi_json (1.10.1)
-    net-scp (1.2.1)
-      net-ssh (>= 2.6.5)
-    net-ssh (2.9.0)
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
     orm_adapter (0.5.0)
@@ -225,18 +212,11 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
-    sshkit (1.4.0)
-      net-scp (>= 1.1.2)
-      net-ssh (>= 2.8.0)
-      term-ansicolor
     summernote-rails (0.4.0)
       railties (>= 3.1)
-    term-ansicolor (1.3.0)
-      tins (~> 1.0)
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
-    tins (1.2.0)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -253,9 +233,6 @@ GEM
     websocket (1.0.7)
     xpath (2.0.0)
       nokogiri (~> 1.3)
-    yomu (0.2.0)
-      json (~> 1.8)
-      mime-types (~> 1.23)
     zeroclipboard-rails (0.0.13)
       railties (>= 3.1)
 
@@ -269,8 +246,6 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass
   bullet
-  capistrano
-  capistrano-rails (~> 1.1)
   capybara (= 2.1.0)
   coffee-rails (~> 4.0.0)
   database_cleaner (= 1.0.1)
@@ -299,5 +274,4 @@ DEPENDENCIES
   summernote-rails
   turbolinks
   uglifier (>= 1.3.0)
-  yomu
   zeroclipboard-rails

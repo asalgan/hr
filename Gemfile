@@ -22,7 +22,6 @@ gem 'pg'
 gem 'pdf-reader'
 gem 'zeroclipboard-rails'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
-gem 'yomu'
 
 group :development do
   gem 'hub', :require=>nil
@@ -30,8 +29,6 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'quiet_assets'
-  gem 'capistrano'
-  gem 'capistrano-rails', '~> 1.1'
 end
 group :development, :test do
   gem 'rspec-rails'
