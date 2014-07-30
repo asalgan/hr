@@ -15,8 +15,8 @@ class User < ActiveRecord::Base
     :plan => '1'
   	)
 
-  	self.stripe_customer_token = customer.id
-  	self.save
+    self.stripe_customer_token = customer.id
+    self.save
   end
 
   def days_count
