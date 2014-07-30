@@ -1,48 +1,48 @@
 <%= form_for([@company, @job]) do |f| %>
-	<div class="new-job-form-title">
-		<%= f.label :title, "What is the job title? *" %>
-		<%= f.text_field :title, placeholder: "Enter Job Title", required: :true %>
-	</div>
-	<div>
-		<%= f.label :description, "Describe the position and requirements below *" %>
-		<%= f.text_area :description, id:'post_content' %>
-	</div>
-	<div>
-		<%= f.label :employment_type, "What type of employment is this?" %>
-		<%= f.select :employment_type, @employment_type_array, class: "form-control" %>
-	</div>
-	<div>
-		<%= f.label :experience_level, "What experience level is needed?" %>
-		<%= f.select :experience_level, @experience_level_array %>
-	</div>
-	<div>
-		<%= f.label :location, "Where is this job located? (optional)" %>
-		<%= f.text_field :location, placeholder: "Enter a location here" %>
-	</div>
-	<div>
-		<%= f.label :department, "What company department is it in, if any? (optional)" %>
-		<%= f.text_field :department, placeholder: "Enter Department" %>
-	</div>
-	<div>
-		<%= f.label :job_code, "Is there a job code? (optional)" %>
-		<%= f.text_field :job_code, placeholder: "Enter Job Code" %>
-	</div>
-<!-- 	<div>
-		<%#= f.label :additional_question1, "Additional Question #1 (optional)" %>
-		<%#= f.text_field :additional_question1, placeholder: "Any other questions you want to ask?" %>
-	</div>
-	<div>
-		<%#= f.label :additional_question2, "Additional Question #2 (optional)" %>
-		<%#= f.text_field :additional_question1, placeholder: "Any other questions you want to ask?" %>
-	</div>
-	<div>
-		<%#= f.label :additional_question3, "Additional Question #3 (optional)" %>
-		<%#= f.text_field :additional_question1, placeholder: "Any other questions you want to ask?" %>
-	</div> -->
-	<div>
-		<%= f.hidden_field :company_id, :value => current_company.id %>
-	</div>
-	<div>
-		<%= f.submit 'Create job opening', :class => 'job-submit' %>
-	</div>
+  <div class="new-job-form-title">
+    <%= f.label :title, "What is the job title? *" %>
+    <%= f.text_field :title, placeholder: "Enter Job Title", required: :true %>
+  </div>
+  <div>
+    <%= f.label :description, "Describe the position and requirements below *" %>
+    <%= f.text_area :description, id:'post_content' %>
+  </div>
+  <div>
+    <%= f.label :employment_type, "What type of employment is this?" %>
+    <%= f.select :employment_type, @employment_type_array, class: "form-control" %>
+  </div>
+  <div>
+    <%= f.label :experience_level, "What experience level is needed?" %>
+    <%= f.select :experience_level, @experience_level_array %>
+  </div>
+  <div>
+    <%= f.label :location, "Where is this job located? (optional)" %>
+    <%= f.text_field :location, placeholder: "Enter a location here" %>
+  </div>
+  <div>
+    <%= f.label :department, "What company department is it in, if any? (optional)" %>
+    <%= f.text_field :department, placeholder: "Enter Department" %>
+  </div>
+  <div>
+    <%= f.label :job_code, "Is there a job code? (optional)" %>
+    <%= f.text_field :job_code, placeholder: "Enter Job Code" %>
+  </div>
+<!--  <div>
+    <%#= f.label :additional_question1, "Additional Question #1 (optional)" %>
+    <%#= f.text_field :additional_question1, placeholder: "Any other questions you want to ask?" %>
+  </div>
+  <div>
+    <%#= f.label :additional_question2, "Additional Question #2 (optional)" %>
+    <%#= f.text_field :additional_question1, placeholder: "Any other questions you want to ask?" %>
+  </div>
+  <div>
+    <%#= f.label :additional_question3, "Additional Question #3 (optional)" %>
+    <%#= f.text_field :additional_question1, placeholder: "Any other questions you want to ask?" %>
+  </div> -->
+  <div>
+    <%= f.hidden_field :company_id, :value => current_company.id %>
+  </div>
+  <div>
+    <%= f.submit 'Create job opening', :class => 'job-submit' %>
+  </div>
 <% end %>
