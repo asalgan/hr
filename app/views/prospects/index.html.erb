@@ -3,6 +3,7 @@
 <section class="col-md-12">
 
 	<div class="all-prospects">
+		
 		<h1 class="category-header">Prospects</h1>
 	  <h4>You can view all current and past applicants here</h4>
 
@@ -20,7 +21,7 @@
 				<li class="col-md-4">Applied for</li>
 				<li>City</li>
 			</ul>
-			<% @applicants.each do |applicant| %>
+			<% @applicants.includes(:job_application).each do |applicant| %>
 				<ul class="prospect-info">
 					<li class="prospect"> 
 						<%= link_to applicant_path(:id => applicant.id) do %>

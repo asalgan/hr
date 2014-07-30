@@ -4,8 +4,8 @@ class JobsController < ApplicationController
 
   def index
     @current_positions = current_company.jobs
-    @current_positions_unfilled = @current_positions.find_all { |x| x.filled_status == false }.sort_by { |date| date.created_at }.reverse
-    @current_positions_filled = @current_positions.find_all { |x| x.filled_status == true }.sort_by { |date| date.created_at }.reverse
+    @current_positions_unfilled = @current_positions.includes(:applicants).find_all { |x| x.filled_status == false }.sort_by { |date| date.created_at }.reverse
+    @current_positions_filled = @current_positions.includes(:applicants).find_all { |x| x.filled_status == true }.sort_by { |date| date.created_at }.reverse
   end
 
   def show

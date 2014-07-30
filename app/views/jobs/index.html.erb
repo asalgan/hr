@@ -1,25 +1,28 @@
 <% content_for :title do %>Job Openings<% end %>
 
 <section class="positions-first col-md-12">
+
   <% if flash[:notice] %>
     <%= render 'layouts/messages' %>
   <% end %>
+
   <div class="openings">
 
     <div class="first-section">
-    <h1 class="category-header">Job Openings</h1>
-    <p class="openings-count"><%= @current_positions.count %>
-      <% if @current_positions.count == 1 %> opening
-      <% else %> openings
+      <h1 class="category-header">Job Openings</h1>
+      <p class="openings-count"><%= @current_positions.count %>
+        <% if @current_positions.count == 1 %> opening
+        <% else %> openings
+        <% end %>
+      </p>
+      <% if @current_positions.present? %>
+        <%= link_to ' + New Opening', new_company_job_path, :class => "new-opening-button" %>
       <% end %>
-    </p>
-    <% if @current_positions.present? %>
-      <%= link_to ' + New Opening', new_company_job_path, :class => "new-opening-button" %>
-    <% end %>
       <h4 class="openings-header col-md-12">
         <span class="col-md-6">From here, you can create new job openings and view/edit current openings below. You can also jump directly to an openings' applicants to view their profiles.</span>
       </h4>
-  </div>
+    </div><!--end first-section-->
+
     <% if @current_positions_unfilled.present? %>
       <h2 class="current-header">Unfilled</h2>
     <% end %>
@@ -28,104 +31,17 @@
       <div class="blank-state col-md-12">
         <%= link_to "Let's go!", new_company_job_path, :class => "new-opening-button-blank-state col-md-offset-5" %>
       </div>
-
     <% else %>
-
-      <div class="positions-list">
-        <ul>
-          <% @current_positions_unfilled.each do |job| %>
-            <li class="position">
-              <h2 class="job-title">
-                <%= link_to company_job_url(:id => "#{job.id}") do %>
-                  <%= job.title %>
-                <% end %>
-              </h2>
-              <p class="job-code">(ID: <%= job.job_code %>)</p>
-              <p class="time-ago"><i>Created <%= time_ago_in_words(job.created_at) %> ago</i></p><br>
-
-         <!--<#% if job.live_status == true %>
-                <p class="live-status-true col-md-offset-2">Currently active</p>
-              <#% elsif job.live_status == false %>
-                <p class="live-status-false">Currently inactive</p>
-              <#% end %> -->
-
-              <% if job.applicants.present? %>
-                <% job.applicants.order("created_at DESC").each do |applicant| %>
-                  <% job_application = job.job_applications.find_by_applicant_id(applicant.id) %>
-                  <ul class="applicant-info">
-                    <li class="job-applicant">
-                      <%= link_to "#{applicant.full_name}", applicant_path(:id => applicant.id), class: "col-md-4" %>
-                      <p class="application-status col-md-3">
-                        <%= job_application.application_status %>
-                      </p>
-                      <% if applicant.rating.present? %>
-                        <% applicant.rating.times do %>
-                          <i class="fa fa-star"></i>
-                        <% end %>
-                      <% end %>
-                    </li>
-                  </ul>
-                <% end %>
-              <% else %>
-                <p class="no-applicants">Bummer, there haven't been any applicants yet for this job</p>
-              <% end %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
+      <%= render 'unfilled' %>
     <% end %>
 
     <% if @current_positions_filled.present? %>
       <h2 class="current-header">Filled</h2>
     <% end %>
 
-    <div class="positions-list">
-      <ul>
-        <% @current_positions_filled.each do |job| %>
-          <li class="position">
-            <h2 class="job-title">
-              <%= link_to company_job_url(:id => "#{job.id}") do %>
-                <%= job.title %>
-              <% end %>
-            </h2>
-            <p class="job-code">(ID: <%= job.job_code %>)</p>
-            <p class="time-ago"><i>Created <%= time_ago_in_words(job.created_at) %> ago</i></p><br>
+    <%= render 'filled' %>
 
-       <!-- <#% if job.live_status == true %>
-              <p class="live-status-true col-md-offset-2">Currently active</p>
-            <#% elsif job.live_status == false %>
-              <p class="live-status-false">Currently inactive</p>
-            <#% end %> -->
-
-            <% if job.applicants.present? %>
-              <% job.applicants.order("created_at DESC").each do |applicant| %>
-                <% job_application = job.job_applications.find_by_applicant_id(applicant.id) %>
-                <ul class="applicant-info">
-                  <li class="job-applicant">
-                    <% if applicant.job_application.application_status == "Accepted" %>
-                      <b><%= link_to "#{applicant.full_name}", applicant_path(:id => applicant.id), class: "col-md-4" %>
-                      <p class="application-status col-md-3"><%= job_application.application_status %></p></b>
-                    <% else %>
-                      <%= link_to "#{applicant.full_name}", applicant_path(:id => applicant.id), class: "col-md-4" %>
-                      <p class="application-status col-md-3"><%= job_application.application_status %></p>
-                    <% end %>
-                    <% if applicant.rating.present? %>
-                      <% applicant.rating.times do %>
-                        <i class="fa fa-star"></i>
-                      <% end %>
-                    <% end %>
-                  </li>
-                </ul>
-              <% end %>
-            <% else %>
-              <p class="no-applicants">Bummer, there haven't been any applicants yet for this job</p>
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-
-  </div>
+  </div><!-- end openings-->
 </section>
 
 
