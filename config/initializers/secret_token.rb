@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Hr::Application.config.secret_key_base = '97d3208ef294d5dfca2fba201718a3b1e12e476163afcb284031628fcbcbffbd443cd831c4cfb5f7aa0ec662f4cd8c956b176193d8192ee9c64b31ee5c0520b3'
+Hr::Application.config.secret_key_base = ENV['SECRET_KEY_BASE']
