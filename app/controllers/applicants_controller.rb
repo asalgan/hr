@@ -19,7 +19,7 @@ class ApplicantsController < ApplicationController
   def edit
   end
 
-	def create
+  def create
     @applicant = Applicant.new(applicant_params)
 
     respond_to do |format|
