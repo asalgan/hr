@@ -1,49 +1,49 @@
 <div class="container">
-	<div class="application-main col-md-10 col-md-offset-1">
-		<% if flash[:notice] %>
-    	<%= render 'layouts/messages' %>
-  	<% end %>
-		<% if @company.logo_file_name.present? %>
-		<h3 class="job-application-company"><%= image_tag @company.logo.url %></h3>
-		<% end %>
-		<h1 class="job-application-title"><%= @job_application.title %></h1>
+  <div class="application-main col-md-10 col-md-offset-1">
+    <% if flash[:notice] %>
+      <%= render 'layouts/messages' %>
+    <% end %>
+    <% if @company.logo_file_name.present? %>
+    <h3 class="job-application-company"><%= image_tag @company.logo.url %></h3>
+    <% end %>
+    <h1 class="job-application-title"><%= @job_application.title %></h1>
 
-		<% if @job_application.location.present? %>
-			<p class="job-application-info" id="job-location"><i class="fa fa-map-marker"></i><%= @job_application.location %></p><br>
-		<% end %>
-		
-		<div class="more-info">
-			<% if @job_application.department.present? %>
-				<p class="job-application-info"><b>Department:</b> <%= @job_application.department %></p>
-			<% end %>
-			<% if @job_application.employment_type.present? %>
-				<p class="job-application-info"><b>Employment Type:</b> <%= @job_application.employment_type %></p>
-			<% end %>
-			<% if @job_application.experience_level.present? %>
-				<p class="job-application-info"><b>Min. Experience Level:</b> <%= @job_application.experience_level %></p>
-			<% end %><br>
-		</div>
+    <% if @job_application.location.present? %>
+      <p class="job-application-info" id="job-location"><i class="fa fa-map-marker"></i><%= @job_application.location %></p><br>
+    <% end %>
+    
+    <div class="more-info">
+      <% if @job_application.department.present? %>
+        <p class="job-application-info"><b>Department:</b> <%= @job_application.department %></p>
+      <% end %>
+      <% if @job_application.employment_type.present? %>
+        <p class="job-application-info"><b>Employment Type:</b> <%= @job_application.employment_type %></p>
+      <% end %>
+      <% if @job_application.experience_level.present? %>
+        <p class="job-application-info"><b>Min. Experience Level:</b> <%= @job_application.experience_level %></p>
+      <% end %><br>
+    </div>
 
-		<div class="job-application-info description">
-			<% if @job_application.description.present? %>
-			<%= @job_application.description.html_safe %>
-			<% end %>
-		</div>
-		<h4 class="apply-header">Apply for this job</h4>
+    <div class="job-application-info description">
+      <% if @job_application.description.present? %>
+      <%= @job_application.description.html_safe %>
+      <% end %>
+    </div>
+    <h4 class="apply-header">Apply for this job</h4>
 
-		<div class="apply-box">
-			<div class="apply-form col-md-12">
-				<p>* = required field</p>
-				<%= render 'apply_form' %>
-			</div>
-			<span>
-				<script type="IN/Apply" data-companyId="<%= params[:company_id] %>" data-jobTitle="<%= @job_application.title %>" data-themeColor="#FF9900" data-size="medium" data-jobLocation="<%= @job_application.location %>" data-phone="required" data-jobId="<%= @job_application.id %>"></script>
-			</span>
-		</div>
+    <div class="apply-box">
+      <div class="apply-form col-md-12">
+        <p>* = required field</p>
+        <%= render 'apply_form' %>
+      </div>
+      <span>
+        <script type="IN/Apply" data-companyId="<%= params[:company_id] %>" data-jobTitle="<%= @job_application.title %>" data-themeColor="#FF9900" data-size="medium" data-jobLocation="<%= @job_application.location %>" data-phone="required" data-jobId="<%= @job_application.id %>"></script>
+      </span>
+    </div>
 
-		<footer class="application-page-footer">
-			<%= link_to "Job applications powered by Honeybee", "http://www.honeybeehr.com" %>
-		</footer>
-		
-	</div>
+    <footer class="application-page-footer">
+      <%= link_to "Job applications powered by Honeybee", "http://www.honeybeehr.com" %>
+    </footer>
+    
+  </div>
 </div>
