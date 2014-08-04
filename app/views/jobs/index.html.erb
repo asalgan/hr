@@ -7,7 +7,7 @@
   <% end %>
 
   <div class="openings">
-
+    
     <div class="first-section">
       <h1 class="category-header">Job Openings</h1>
       <p class="openings-count"><%= @current_positions.count %>
@@ -32,14 +32,26 @@
         <%= link_to "Let's go!", new_company_job_path, :class => "new-opening-button-blank-state col-md-offset-5" %>
       </div>
     <% else %>
-      <%= render 'unfilled' %>
+      <div class="positions-list">
+        <ul>
+          <% @current_positions_unfilled.each do |job| %>
+            <%= render partial: 'applicants_list', locals: { job: job } %>
+          <% end %>
+        </ul>
+      </div>
     <% end %>
 
     <% if @current_positions_filled.present? %>
       <h2 class="current-header">Filled</h2>
     <% end %>
 
-    <%= render 'filled' %>
+    <div class="positions-list">
+      <ul>
+        <% @current_positions_filled.each do |job| %>
+          <%= render partial: 'applicants_list', locals: { job: job } %>
+        <% end %>
+      </ul>
+    </div>
 
   </div><!-- end openings-->
 </section>

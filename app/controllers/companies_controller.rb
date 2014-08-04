@@ -36,10 +36,8 @@ class CompaniesController < ApplicationController
     respond_to do |format|
       if @company.save
         format.html { redirect_to @company }
-        format.json { render action: 'show', status: :created, location: @company }
       else
         format.html { render action: 'new' }
-        format.json { render json: @company.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -50,10 +48,8 @@ class CompaniesController < ApplicationController
     respond_to do |format|
       if @company.update(company_params)
         format.html { redirect_to edit_user_registration_url }
-        format.json { head :no_content }
       else
         format.html { redirect_to edit_user_registration_url, notice: "Please make sure your image is in .JPEG, .JPG, or .PNG format and less than 500kb"}
-        format.json { render json: @company.errors, status: :unprocessable_entity }
       end
     end
   end
