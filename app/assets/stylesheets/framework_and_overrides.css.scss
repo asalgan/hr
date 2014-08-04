@@ -1388,12 +1388,12 @@ img {
     }
   }
 
-  .resume-section {
+  .resume-section, .cover-letter-section {
     margin-top: 40px;
     padding-bottom: 20px;
     min-height: 100px;
 
-    .resume-header {
+    .resume-header, .cover-letter-header {
       color: #666688;
       padding-left: 15px;
       height: 20px;
@@ -1425,7 +1425,7 @@ img {
       margin-top: 20px;
     }
 
-    .no-resume {
+    .no-resume, .no-cover-letter {
       font-style: italic;
     }
   }
@@ -1797,100 +1797,3 @@ img {
     }
   }
 }
-
-// $switchTransition: .15s ease-out;
-
-// .switch {
-//   position: relative;
-//   margin-top: 30px;
-//   display: inline-block;
-//   vertical-align: top;
-//   width: 96px;
-//   height: 22px;
-//   padding: 3px;
-//   background-color: #F8F8F8;
-//   border-radius: 18px;
-//   box-shadow: inset 0 -1px #F8F8F8,
-//               inset 0 1px 1px rgba(black, .05);
-//   cursor: pointer;
-// }
-
-// .switch-input {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   opacity: 0;
-// }
-
-// .switch-label {
-//   position: relative;
-//   display: block;
-//   height: inherit;
-//   font-size: 10px;
-//   text-transform: uppercase;
-//   background: #47a8d8;
-//   border-radius: inherit;
-//   box-shadow: inset 0 1px 2px rgba(black, .12),
-//               inset 0 0 2px rgba(black, .15);
-
-//   &:before, &:after {
-//     position: absolute;
-//     top: 50%;
-//     margin-top: -.5em;
-//     line-height: 1;
-//   }
-
-//   &:before {
-//     content: attr(data-on);
-//     right: 11px;
-//     color: #F8F8F8;
-//     text-shadow: 0 1px rgba(black, .2);
-//   }
-
-//   &:after {
-//     content: attr(data-off);
-//     left: 11px;
-//     color: #aaa;
-//     text-shadow: 0 1px rgba(#F8F8F8, .5);
-//     opacity: 0;
-//   }
-
-//   .switch-input:checked ~ & {
-//     background: #eceeef;
-//     box-shadow: inset 0 1px 2px rgba(black, .15),
-//                 inset 0 0 3px rgba(black, .2);
-//     &:before { opacity: 0; }
-//     &:after { opacity: 1; }
-//   }
-// }
-
-// .switch-handle {
-//   position: absolute;
-//   top: 5px;
-//   left: 4px;
-//   width: 18px;
-//   height: 18px;
-//   background: #F8F8F8;
-//   border-radius: 10px;
-//   box-shadow: 1px 1px 5px rgba(black, .2);
-//   @include transition(left #{$switchTransition});
-
-//   &:before {
-//     content: '';
-//     position: absolute;
-//     top: 50%;
-//     left: 50%;
-//     margin: -6px 0 0 -6px;
-//     width: 12px;
-//     height: 12px;
-//     background: #f9f9f9;
-//     border-radius: 6px;
-//     box-shadow: inset 0 1px rgba(black, .02);
-//   }
-
-//   .switch-input:checked ~ & {
-//     left: 73px;
-//     box-shadow: -1px 1px 5px rgba(black, .2);
-//     border-radius: 1px solid #aaa;
-//   }
-// }

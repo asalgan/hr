@@ -56,14 +56,14 @@
       </div>
     </div>
     
-    <div class="resume-section col-md-12">
-      <h4 class="resume-header">Applicant cover letter</h4>
+    <div class="cover-letter-section col-md-12">
+      <h4 class="cover-letter-header">Applicant cover letter</h4>
       <% if @applicant.cover_letter_present_and_pdf? %>
         <iframe src="<%= @applicant.cover_letter.url %>" class="col-md-10 col-md-offset-1"></iframe>
       <% elsif @applicant.cover_letter_present_and_doc? %>
         <%= link_to "Download file (.doc/.docx)", @applicant.cover_letter.url, class: "download-file" %>
       <% else %>
-        <p class="no-resume col-md-offset-1"><%= @applicant.first_name %> hasn't submitted a cover letter</p>
+        <p class="no-cover-letter col-md-offset-1"><%= @applicant.first_name %> hasn't submitted a cover letter</p>
       <% end %>
     </div>
 
