@@ -32,6 +32,8 @@ Hr::Application.routes.draw do
     put :reject
   end
 
+  get("/new_form", {:controller => "students", :action => "new"})
+
   
   get "/companies/:company_id/jobs/:job_id/apply" => "job_applications#new", :as => :apply
   # get "/companies/:company_id/jobs/:job_id/applicants" => "applicants#index", :as => :job_applicants
